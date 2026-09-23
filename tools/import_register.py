@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+"""นำเข้าทะเบียนพรรณไม้ (.xls) ของโรงเรียนเป็น data/plant-register.csv
+
+วิธีใช้ (รันที่โฟลเดอร์หลักของ repo):
+    pip install xlrd
+    python3 tools/import_register.py โฟลเดอร์ที่มีไฟล์ทะเบียน
+    python3 tools/build_plants.py
+
+อ่านทุกไฟล์ .xls ในโฟลเดอร์ ยกเว้นไฟล์ที่ชื่อมีคำว่า "หัวแถวทุกหน้า" (ข้อมูลซ้ำ)
+แล้วแก้ข้อมูลตามรายการ FIXES ด้านล่าง ซึ่งครูยืนยันแล้ว
+"""
+import csv
+import re
+import sys
+from pathlib import Path
+
+import xlrd
+
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "data" / "plant-register.csv"
+HEADER = ["รหัสพรรณไม้", "ชื่อพรรณไม้", "ชื่อวิทยาศาสตร์", "ชื่อวงศ์",
+          "ลักษณะวิสัย", "ลักษณะเด่นของพืช", "บริเวณที่พบ"]
+CODE_RE = re.compile(r"^7-31170-001-(\d{3})(?:/(\d+))?$")
+
+# คำที่พิมพ์ผิดในชื่อวิทยาศาสตร์ (คอลัมน์ 2) และบริเวณที่พบ (คอลัมน์ 6)
+TEXT_FIXES = [
+    (2, "Ghretia", "Ehretia"),
+    (2, "Hibiseus", "Hibiscus"),
+    (2, "Fagraca", "Fagraea"),
+    (2, "Echinodosus", "Echinodorus"),
+    (2, "Penisetum", "Pennisetum"),
+    (2, "Murdania", "Murdannia"),
+    (2, "Chlorophylum", "Chlorophytum"),
+    (2, "globusus", "globosus"),
+    (2, "Epipremnum aureus", "Epipremnum aureum"),
+    (2, "Garetn.", "Gaertn."),
+    (6, "บริเวรอาคาร", "บริเวณอาคาร"),
+]
+# แก้ทั้งช่องของพรรณไม้ชนิดหนึ่ง: (รหัสชนิด, คอลัมน์, ค่าเดิม, ค่าใหม่)
+FIELD_FIXES = [
+    ("139", 2, "Phyllanthus acidus (L.) Skeels", "Phyllanthus amarus Schumach. & Thonn."),
+    ("098", 3, "DIPTEROCARPACEAE", "LECYTHIDACEAE"),
+]
+
+
+def clean(s):
+    return re.sub(r"\s+", " ", str(s)).strip()
+
+
+def read(folder):
+    files = sorted(p for p in Path(folder).glob("*.xls") if "หัวแถวทุกหน้า" not in p.name)
+    if not files:
+        raise SystemExit(f"ไม่พบไฟล์ .xls ใน {folder}")
+    rows = []
+    for p in files:
+        for sh in xlrd.open_workbook(p).sheets():
+            for r in range(sh.nrows):
+                v = [clean(c.value) for c in sh.row(r)][:7]
+                m = CODE_RE.match(v[0]) if v else None
+                if m:
+                    v[3] = re.sub(r"\s*-\s*", "-", v[3])
+                    rows.append((int(m.group(1)), int(m.group(2) or 0), v))
+    rows.sort(key=lambda x: (x[0], x[1]))
+    return [v for _, _, v in rows]
+
+
+def fix(rows):
+    used = set()
+    for v in rows:
+        for i, (col, old, new) in enumerate(TEXT_FIXES):
+            if old in v[col]:
+                v[col] = v[col].replace(old, new)
+                used.add(("t", i))
+        for i, (sp, col, old, new) in enumerate(FIELD_FIXES):
+            if v[0].startswith(f"7-31170-001-{sp}") and v[col] == old:
+                v[col] = new
+                used.add(("f", i))
+    for i, f in enumerate(TEXT_FIXES):
+        if ("t", i) not in used:
+            print(f"หมายเหตุ: ไม่พบ {f[1]!r} ในทะเบียนนี้")
+    for i, f in enumerate(FIELD_FIXES):
+        if ("f", i) not in used:
+            print(f"หมายเหตุ: ไม่พบ {f[2]!r} ของรหัส {f[0]} ในทะเบียนนี้")
+
+
+def main():
+    if len(sys.argv) != 2:
+        raise SystemExit(__doc__)
+    rows = read(sys.argv[1])
+    fix(rows)
+    with OUT.open("w", encoding="utf-8-sig", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(HEADER)
+        w.writerows(rows)
+    codes = [v[0] for v in rows]
+    dups = sorted({c for c in codes if codes.count(c) > 1})
+    print(f"เขียน {OUT.relative_to(ROOT)}: {len(rows)} ต้น "
+          f"{len({c[:15] for c in codes})} ชนิด")
+    if dups:
+        print("รหัสซ้ำ:", ", ".join(dups))
+
+
+if __name__ == "__main__":
+    main()
