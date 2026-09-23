@@ -44,6 +44,8 @@ SEARCH_AS = {
     "002": ["Acacia auriculiformis"],
     "008": ["Monoon viride", "Polyalthia viridis"],
     "026": ["Chromolaena odorata"],
+    "006": ["Neolamarckia cadamba"],
+    "007": ["Sphaerocoryne affinis"],
     "058": ["Parinari anamensis"],
     "193": ["Suregada multiflora"],
     "199": ["Cenchrus polystachios"],
@@ -82,6 +84,9 @@ def inat_photo(name):
     res = json.loads(get(f"https://api.inaturalist.org/v1/taxa?{q}"))["results"]
     norm = lambda s: re.sub(r"\s+", " ", s.lower().replace("×", " ")).strip()
     target = norm(name.replace(" ssp ", " ").replace(" var ", " "))
+    # ชื่อตรงตัวมาก่อนชื่อพ้อง และรับเฉพาะระดับชนิดหรือต่ำกว่า (ไม่เอาภาพระดับสกุล)
+    res = [t for t in res if t.get("rank") in ("species", "subspecies", "variety", "form", "hybrid")]
+    res.sort(key=lambda t: norm(t.get("name", "")) != target)
     for t in res:
         names = {norm(t.get("name", "")), norm(t.get("matched_term") or "")}
         if target not in names:
@@ -148,7 +153,8 @@ def main():
         w.writeheader()
         for code in sorted(done):
             row = done[code]
-            if re.fullmatch(r"\d+", row["ผู้ถ่าย"]):  # ผู้ถ่ายไม่ได้ตั้งชื่อที่แสดง iNaturalist ใส่เป็นเลขผู้ใช้
+            # ผู้ถ่ายไม่ได้ตั้งชื่อที่แสดง: iNaturalist ใส่เป็นเลขผู้ใช้ หรือข้อความสัญญาอนุญาตแทนชื่อ
+            if re.fullmatch(r"\d+|(no|some|all) rights reserved.*", row["ผู้ถ่าย"], re.I):
                 row["ผู้ถ่าย"] = "ผู้ใช้ iNaturalist"
             w.writerow(row)
     print(f"มีภาพ {len(done)} จาก {len(species)} ชนิด")
