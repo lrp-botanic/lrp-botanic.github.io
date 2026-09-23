@@ -75,40 +75,59 @@ def load():
     return sorted(species.values(), key=lambda s: s["code"])
 
 
-def card(sp):
+def split_names(thai):
+    names = re.split(r"[\s,]+", thai, maxsplit=1)
+    return names[0], (names[1] if len(names) > 1 else "")
+
+
+def card(sp, photo):
     n = sum(len(v) for v in sp["locs"].values())
     zones = sorted({z for z in (zone_of(l) for l in sp["locs"]) if z is not None})
     search = " ".join([sp["code"], sp["thai"], sp["sci"], sp["family"]]).lower()
+    name, aka = split_names(sp["thai"])
     locs = "".join(
-        f"<li>{esc(loc)} <span class=\"n\">({len(codes)} ต้น)</span>"
-        f"<br><span class=\"codes\">{esc(', '.join(codes))}</span></li>"
+        f"<li>{esc(loc)} <span class=\"n\">{len(codes)} ต้น</span>"
+        f"<span class=\"codes\">{esc(', '.join(codes))}</span></li>"
         for loc, codes in sp["locs"].items()
     )
+    if photo:
+        pic = (f'<img src="{esc(photo["ไฟล์"])}" alt="ภาพตัวอย่าง{esc(name)}" loading="lazy" '
+               f'decoding="async" width="720" height="540">')
+        credit = (f'<p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย {esc(photo["ผู้ถ่าย"])} '
+                  f'(<a href="{esc(photo["ที่มา"])}" target="_blank" rel="noopener">iNaturalist</a>) '
+                  f'<a href="{esc(photo["ลิงก์สัญญาอนุญาต"])}" target="_blank" rel="noopener">{esc(photo["สัญญาอนุญาต"])}</a></p>')
+    else:
+        pic, credit = "", ""
+    aka_html = f'<p class="aka">ชื่ออื่น {esc(aka)}</p>' if aka else ""
+    feat = f'<p class="feat"><b>สังเกตดู</b> {esc(sp["feature"])}</p>' if sp["feature"] else ""
     return f"""    <article class="plant" id="p{sp['code'][-3:]}" data-habit="{esc(sp['habit'])}" data-zones=" {' '.join(map(str, zones))} " data-search="{esc(search)}">
-      <p class="code">{esc(sp['code'])}</p>
-      <h3>{esc(sp['thai'])}</h3>
-      <p class="sci">{or_pending(sp['sci'], sci_html)}</p>
-      <dl>
-        <dt>วงศ์</dt><dd>{or_pending(sp['family'])}</dd>
-        <dt>ลักษณะวิสัย</dt><dd>{or_pending(sp['habit'])}</dd>
-        <dt>ลักษณะเด่น</dt><dd>{or_pending(sp['feature'])}</dd>
-      </dl>
-      <details>
-        <summary>บริเวณที่พบ · {n} ต้น</summary>
-        <ul>{locs}</ul>
-      </details>
+      <figure class="ph">{pic}</figure>
+      <div class="body">
+        <h2>{esc(name)}</h2>
+        <p class="sci">{or_pending(sp['sci'], sci_html)}</p>
+        {aka_html}
+        <p class="tags"><span class="tag">{or_pending(sp['habit'])}</span> <span class="fam">วงศ์ {or_pending(sp['family'])}</span></p>
+        {feat}
+        <details>
+          <summary>พบ {n} ต้นในโรงเรียน</summary>
+          <p class="code">รหัสพรรณไม้ {esc(sp['code'])}</p>
+          <ul>{locs}</ul>
+        </details>
+        {credit}
+      </div>
     </article>
 """
 
 
 def main():
     species = load()
+    photos = load_photos()
     trees = sum(sum(len(v) for v in s["locs"].values()) for s in species)
     habits = sorted({s["habit"] for s in species if s["habit"]})
     zones = sorted({z for s in species for l in s["locs"] for z in [zone_of(l)] if z is not None})
     habit_opts = "".join(f'<option value="{esc(h)}">{esc(h)}</option>' for h in habits)
     zone_opts = "".join(f'<option value="{z}">พื้นที่ศึกษาที่ {z}</option>' for z in zones)
-    cards = "".join(card(s) for s in species)
+    cards = "".join(card(s, photos.get(s["code"])) for s in species)
     page = TEMPLATE.format(
         n_species=len(species), n_trees=f"{trees:,}",
         habit_opts=habit_opts, zone_opts=zone_opts, cards=cards,
@@ -130,12 +149,12 @@ def write_data_js(species):
     photos = load_photos()
     out = []
     for sp in species:
-        names = re.split(r"[\s,]+", sp["thai"], maxsplit=1)
+        name, aka = split_names(sp["thai"])
         ph = photos.get(sp["code"])
         out.append({
             "c": sp["code"][-3:],
-            "n": names[0],
-            "a": names[1] if len(names) > 1 else "",
+            "n": name,
+            "a": aka,
             "s": sci_html(sp["sci"]) if sp["sci"] else "",
             "h": sp["habit"],
             "f": sp["feature"],
@@ -157,72 +176,78 @@ TEMPLATE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ทำเนียบพรรณไม้ | สวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก</title>
-<meta name="description" content="ทำเนียบพรรณไม้ในสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก">
+<meta name="description" content="พรรณไม้ {n_species} ชนิดในสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก">
+<meta name="theme-color" content="#E8EFD8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600&family=Chonburi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
 <!-- ไฟล์นี้สร้างจาก data/plant-register.csv ด้วย tools/build_plants.py ห้ามแก้ด้วยมือ -->
 <style>
-  :root {{ --green:#2f6b3a; --leaf:#6a9a4f; --bg:#f6f8f3; --ink:#1f2a22; --muted:#5b6660; --line:#dfe7da; }}
-  * {{ box-sizing:border-box; }}
-  body {{ margin:0; font-family:'Sarabun',sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }}
-  header {{ background:var(--green); color:#fff; padding:40px 16px 32px; text-align:center; }}
-  header .leaf {{ font-size:44px; line-height:1; }}
-  h1 {{ margin:10px 0 4px; font-size:clamp(24px,5vw,36px); }}
-  header p {{ margin:0; opacity:.9; }}
-  nav {{ max-width:1080px; margin:0 auto; padding:16px 16px 0; font-size:15px; }}
-  nav a {{ color:var(--green); }}
-  main {{ max-width:1080px; margin:0 auto; padding:16px 16px 40px; }}
-  .notice {{ background:#fff; border-left:5px solid var(--leaf); padding:16px 18px; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,.06); }}
-  .notice strong {{ color:var(--green); }}
-  .tools {{ display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 8px; }}
-  .tools input, .tools select {{ font:inherit; padding:8px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--ink); min-width:0; }}
-  .tools input {{ flex:1 1 240px; }}
+  .wrap.wide {{ max-width:1120px; }}
+  .tools {{ display:flex; flex-wrap:wrap; gap:10px; margin:24px 0 10px; }}
+  .tools input, .tools select {{
+    font:500 16px/1.3 var(--body); color:var(--ink); background:var(--card);
+    border:2px solid var(--ink); border-radius:14px; padding:12px 14px; min-width:0;
+  }}
+  .tools input {{ flex:1 1 100%; }}
   .tools select {{ flex:1 1 160px; }}
-  .count {{ color:var(--muted); font-size:15px; margin:0 0 12px; }}
-  .plants {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:12px; }}
-  .plant {{ background:#fff; border:1px solid var(--line); border-radius:8px; padding:14px; min-width:0; }}
-  .plant .code {{ margin:0; font-size:13px; color:var(--muted); }}
-  .plant h3 {{ margin:0; color:var(--green); font-size:18px; }}
-  .plant .sci {{ margin:0 0 8px; }}
-  .plant dl {{ margin:0; font-size:15px; display:grid; grid-template-columns:auto 1fr; gap:2px 10px; }}
-  .plant dt {{ font-weight:600; color:var(--muted); }}
-  .plant dd {{ margin:0; }}
-  details {{ margin-top:10px; font-size:15px; }}
-  summary {{ cursor:pointer; color:var(--green); font-weight:600; }}
-  details ul {{ margin:6px 0 0; padding-left:20px; }}
-  details li {{ margin-bottom:4px; }}
-  .n {{ color:var(--muted); }}
-  .codes {{ font-size:13px; color:var(--muted); overflow-wrap:anywhere; }}
-  .empty {{ color:var(--muted); }}
-  .pending {{ color:var(--muted); font-style:normal; }}
-  footer {{ text-align:center; font-size:14px; color:var(--muted); padding:20px 16px 32px; }}
+  @media (min-width:720px) {{ .tools input {{ flex:2 1 320px; }} }}
+  .count {{ margin:0 0 14px; font-size:15px; color:var(--ink-soft); }}
+  .plants {{ display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:18px; }}
+  .plant {{
+    background:var(--card); border:2px solid var(--ink); border-radius:6px 34px 6px 34px;
+    overflow:hidden; min-width:0; scroll-margin-top:16px; display:flex; flex-direction:column;
+  }}
+  .plant[hidden] {{ display:none; }}
+  .plant:target {{ outline:4px solid var(--turmeric); outline-offset:3px; }}
+  .ph {{ margin:0; aspect-ratio:4/3; background:var(--leaf); border-bottom:2px solid var(--ink); position:relative; overflow:hidden; }}
+  .ph img {{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }}
+  .body {{ padding:14px 16px 16px; display:flex; flex-direction:column; flex:1; }}
+  .plant h2 {{ font-family:var(--display); font-weight:400; font-size:28px; line-height:1.25; margin:0; overflow-wrap:anywhere; }}
+  .sci {{ margin:2px 0 0; }}
+  .aka {{ margin:2px 0 0; font-size:14px; color:var(--ink-soft); }}
+  .tags {{ margin:10px 0 0; font-size:14px; display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center; }}
+  .tag {{ background:var(--turmeric); border:2px solid var(--ink); border-radius:999px; padding:1px 10px; font-weight:600; }}
+  .fam {{ color:var(--ink-soft); }}
+  .feat {{ margin:10px 0 0; font-size:15px; line-height:1.55; }}
+  .feat b {{ font-weight:600; }}
+  details {{ margin:12px 0 0; font-size:15px; }}
+  summary {{ cursor:pointer; font-weight:600; }}
+  details .code {{ margin:6px 0 0; font-size:13px; color:var(--ink-soft); }}
+  details ul {{ margin:6px 0 0; padding-left:18px; }}
+  details li {{ margin-bottom:6px; }}
+  .n {{ font-weight:600; }}
+  .codes {{ display:block; font-size:12.5px; color:var(--ink-soft); overflow-wrap:anywhere; }}
+  .credit {{ margin:auto 0 0; padding-top:12px; font-size:12px; line-height:1.5; color:var(--ink-soft); }}
+  .credit a {{ color:var(--ink-soft); }}
+  .pending {{ color:var(--ink-soft); }}
+  .empty {{ font-size:18px; padding:24px 0; }}
 </style>
 </head>
 <body>
-<header>
-  <div class="leaf" aria-hidden="true">🌿</div>
-  <h1>ทำเนียบพรรณไม้</h1>
-  <p>สวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก</p>
-</header>
-<nav><a href="./">← กลับหน้าแรก</a></nav>
-<main>
-  <div class="notice">
-    <strong>{n_species} ชนิด · {n_trees} ต้น</strong><br>
-    ข้อมูลจากทะเบียนพรรณไม้ของโรงเรียน รหัสสมาชิก 7-31170-001
-  </div>
+<div class="wrap wide">
+  <a class="top" href="./">
+    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V15" stroke="#17392A" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M17 17C17 9 11 5 4 5c0 8 5 12 13 12Z" fill="#7FA34B" stroke="#17392A" stroke-width="2.2" stroke-linejoin="round"/><path d="M17 20c0-7 5-11 13-11 0 7-5 11-13 11Z" fill="#E6A817" stroke="#17392A" stroke-width="2.2" stroke-linejoin="round"/></svg>
+    <div><b>สวนพฤกษศาสตร์โรงเรียน</b><span>โรงเรียนละหานทรายรัชดาภิเษก</span></div>
+  </a>
+  <main>
+    <h1 class="page-title">ทำเนียบพรรณไม้</h1>
+    <p class="lede">{n_species} ชนิด {n_trees} ต้นในโรงเรียน จากทะเบียนพรรณไม้ของโรงเรียน</p>
 
-  <div class="tools" role="search">
-    <input id="q" type="search" placeholder="ค้นหาชื่อไทย ชื่อวิทยาศาสตร์ วงศ์ หรือรหัส" aria-label="ค้นหาพรรณไม้">
-    <select id="habit" aria-label="ลักษณะวิสัย"><option value="">ลักษณะวิสัยทั้งหมด</option>{habit_opts}</select>
-    <select id="zone" aria-label="พื้นที่ศึกษา"><option value="">ทุกพื้นที่ศึกษา</option>{zone_opts}</select>
-  </div>
-  <p class="count" id="count" aria-live="polite">แสดง {n_species} ชนิด</p>
+    <div class="tools" role="search">
+      <input id="q" type="search" placeholder="พิมพ์ชื่อไทย ชื่อวิทยาศาสตร์ หรือรหัสบนป้าย" aria-label="ค้นหาพรรณไม้">
+      <select id="habit" aria-label="ลักษณะวิสัย"><option value="">ทุกลักษณะวิสัย</option>{habit_opts}</select>
+      <select id="zone" aria-label="พื้นที่ศึกษา"><option value="">ทุกพื้นที่ศึกษา</option>{zone_opts}</select>
+    </div>
+    <p class="count" id="count" aria-live="polite">แสดง {n_species} ชนิด</p>
 
-  <div class="plants" id="plants">
-{cards}  </div>
-  <p class="empty" id="empty" hidden>ไม่พบพรรณไม้ที่ตรงกับการค้นหา</p>
-</main>
-<footer>© งานสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก</footer>
+    <div class="plants" id="plants">
+{cards}    </div>
+    <p class="empty" id="empty" hidden>ไม่พบพรรณไม้ที่ตรงกับคำค้น ลองพิมพ์ชื่อสั้นลง หรือเลือก "ทุกพื้นที่ศึกษา"</p>
+  </main>
+  <footer>© งานสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก</footer>
+</div>
 <script>
 (function () {{
   var q = document.getElementById('q'), habit = document.getElementById('habit'), zone = document.getElementById('zone');
@@ -248,6 +273,7 @@ TEMPLATE = """<!doctype html>
 </body>
 </html>
 """
+
 
 if __name__ == "__main__":
     main()

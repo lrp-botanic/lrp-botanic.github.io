@@ -1,0 +1,34 @@
+/* สีและตัวอักษรกลางของทั้งเว็บ */
+:root {
+  --paper:#E8EFD8; --ink:#17392A; --turmeric:#E6A817; --leaf:#7FA34B; --card:#F7F9F0;
+  --ink-soft:#3F5E4C;
+  --display:'Chonburi', serif; --body:'Anuphan', sans-serif;
+}
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; background:var(--paper); color:var(--ink); font:400 17px/1.65 var(--body); }
+a { color:inherit; }
+:focus-visible { outline:3px solid var(--turmeric); outline-offset:3px; border-radius:4px; }
+.wrap { max-width:560px; margin:0 auto; padding:0 20px; }
+@media (min-width:720px) { .wrap { max-width:640px; } }
+
+/* หัวเว็บ */
+.top { display:flex; align-items:center; gap:10px; padding:18px 0 6px; text-decoration:none; width:max-content; max-width:100%; }
+.top svg { flex:none; }
+.top b { display:block; font-weight:600; font-size:15px; line-height:1.3; }
+.top span { display:block; font-size:13px; color:var(--ink-soft); line-height:1.3; }
+
+/* หัวหน้า */
+.page-title { font-family:var(--display); font-weight:400; font-size:clamp(44px, 13vw, 72px); line-height:1.2; margin:22px 0 4px; }
+.lede { margin:0; font-size:18px; color:var(--ink-soft); }
+
+/* ปุ่ม */
+.btn {
+  font:600 17px/1 var(--body); border:2px solid var(--ink); border-radius:999px;
+  padding:14px 22px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+  background:transparent; color:var(--ink);
+}
+.btn.primary { background:var(--turmeric); box-shadow:0 4px 0 var(--ink); }
+.btn.primary:active { transform:translateY(3px); box-shadow:0 1px 0 var(--ink); }
+
+footer { margin:40px 0 0; padding:20px 0 36px; font-size:13px; color:var(--ink-soft); }
