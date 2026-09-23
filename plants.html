@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ทำเนียบพรรณไม้ | สวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก</title>
+<meta name="description" content="ทำเนียบพรรณไม้ในสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --green:#2f6b3a; --leaf:#6a9a4f; --bg:#f6f8f3; --ink:#1f2a22; --muted:#5b6660; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:'Sarabun',sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+  header { background:var(--green); color:#fff; padding:40px 16px 32px; text-align:center; }
+  header .leaf { font-size:44px; line-height:1; }
+  h1 { margin:10px 0 4px; font-size:clamp(24px,5vw,36px); }
+  header p { margin:0; opacity:.9; }
+  nav { max-width:880px; margin:0 auto; padding:16px 16px 0; font-size:15px; }
+  nav a { color:var(--green); }
+  main { max-width:880px; margin:0 auto; padding:16px 16px 40px; }
+  .notice { background:#fff; border-left:5px solid var(--leaf); padding:16px 18px; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+  .notice strong { color:var(--green); }
+  h2 { color:var(--green); font-size:20px; margin:28px 0 12px; }
+  .fields { background:#fff; border:1px solid #dfe7da; border-radius:8px; padding:14px 14px 14px 34px; margin:0; }
+  .plants { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px; }
+  .plant { background:#fff; border:1px solid #dfe7da; border-radius:8px; padding:14px; }
+  .plant h3 { margin:0; color:var(--green); font-size:18px; }
+  .plant .sci { margin:0 0 8px; color:var(--muted); }
+  .plant dl { margin:0; font-size:15px; }
+  .plant dt { font-weight:600; }
+  .plant dd { margin:0 0 6px; }
+  .empty { color:var(--muted); font-style:normal; }
+  footer { text-align:center; font-size:14px; color:var(--muted); padding:20px 16px 32px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="leaf" aria-hidden="true">🌿</div>
+  <h1>ทำเนียบพรรณไม้</h1>
+  <p>สวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก</p>
+</header>
+<nav><a href="./">← กลับหน้าแรก</a></nav>
+<main>
+  <div class="notice">
+    <strong>อยู่ระหว่างรวบรวมข้อมูล</strong><br>
+    ข้อมูลพรรณไม้ในสวนจะทยอยเพิ่มเมื่อผ่านการตรวจสอบจากครูผู้รับผิดชอบ ติดตามความคืบหน้าได้เร็วๆ นี้
+  </div>
+
+  <h2>ข้อมูลที่จะมีในแต่ละรายการ</h2>
+  <ul class="fields">
+    <li>ชื่อไทยและชื่อท้องถิ่น</li>
+    <li>ชื่อวิทยาศาสตร์และวงศ์</li>
+    <li>ลักษณะทางพฤกษศาสตร์</li>
+    <li>ประโยชน์</li>
+    <li>ตำแหน่งในสวน (โซน)</li>
+  </ul>
+
+  <h2>รายชื่อพรรณไม้</h2>
+  <div class="plants">
+    <!--
+      วิธีเพิ่มพรรณไม้: คัดลอกบล็อก <article> ด้านล่าง วางใน <div class="plants"> แล้วแก้ข้อความ
+      ใช้เฉพาะข้อมูลที่โรงเรียนตรวจสอบแล้ว (ดู CLAUDE.md)
+      ชื่อวิทยาศาสตร์ใส่ใน <i>…</i> ส่วนชื่อผู้ตั้งชื่อไม่ต้องเอียง
+
+      <article class="plant" id="รหัสพรรณไม้">
+        <h3>ชื่อไทย</h3>
+        <p class="sci"><i>Genus species</i> ชื่อผู้ตั้งชื่อ</p>
+        <dl>
+          <dt>วงศ์</dt><dd>ชื่อวงศ์</dd>
+          <dt>ชื่อท้องถิ่น</dt><dd>…</dd>
+          <dt>ลักษณะ</dt><dd>…</dd>
+          <dt>ประโยชน์</dt><dd>…</dd>
+          <dt>ตำแหน่งในสวน</dt><dd>โซน …</dd>
+        </dl>
+      </article>
+    -->
+    <p class="empty">ยังไม่มีรายการพรรณไม้</p>
+  </div>
+</main>
+<footer>© งานสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก</footer>
+</body>
+</html>
