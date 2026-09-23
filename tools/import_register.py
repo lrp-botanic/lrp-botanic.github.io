@@ -51,6 +51,14 @@ TEXT_FIXES = [
 FIELD_FIXES = [
     ("139", 2, "Phyllanthus acidus (L.) Skeels", "Phyllanthus amarus Schumach. & Thonn."),
     ("098", 3, "DIPTEROCARPACEAE", "LECYTHIDACEAE"),
+    # พรรณไม้ใหม่ปี 59 ที่ทะเบียนยังไม่มีข้อมูล (ครูให้ค้นชื่อวิทยาศาสตร์มาใส่)
+    ("202", 2, "", "Chrysopogon zizanioides (L.) Roberty"),
+    ("202", 3, "", "GRAMINEAE (POACEAE)"),
+    ("202", 4, "", "ไม้ล้มลุก หญ้า"),
+    ("204", 2, "", "Ficus subpisocarpa Gagnep."),
+    ("204", 3, "", "MORACEAE"),
+    ("205", 2, "", "Schoutenia glomerata King subsp. peregrina (Craib) Roekm."),
+    ("205", 3, "", "TILIACEAE (MALVACEAE)"),
 ]
 
 
