@@ -7,7 +7,7 @@
     python3 tools/build_plants.py
 
 อ่านทุกไฟล์ .xls ในโฟลเดอร์ ยกเว้นไฟล์ที่ชื่อมีคำว่า "หัวแถวทุกหน้า" (ข้อมูลซ้ำ)
-แล้วแก้ข้อมูลตามรายการ CODE_FIXES, DROP_CODES, TEXT_FIXES และ FIELD_FIXES ด้านล่าง
+แล้วแก้ข้อมูลตามรายการ CODE_FIXES, DROP_CODES, DROP_SPECIES, TEXT_FIXES และ FIELD_FIXES ด้านล่าง
 """
 import csv
 import re
@@ -29,6 +29,12 @@ CODE_FIXES = {
 # รหัสที่ซ้ำกันในทะเบียน ตัดออกทุกแถว (ครูสั่งตัด)
 DROP_CODES = {
     "7-31170-001-040/140",
+}
+# ชนิดที่ตัดออกทั้งชนิด (ครูสั่งตัด เพราะหาภาพตัวอย่างไม่ได้)
+DROP_SPECIES = {
+    "008",  # ยางโอน
+    "060",  # เฟิร์นใบทอง
+    "176",  # นมงัว
 }
 
 # คำที่พิมพ์ผิดในชื่อวิทยาศาสตร์ (คอลัมน์ 2) และบริเวณที่พบ (คอลัมน์ 6)
@@ -89,7 +95,7 @@ def read(folder):
                 if v and v[0] in CODE_FIXES:
                     v[0] = CODE_FIXES[v[0]]
                 m = CODE_RE.match(v[0]) if v else None
-                if m and v[0] not in DROP_CODES:
+                if m and v[0] not in DROP_CODES and m.group(1) not in DROP_SPECIES:
                     v[3] = re.sub(r"\s*-\s*", "-", v[3])
                     v[6] = re.sub(r"พื้นที่ศึกษาที่\s*(\d+)\s*", r"พื้นที่ศึกษาที่ \1 ", v[6]).strip()
                     rows.append((int(m.group(1)), int(m.group(2) or 0), v))

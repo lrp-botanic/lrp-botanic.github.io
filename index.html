@@ -4,30 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>สวนพฤกษศาสตร์โรงเรียน | โรงเรียนละหานทรายรัชดาภิเษก</title>
-<meta name="description" content="เว็บไซต์งานสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก พรรณไม้ 204 ชนิดในโรงเรียน">
+<meta name="description" content="เว็บไซต์งานสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก พรรณไม้ประจำวัน และทำเนียบพรรณไม้ในโรงเรียน">
 <meta name="theme-color" content="#E8EFD8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600&family=Chonburi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
 <style>
-  :root {
-    --paper:#E8EFD8; --ink:#17392A; --turmeric:#E6A817; --leaf:#7FA34B; --card:#F7F9F0;
-    --ink-soft:#3F5E4C;
-    --display:'Chonburi', serif; --body:'Anuphan', sans-serif;
-  }
-  * { box-sizing:border-box; }
-  html { -webkit-text-size-adjust:100%; }
-  body { margin:0; background:var(--paper); color:var(--ink); font:400 17px/1.65 var(--body); }
-  a { color:inherit; }
-  :focus-visible { outline:3px solid var(--turmeric); outline-offset:3px; border-radius:4px; }
-  .wrap { max-width:560px; margin:0 auto; padding:0 20px; }
-
-  /* หัวเว็บ */
-  .top { display:flex; align-items:center; gap:10px; padding:18px 0 6px; }
-  .top svg { flex:none; }
-  .top b { display:block; font-weight:600; font-size:15px; line-height:1.3; }
-  .top span { display:block; font-size:13px; color:var(--ink-soft); line-height:1.3; }
-
   /* พรรณไม้ประจำวัน */
   .today { padding:18px 0 8px; }
   .kicker { margin:0 0 14px; font-weight:500; font-size:15px; color:var(--ink-soft); }
@@ -63,13 +46,6 @@
   .feat { margin:14px 0 0; }
   .feat b { font-weight:600; }
   .actions { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 0; }
-  .btn {
-    font:600 17px/1 var(--body); border:2px solid var(--ink); border-radius:999px;
-    padding:14px 22px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-    background:transparent; color:var(--ink);
-  }
-  .btn.primary { background:var(--turmeric); box-shadow:0 4px 0 var(--ink); }
-  .btn.primary:active { transform:translateY(3px); box-shadow:0 1px 0 var(--ink); }
   .credit { margin:14px 0 0; font-size:12.5px; line-height:1.5; color:var(--ink-soft); }
   .credit a { color:var(--ink-soft); }
 
@@ -84,13 +60,11 @@
   .menu a:hover strong { text-decoration:underline; text-decoration-thickness:3px; text-underline-offset:6px; text-decoration-color:var(--turmeric); }
   .menu .soon strong { color:var(--ink-soft); opacity:.55; font-size:clamp(20px, 5.6vw, 24px); }
   .soon-note { margin:14px 0 0; font-size:15px; color:var(--ink-soft); }
-  footer { margin:40px 0 0; padding:20px 0 36px; font-size:13px; color:var(--ink-soft); }
 
   /* ตอนสุ่มใหม่ */
   .swap .leafpic, .swap .name { animation:pop .42s cubic-bezier(.2,.9,.3,1.3); }
   @keyframes pop { from { transform:scale(.92) rotate(-3deg); opacity:.2; } to { transform:none; opacity:1; } }
   @media (prefers-reduced-motion: reduce) { .swap .leafpic, .swap .name { animation:none; } }
-  @media (min-width:720px) { .wrap { max-width:640px; } }
 </style>
 </head>
 <body>
@@ -120,7 +94,7 @@
     </section>
 
     <ul class="menu">
-      <li><a href="plants.html"><strong>ทำเนียบพรรณไม้</strong><span id="count">204 ชนิดในโรงเรียน</span></a></li>
+      <li><a href="plants.html"><strong>ทำเนียบพรรณไม้</strong><span id="count">201 ชนิดในโรงเรียน</span></a></li>
       <li><a href="worksheets.html"><strong>ใบงาน</strong><span>18 ชุด Word และ PDF</span></a></li>
       <li><div class="soon"><strong>แผนที่สวน</strong><span>เร็ว ๆ นี้</span></div></li>
       <li><div class="soon"><strong>ข่าวและกิจกรรม</strong><span>เร็ว ๆ นี้</span></div></li>
