@@ -144,7 +144,10 @@ def main():
         w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()
         for code in sorted(done):
-            w.writerow(done[code])
+            row = done[code]
+            if re.fullmatch(r"\d+", row["ผู้ถ่าย"]):  # ผู้ถ่ายไม่ได้ตั้งชื่อที่แสดง iNaturalist ใส่เป็นเลขผู้ใช้
+                row["ผู้ถ่าย"] = "ผู้ใช้ iNaturalist"
+            w.writerow(row)
     print(f"มีภาพ {len(done)} จาก {len(species)} ชนิด")
     if missing:
         print("ไม่พบภาพ:", *missing, sep="\n  ")
