@@ -7,7 +7,7 @@
     python3 tools/build_plants.py
 
 อ่านทุกไฟล์ .xls ในโฟลเดอร์ ยกเว้นไฟล์ที่ชื่อมีคำว่า "หัวแถวทุกหน้า" (ข้อมูลซ้ำ)
-แล้วแก้ข้อมูลตามรายการ FIXES ด้านล่าง ซึ่งครูยืนยันแล้ว
+แล้วแก้ข้อมูลตามรายการ CODE_FIXES, TEXT_FIXES และ FIELD_FIXES ด้านล่าง
 """
 import csv
 import re
@@ -21,6 +21,11 @@ OUT = ROOT / "data" / "plant-register.csv"
 HEADER = ["รหัสพรรณไม้", "ชื่อพรรณไม้", "ชื่อวิทยาศาสตร์", "ชื่อวงศ์",
           "ลักษณะวิสัย", "ลักษณะเด่นของพืช", "บริเวณที่พบ"]
 CODE_RE = re.compile(r"^7-31170-001-(\d{3})(?:/(\d+))?$")
+
+# รหัสพรรณไม้ที่พิมพ์ผิดในทะเบียน: รหัสเดิม -> รหัสที่ถูกต้อง
+CODE_FIXES = {
+    "7-31171-001-202/3": "7-31170-001-202/3",
+}
 
 # คำที่พิมพ์ผิดในชื่อวิทยาศาสตร์ (คอลัมน์ 2) และบริเวณที่พบ (คอลัมน์ 6)
 TEXT_FIXES = [
@@ -56,9 +61,12 @@ def read(folder):
         for sh in xlrd.open_workbook(p).sheets():
             for r in range(sh.nrows):
                 v = [clean(c.value) for c in sh.row(r)][:7]
+                if v and v[0] in CODE_FIXES:
+                    v[0] = CODE_FIXES[v[0]]
                 m = CODE_RE.match(v[0]) if v else None
                 if m:
                     v[3] = re.sub(r"\s*-\s*", "-", v[3])
+                    v[6] = re.sub(r"พื้นที่ศึกษาที่\s*(\d+)\s*", r"พื้นที่ศึกษาที่ \1 ", v[6]).strip()
                     rows.append((int(m.group(1)), int(m.group(2) or 0), v))
     rows.sort(key=lambda x: (x[0], x[1]))
     return [v for _, _, v in rows]

@@ -41,6 +41,10 @@ def sci_html(name):
     return " ".join(out)
 
 
+def or_pending(s, fmt=esc):
+    return fmt(s) if s else '<span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span>'
+
+
 def zone_of(loc):
     m = ZONE_RE.search(loc)
     return int(m.group(1)) if m else None
@@ -80,11 +84,11 @@ def card(sp):
     return f"""    <article class="plant" id="p{sp['code'][-3:]}" data-habit="{esc(sp['habit'])}" data-zones=" {' '.join(map(str, zones))} " data-search="{esc(search)}">
       <p class="code">{esc(sp['code'])}</p>
       <h3>{esc(sp['thai'])}</h3>
-      <p class="sci">{sci_html(sp['sci'])}</p>
+      <p class="sci">{or_pending(sp['sci'], sci_html)}</p>
       <dl>
-        <dt>วงศ์</dt><dd>{esc(sp['family'])}</dd>
-        <dt>ลักษณะวิสัย</dt><dd>{esc(sp['habit'])}</dd>
-        <dt>ลักษณะเด่น</dt><dd>{esc(sp['feature'])}</dd>
+        <dt>วงศ์</dt><dd>{or_pending(sp['family'])}</dd>
+        <dt>ลักษณะวิสัย</dt><dd>{or_pending(sp['habit'])}</dd>
+        <dt>ลักษณะเด่น</dt><dd>{or_pending(sp['feature'])}</dd>
       </dl>
       <details>
         <summary>บริเวณที่พบ · {n} ต้น</summary>
@@ -97,7 +101,7 @@ def card(sp):
 def main():
     species = load()
     trees = sum(sum(len(v) for v in s["locs"].values()) for s in species)
-    habits = sorted({s["habit"] for s in species})
+    habits = sorted({s["habit"] for s in species if s["habit"]})
     zones = sorted({z for s in species for l in s["locs"] for z in [zone_of(l)] if z is not None})
     habit_opts = "".join(f'<option value="{esc(h)}">{esc(h)}</option>' for h in habits)
     zone_opts = "".join(f'<option value="{z}">พื้นที่ศึกษาที่ {z}</option>' for z in zones)
@@ -153,6 +157,7 @@ TEMPLATE = """<!doctype html>
   .n {{ color:var(--muted); }}
   .codes {{ font-size:13px; color:var(--muted); overflow-wrap:anywhere; }}
   .empty {{ color:var(--muted); }}
+  .pending {{ color:var(--muted); font-style:normal; }}
   footer {{ text-align:center; font-size:14px; color:var(--muted); padding:20px 16px 32px; }}
 </style>
 </head>

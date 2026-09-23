@@ -41,6 +41,7 @@
   .n { color:var(--muted); }
   .codes { font-size:13px; color:var(--muted); overflow-wrap:anywhere; }
   .empty { color:var(--muted); }
+  .pending { color:var(--muted); font-style:normal; }
   footer { text-align:center; font-size:14px; color:var(--muted); padding:20px 16px 32px; }
 </style>
 </head>
@@ -53,7 +54,7 @@
 <nav><a href="./">← กลับหน้าแรก</a></nav>
 <main>
   <div class="notice">
-    <strong>201 ชนิด · 1,987 ต้น</strong><br>
+    <strong>204 ชนิด · 1,995 ต้น</strong><br>
     ข้อมูลจากทะเบียนพรรณไม้ของโรงเรียน รหัสสมาชิก 7-31170-001
   </div>
 
@@ -62,7 +63,7 @@
     <select id="habit" aria-label="ลักษณะวิสัย"><option value="">ลักษณะวิสัยทั้งหมด</option><option value="ปาล์ม">ปาล์ม</option><option value="เฟิร์น">เฟิร์น</option><option value="ไผ่">ไผ่</option><option value="ไม้ต้น">ไม้ต้น</option><option value="ไม้ต้น กึ่งไม้เลื้อย(ไม้รอเลื้อย)">ไม้ต้น กึ่งไม้เลื้อย(ไม้รอเลื้อย)</option><option value="ไม้ต้นขนาดเล็ก">ไม้ต้นขนาดเล็ก</option><option value="ไม้น้ำ">ไม้น้ำ</option><option value="ไม้น้ำ ไม้ล้มลุก">ไม้น้ำ ไม้ล้มลุก</option><option value="ไม้พุ่ม">ไม้พุ่ม</option><option value="ไม้พุ่ม ไม้ล้มลุก">ไม้พุ่ม ไม้ล้มลุก</option><option value="ไม้พุ่ม ไม้เลื้อย">ไม้พุ่ม ไม้เลื้อย</option><option value="ไม้พุ่ม, ไม้รอเลื้อย">ไม้พุ่ม, ไม้รอเลื้อย</option><option value="ไม้พุ่มกึ่งไม้ต้นขนาดเล็ก">ไม้พุ่มกึ่งไม้ต้นขนาดเล็ก</option><option value="ไม้พุ่มขนาดเล็ก">ไม้พุ่มขนาดเล็ก</option><option value="ไม้พุ่มเตี้ย">ไม้พุ่มเตี้ย</option><option value="ไม้รอเลื้อย">ไม้รอเลื้อย</option><option value="ไม้รอเลื้อย ปาล์ม">ไม้รอเลื้อย ปาล์ม</option><option value="ไม้ล้มลุก">ไม้ล้มลุก</option><option value="ไม้ล้มลุก หญ้า">ไม้ล้มลุก หญ้า</option><option value="ไม้ล้มลุก ไม้พุ่ม">ไม้ล้มลุก ไม้พุ่ม</option><option value="ไม้ล้มลุก ไม้เลื้อย">ไม้ล้มลุก ไม้เลื้อย</option><option value="ไม้เลื้อย">ไม้เลื้อย</option></select>
     <select id="zone" aria-label="พื้นที่ศึกษา"><option value="">ทุกพื้นที่ศึกษา</option><option value="1">พื้นที่ศึกษาที่ 1</option><option value="2">พื้นที่ศึกษาที่ 2</option><option value="3">พื้นที่ศึกษาที่ 3</option><option value="4">พื้นที่ศึกษาที่ 4</option><option value="5">พื้นที่ศึกษาที่ 5</option><option value="6">พื้นที่ศึกษาที่ 6</option><option value="7">พื้นที่ศึกษาที่ 7</option><option value="8">พื้นที่ศึกษาที่ 8</option><option value="9">พื้นที่ศึกษาที่ 9</option><option value="10">พื้นที่ศึกษาที่ 10</option><option value="11">พื้นที่ศึกษาที่ 11</option><option value="12">พื้นที่ศึกษาที่ 12</option><option value="13">พื้นที่ศึกษาที่ 13</option><option value="14">พื้นที่ศึกษาที่ 14</option><option value="15">พื้นที่ศึกษาที่ 15</option><option value="16">พื้นที่ศึกษาที่ 16</option><option value="17">พื้นที่ศึกษาที่ 17</option></select>
   </div>
-  <p class="count" id="count" aria-live="polite">แสดง 201 ชนิด</p>
+  <p class="count" id="count" aria-live="polite">แสดง 204 ชนิด</p>
 
   <div class="plants" id="plants">
     <article class="plant" id="p001" data-habit="ไม้ต้น" data-zones=" 1 5 " data-search="7-31170-001-001 น้ำเต้าต้น น้ำเต้าญี่ปุ่น crescentia cujete l. bignoniaceae">
@@ -2877,6 +2878,48 @@
       <details>
         <summary>บริเวณที่พบ · 5 ต้น</summary>
         <ul><li>พื้นที่ศึกษาที่ 7 หลังอาคาร 3 <span class="n">(1 ต้น)</span><br><span class="codes">7-31170-001-201/1</span></li><li>พื้นที่ศึกษาที่ 17 สนามฟุตบอล <span class="n">(4 ต้น)</span><br><span class="codes">7-31170-001-201/2, 7-31170-001-201/3, 7-31170-001-201/4, 7-31170-001-201/5</span></li></ul>
+      </details>
+    </article>
+    <article class="plant" id="p202" data-habit="" data-zones=" 2 " data-search="7-31170-001-202 หญ้าแฝก  ">
+      <p class="code">7-31170-001-202</p>
+      <h3>หญ้าแฝก</h3>
+      <p class="sci"><span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span></p>
+      <dl>
+        <dt>วงศ์</dt><dd><span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span></dd>
+        <dt>ลักษณะวิสัย</dt><dd><span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span></dd>
+        <dt>ลักษณะเด่น</dt><dd><span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span></dd>
+      </dl>
+      <details>
+        <summary>บริเวณที่พบ · 3 ต้น</summary>
+        <ul><li>พื้นที่ศึกษาที่ 2 ทิศเหนือศูนย์สิ่งแวดล้อม <span class="n">(3 ต้น)</span><br><span class="codes">7-31170-001-202/1, 7-31170-001-202/2, 7-31170-001-202/3</span></li></ul>
+      </details>
+    </article>
+    <article class="plant" id="p204" data-habit="ไม้ต้น" data-zones=" 16 " data-search="7-31170-001-204 เลียบ  ">
+      <p class="code">7-31170-001-204</p>
+      <h3>เลียบ</h3>
+      <p class="sci"><span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span></p>
+      <dl>
+        <dt>วงศ์</dt><dd><span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span></dd>
+        <dt>ลักษณะวิสัย</dt><dd>ไม้ต้น</dd>
+        <dt>ลักษณะเด่น</dt><dd><span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span></dd>
+      </dl>
+      <details>
+        <summary>บริเวณที่พบ · 2 ต้น</summary>
+        <ul><li>พื้นที่ศึกษาที่ 16 หอประชุม <span class="n">(2 ต้น)</span><br><span class="codes">7-31170-001-204/1, 7-31170-001-204/2</span></li></ul>
+      </details>
+    </article>
+    <article class="plant" id="p205" data-habit="ไม้ต้น" data-zones=" 16 17 " data-search="7-31170-001-205 รวงผึ้ง  ">
+      <p class="code">7-31170-001-205</p>
+      <h3>รวงผึ้ง</h3>
+      <p class="sci"><span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span></p>
+      <dl>
+        <dt>วงศ์</dt><dd><span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span></dd>
+        <dt>ลักษณะวิสัย</dt><dd>ไม้ต้น</dd>
+        <dt>ลักษณะเด่น</dt><dd><span class="pending">อยู่ระหว่างรวบรวมข้อมูล</span></dd>
+      </dl>
+      <details>
+        <summary>บริเวณที่พบ · 3 ต้น</summary>
+        <ul><li>พื้นที่ศึกษาที่ 17 สนามฟุตบอล <span class="n">(1 ต้น)</span><br><span class="codes">7-31170-001-205/1</span></li><li>พื้นที่ศึกษาที่ 16 หอประชุม <span class="n">(2 ต้น)</span><br><span class="codes">7-31170-001-205/2, 7-31170-001-205/3</span></li></ul>
       </details>
     </article>
   </div>
