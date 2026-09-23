@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600&family=Chonburi&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <!-- ไฟล์นี้สร้างจาก data/plant-register.csv ด้วย tools/build_plants.py ห้ามแก้ด้วยมือ -->
 <style>
   .wrap.wide { max-width:1120px; }
@@ -56,7 +57,7 @@
 <body>
 <div class="wrap wide">
   <a class="top" href="./">
-    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V15" stroke="#17392A" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M17 17C17 9 11 5 4 5c0 8 5 12 13 12Z" fill="#7FA34B" stroke="#17392A" stroke-width="2.2" stroke-linejoin="round"/><path d="M17 20c0-7 5-11 13-11 0 7-5 11-13 11Z" fill="#E6A817" stroke="#17392A" stroke-width="2.2" stroke-linejoin="round"/></svg>
+    <img src="img/emblem.png" alt="" width="250" height="313">
     <div><b>สวนพฤกษศาสตร์โรงเรียน</b><span>โรงเรียนละหานทรายรัชดาภิเษก</span></div>
   </a>
   <main>
@@ -65,13 +66,13 @@
 
     <div class="tools" role="search">
       <input id="q" type="search" placeholder="พิมพ์ชื่อไทย ชื่อวิทยาศาสตร์ หรือรหัสบนป้าย" aria-label="ค้นหาพรรณไม้">
-      <select id="habit" aria-label="ลักษณะวิสัย"><option value="">ทุกลักษณะวิสัย</option><option value="ปาล์ม">ปาล์ม</option><option value="เฟิร์น">เฟิร์น</option><option value="ไผ่">ไผ่</option><option value="ไม้ต้น">ไม้ต้น</option><option value="ไม้ต้น กึ่งไม้เลื้อย(ไม้รอเลื้อย)">ไม้ต้น กึ่งไม้เลื้อย(ไม้รอเลื้อย)</option><option value="ไม้ต้นขนาดเล็ก">ไม้ต้นขนาดเล็ก</option><option value="ไม้น้ำ">ไม้น้ำ</option><option value="ไม้น้ำ ไม้ล้มลุก">ไม้น้ำ ไม้ล้มลุก</option><option value="ไม้พุ่ม">ไม้พุ่ม</option><option value="ไม้พุ่ม ไม้ล้มลุก">ไม้พุ่ม ไม้ล้มลุก</option><option value="ไม้พุ่ม ไม้เลื้อย">ไม้พุ่ม ไม้เลื้อย</option><option value="ไม้พุ่ม, ไม้รอเลื้อย">ไม้พุ่ม, ไม้รอเลื้อย</option><option value="ไม้พุ่มกึ่งไม้ต้นขนาดเล็ก">ไม้พุ่มกึ่งไม้ต้นขนาดเล็ก</option><option value="ไม้พุ่มขนาดเล็ก">ไม้พุ่มขนาดเล็ก</option><option value="ไม้พุ่มเตี้ย">ไม้พุ่มเตี้ย</option><option value="ไม้รอเลื้อย">ไม้รอเลื้อย</option><option value="ไม้รอเลื้อย ปาล์ม">ไม้รอเลื้อย ปาล์ม</option><option value="ไม้ล้มลุก">ไม้ล้มลุก</option><option value="ไม้ล้มลุก หญ้า">ไม้ล้มลุก หญ้า</option><option value="ไม้ล้มลุก ไม้พุ่ม">ไม้ล้มลุก ไม้พุ่ม</option><option value="ไม้ล้มลุก ไม้เลื้อย">ไม้ล้มลุก ไม้เลื้อย</option><option value="ไม้เลื้อย">ไม้เลื้อย</option></select>
+      <select id="habit" aria-label="กลุ่มลักษณะวิสัย"><option value="">ทุกลักษณะวิสัย</option><option value="tree">ไม้ต้น (76)</option><option value="herb">ไม้ล้มลุก (61)</option><option value="shrub">ไม้พุ่ม (32)</option><option value="climber">ไม้เลื้อย (13)</option><option value="grass">หญ้า เฟิร์น และไม้น้ำ (12)</option><option value="palm">ปาล์มและไผ่ (7)</option></select>
       <select id="zone" aria-label="พื้นที่ศึกษา"><option value="">ทุกพื้นที่ศึกษา</option><option value="1">พื้นที่ศึกษาที่ 1</option><option value="2">พื้นที่ศึกษาที่ 2</option><option value="3">พื้นที่ศึกษาที่ 3</option><option value="4">พื้นที่ศึกษาที่ 4</option><option value="5">พื้นที่ศึกษาที่ 5</option><option value="6">พื้นที่ศึกษาที่ 6</option><option value="7">พื้นที่ศึกษาที่ 7</option><option value="8">พื้นที่ศึกษาที่ 8</option><option value="9">พื้นที่ศึกษาที่ 9</option><option value="10">พื้นที่ศึกษาที่ 10</option><option value="11">พื้นที่ศึกษาที่ 11</option><option value="12">พื้นที่ศึกษาที่ 12</option><option value="13">พื้นที่ศึกษาที่ 13</option><option value="14">พื้นที่ศึกษาที่ 14</option><option value="15">พื้นที่ศึกษาที่ 15</option><option value="16">พื้นที่ศึกษาที่ 16</option><option value="17">พื้นที่ศึกษาที่ 17</option></select>
     </div>
     <p class="count" id="count" aria-live="polite">แสดง 201 ชนิด</p>
 
     <div class="plants" id="plants">
-    <article class="plant" id="p001" data-habit="ไม้ต้น" data-zones=" 1 5 " data-search="7-31170-001-001 น้ำเต้าต้น น้ำเต้าญี่ปุ่น crescentia cujete l. bignoniaceae">
+    <article class="plant" id="p001" data-group="tree" data-zones=" 1 5 " data-search="7-31170-001-001 น้ำเต้าต้น น้ำเต้าญี่ปุ่น crescentia cujete l. bignoniaceae">
       <figure class="ph"><img src="img/plants/001.jpg" alt="ภาพตัวอย่างน้ำเต้าต้น" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>น้ำเต้าต้น</h2>
@@ -87,7 +88,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย bridgitte1234 (<a href="https://www.inaturalist.org/photos/51265871" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p002" data-habit="ไม้ต้น" data-zones=" 1 3 5 7 8 9 11 12 14 15 16 17 " data-search="7-31170-001-002 กระถินณรงค์ acacia auriculaeformis a. cunn. ex benth. leguminosae-mimosoideae">
+    <article class="plant" id="p002" data-group="tree" data-zones=" 1 3 5 7 8 9 11 12 14 15 16 17 " data-search="7-31170-001-002 กระถินณรงค์ acacia auriculaeformis a. cunn. ex benth. leguminosae-mimosoideae">
       <figure class="ph"><img src="img/plants/002.jpg" alt="ภาพตัวอย่างกระถินณรงค์" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กระถินณรงค์</h2>
@@ -103,7 +104,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/700459" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p003" data-habit="ปาล์ม" data-zones=" 1 2 7 11 16 " data-search="7-31170-001-003 หมากเหลือง chrysalidocarpus lutescens h. wendl. palmae (arecaceae)">
+    <article class="plant" id="p003" data-group="palm" data-zones=" 1 2 7 11 16 " data-search="7-31170-001-003 หมากเหลือง chrysalidocarpus lutescens h. wendl. palmae (arecaceae)">
       <figure class="ph"><img src="img/plants/003.jpg" alt="ภาพตัวอย่างหมากเหลือง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หมากเหลือง</h2>
@@ -119,7 +120,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย jerbon (<a href="https://www.inaturalist.org/photos/35293993" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p004" data-habit="ไม้ต้น" data-zones=" 1 " data-search="7-31170-001-004 ตะเคียนทอง hopea odorata roxb. dipterocarpaceae">
+    <article class="plant" id="p004" data-group="tree" data-zones=" 1 " data-search="7-31170-001-004 ตะเคียนทอง hopea odorata roxb. dipterocarpaceae">
       <figure class="ph"><img src="img/plants/004.jpg" alt="ภาพตัวอย่างตะเคียนทอง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตะเคียนทอง</h2>
@@ -135,7 +136,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย paakor (<a href="https://www.inaturalist.org/photos/258495628" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p005" data-habit="ไม้ต้น" data-zones=" 1 3 4 8 11 14 17 " data-search="7-31170-001-005 ยางกราด กราด ซาด ตะแบง สะแบง ตาด เหียงกราด dipterocarpus intricatus dyer dipterocarpaceae">
+    <article class="plant" id="p005" data-group="tree" data-zones=" 1 3 4 8 11 14 17 " data-search="7-31170-001-005 ยางกราด กราด ซาด ตะแบง สะแบง ตาด เหียงกราด dipterocarpus intricatus dyer dipterocarpaceae">
       <figure class="ph"><img src="img/plants/005.jpg" alt="ภาพตัวอย่างยางกราด" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ยางกราด</h2>
@@ -151,7 +152,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Chanang (<a href="https://www.inaturalist.org/photos/251511102" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p006" data-habit="ไม้ต้น" data-zones=" 1 " data-search="7-31170-001-006 กระทุ่มบก, ตะกู , ตะโกส้ม (กลาง) ตุ้มขี้หมู (ใต้) ตุ้มหลวง (เหนือ) ทุ่มพราย (ตะวันออกเฉียงเหนือ) anthocephalus chinensis (lam.) a. rich.ex walp. rubiaceae">
+    <article class="plant" id="p006" data-group="tree" data-zones=" 1 " data-search="7-31170-001-006 กระทุ่มบก, ตะกู , ตะโกส้ม (กลาง) ตุ้มขี้หมู (ใต้) ตุ้มหลวง (เหนือ) ทุ่มพราย (ตะวันออกเฉียงเหนือ) anthocephalus chinensis (lam.) a. rich.ex walp. rubiaceae">
       <figure class="ph"><img src="img/plants/006.jpg" alt="ภาพตัวอย่างกระทุ่มบก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กระทุ่มบก</h2>
@@ -167,7 +168,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/81966952" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p007" data-habit="ไม้ต้น" data-zones=" 1 3 7 11 14 " data-search="7-31170-001-007 ลำดวน melodorum fruticosum lour. annonaceae">
+    <article class="plant" id="p007" data-group="tree" data-zones=" 1 3 7 11 14 " data-search="7-31170-001-007 ลำดวน melodorum fruticosum lour. annonaceae">
       <figure class="ph"><img src="img/plants/007.jpg" alt="ภาพตัวอย่างลำดวน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ลำดวน</h2>
@@ -183,7 +184,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย eec (<a href="https://www.inaturalist.org/photos/185166970" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p009" data-habit="ไม้ต้น" data-zones=" 1 3 5 6 7 10 11 12 14 15 16 17 " data-search="7-31170-001-009 ตะแบก lagerstroemia calyculata kurz lythraceae">
+    <article class="plant" id="p009" data-group="tree" data-zones=" 1 3 5 6 7 10 11 12 14 15 16 17 " data-search="7-31170-001-009 ตะแบก lagerstroemia calyculata kurz lythraceae">
       <figure class="ph"><img src="img/plants/009.jpg" alt="ภาพตัวอย่างตะแบก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตะแบก</h2>
@@ -199,7 +200,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Steven Kurniawidjaja (<a href="https://www.inaturalist.org/photos/9918066" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p010" data-habit="ไม้ต้น" data-zones=" 1 " data-search="7-31170-001-010 รักใหญ่ gluta usitata (wall.) ding hou anacardiaceae">
+    <article class="plant" id="p010" data-group="tree" data-zones=" 1 " data-search="7-31170-001-010 รักใหญ่ gluta usitata (wall.) ding hou anacardiaceae">
       <figure class="ph"><img src="img/plants/010.jpg" alt="ภาพตัวอย่างรักใหญ่" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>รักใหญ่</h2>
@@ -215,7 +216,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย LannaMountainsCharlie (<a href="https://www.inaturalist.org/photos/350285637" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p011" data-habit="ไม้พุ่ม" data-zones=" 1 2 3 4 5 7 8 9 11 14 16 17 " data-search="7-31170-001-011 ข่อย streblus asper lour. moraceae">
+    <article class="plant" id="p011" data-group="shrub" data-zones=" 1 2 3 4 5 7 8 9 11 14 16 17 " data-search="7-31170-001-011 ข่อย streblus asper lour. moraceae">
       <figure class="ph"><img src="img/plants/011.jpg" alt="ภาพตัวอย่างข่อย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ข่อย</h2>
@@ -231,7 +232,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Harshjeet Singh Bal (<a href="https://www.inaturalist.org/photos/25892874" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p012" data-habit="ไม้ต้น" data-zones=" 1 3 12 14 15 17 " data-search="7-31170-001-012 อะราง กว่าเซก (เขมร-กาญจนบุรี) คางรุ้ง คางฮุ้ง (พิษณุโลก) จ๊าขาม ซ้าขม (เลย) ตาเซก (เขมร-บุรีรัมย์) ราง (ส่วย-สุรินทร์) อินทรี (จันทบุรี) ร้าง อะล้าง (นครราชสีมา) peltophorum dasyrachis (miq.) kurz leguminosae-caesalpinioideae (caesalpiniaceae)">
+    <article class="plant" id="p012" data-group="tree" data-zones=" 1 3 12 14 15 17 " data-search="7-31170-001-012 อะราง กว่าเซก (เขมร-กาญจนบุรี) คางรุ้ง คางฮุ้ง (พิษณุโลก) จ๊าขาม ซ้าขม (เลย) ตาเซก (เขมร-บุรีรัมย์) ราง (ส่วย-สุรินทร์) อินทรี (จันทบุรี) ร้าง อะล้าง (นครราชสีมา) peltophorum dasyrachis (miq.) kurz leguminosae-caesalpinioideae (caesalpiniaceae)">
       <figure class="ph"><img src="img/plants/012.jpg" alt="ภาพตัวอย่างอะราง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>อะราง</h2>
@@ -247,7 +248,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย JJLudemann (<a href="https://www.inaturalist.org/photos/2053253" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p013" data-habit="ไม้ต้น กึ่งไม้เลื้อย(ไม้รอเลื้อย)" data-zones=" 1 " data-search="7-31170-001-013 ชะเอมป่า ตาลอ้อย ส้มป่อยหวาน อ้อยช้าง ย่านงาย albizia myriophylla benth. leguminosae-mimosoideae (mimosaceae)">
+    <article class="plant" id="p013" data-group="tree" data-zones=" 1 " data-search="7-31170-001-013 ชะเอมป่า ตาลอ้อย ส้มป่อยหวาน อ้อยช้าง ย่านงาย albizia myriophylla benth. leguminosae-mimosoideae (mimosaceae)">
       <figure class="ph"><img src="img/plants/013.jpg" alt="ภาพตัวอย่างชะเอมป่า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ชะเอมป่า</h2>
@@ -263,7 +264,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย James Bailey (<a href="https://www.inaturalist.org/photos/296890598" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p014" data-habit="ไม้ต้น" data-zones=" 1 5 11 " data-search="7-31170-001-014 มะกล่ำต้น adenanthera pavonina l. leguminosae-mimosoideae">
+    <article class="plant" id="p014" data-group="tree" data-zones=" 1 5 11 " data-search="7-31170-001-014 มะกล่ำต้น adenanthera pavonina l. leguminosae-mimosoideae">
       <figure class="ph"><img src="img/plants/014.jpg" alt="ภาพตัวอย่างมะกล่ำต้น" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะกล่ำต้น</h2>
@@ -279,7 +280,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Cheongweei Gan (<a href="https://www.inaturalist.org/photos/20605511" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p015" data-habit="ไม้ต้น" data-zones=" 1 11 14 15 16 " data-search="7-31170-001-015 สะเดา azadirachta indica a. juss. var. siamensis valeton meliaceae">
+    <article class="plant" id="p015" data-group="tree" data-zones=" 1 11 14 15 16 " data-search="7-31170-001-015 สะเดา azadirachta indica a. juss. var. siamensis valeton meliaceae">
       <figure class="ph"><img src="img/plants/015.jpg" alt="ภาพตัวอย่างสะเดา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>สะเดา</h2>
@@ -295,7 +296,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Hareesha A S (<a href="https://www.inaturalist.org/photos/46478533" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p016" data-habit="ไม้พุ่ม" data-zones=" 1 2 " data-search="7-31170-001-016 ตะขบป่า flacourtia indica (burm.f.) merr. flacourtiaceae">
+    <article class="plant" id="p016" data-group="shrub" data-zones=" 1 2 " data-search="7-31170-001-016 ตะขบป่า flacourtia indica (burm.f.) merr. flacourtiaceae">
       <figure class="ph"><img src="img/plants/016.jpg" alt="ภาพตัวอย่างตะขบป่า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตะขบป่า</h2>
@@ -311,7 +312,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Graeme White (<a href="https://www.inaturalist.org/photos/1307595" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p017" data-habit="ไม้พุ่มกึ่งไม้ต้นขนาดเล็ก" data-zones=" 1 2 16 " data-search="7-31170-001-017 จันทน์ผา dracaena loureiroi gagnep. dracaenaceae">
+    <article class="plant" id="p017" data-group="shrub" data-zones=" 1 2 16 " data-search="7-31170-001-017 จันทน์ผา dracaena loureiroi gagnep. dracaenaceae">
       <figure class="ph"><img src="img/plants/017.jpg" alt="ภาพตัวอย่างจันทน์ผา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>จันทน์ผา</h2>
@@ -327,7 +328,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Sarka Masova (<a href="https://www.inaturalist.org/photos/207439534" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p018" data-habit="ไม้ล้มลุก" data-zones=" 1 2 3 4 5 14 16 " data-search="7-31170-001-018 ลิ้นมังกร antirrhinum majus l. scrophulariaceae">
+    <article class="plant" id="p018" data-group="herb" data-zones=" 1 2 3 4 5 14 16 " data-search="7-31170-001-018 ลิ้นมังกร antirrhinum majus l. scrophulariaceae">
       <figure class="ph"><img src="img/plants/018.jpg" alt="ภาพตัวอย่างลิ้นมังกร" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ลิ้นมังกร</h2>
@@ -343,7 +344,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/202870263" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p019" data-habit="ไม้พุ่ม" data-zones=" 1 " data-search="7-31170-001-019 ปรงเม็กซิกัน zamia furfuracea l.f. zamiaceae">
+    <article class="plant" id="p019" data-group="shrub" data-zones=" 1 " data-search="7-31170-001-019 ปรงเม็กซิกัน zamia furfuracea l.f. zamiaceae">
       <figure class="ph"><img src="img/plants/019.jpg" alt="ภาพตัวอย่างปรงเม็กซิกัน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ปรงเม็กซิกัน</h2>
@@ -359,7 +360,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย tanetahi (<a href="https://www.inaturalist.org/photos/152793" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p020" data-habit="ปาล์ม" data-zones=" 1 3 6 8 9 11 " data-search="7-31170-001-020 ปาล์มน้ำมัน elaeis guineensis jacq. palmae (arecaceae)">
+    <article class="plant" id="p020" data-group="palm" data-zones=" 1 3 6 8 9 11 " data-search="7-31170-001-020 ปาล์มน้ำมัน elaeis guineensis jacq. palmae (arecaceae)">
       <figure class="ph"><img src="img/plants/020.jpg" alt="ภาพตัวอย่างปาล์มน้ำมัน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ปาล์มน้ำมัน</h2>
@@ -375,7 +376,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Fabrício Mil Homens Riella (<a href="https://www.inaturalist.org/photos/333000809" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p021" data-habit="ไม้พุ่ม" data-zones=" 1 " data-search="7-31170-001-021 ฝิ่นต้น (กรุงเทพฯ) มะหุ่งแดง (ภาคเหนือ) jatropha multifida l. euphorbiaceae">
+    <article class="plant" id="p021" data-group="shrub" data-zones=" 1 " data-search="7-31170-001-021 ฝิ่นต้น (กรุงเทพฯ) มะหุ่งแดง (ภาคเหนือ) jatropha multifida l. euphorbiaceae">
       <figure class="ph"><img src="img/plants/021.jpg" alt="ภาพตัวอย่างฝิ่นต้น" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ฝิ่นต้น</h2>
@@ -391,7 +392,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Klaus Bohn (<a href="https://www.inaturalist.org/photos/57341426" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p022" data-habit="ไม้ต้น" data-zones=" 1 " data-search="7-31170-001-022 พะยอม กะยอม (เชียงใหม่) ขะยอม (ลาว) ขะยอมแดง พะยอมดง (ภาคเหนือ) แคน (เลย) เขียง เชี่ยง (กะเหรี่ยง-เชียงใหม่) พะยอมทอง (สุราฎร์ธานี) ยางหยวก (น่าน) shorea roxburghii g.don dipterocarpaceae">
+    <article class="plant" id="p022" data-group="tree" data-zones=" 1 " data-search="7-31170-001-022 พะยอม กะยอม (เชียงใหม่) ขะยอม (ลาว) ขะยอมแดง พะยอมดง (ภาคเหนือ) แคน (เลย) เขียง เชี่ยง (กะเหรี่ยง-เชียงใหม่) พะยอมทอง (สุราฎร์ธานี) ยางหยวก (น่าน) shorea roxburghii g.don dipterocarpaceae">
       <figure class="ph"><img src="img/plants/022.jpg" alt="ภาพตัวอย่างพะยอม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>พะยอม</h2>
@@ -407,7 +408,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Siddarth Machado (<a href="https://www.inaturalist.org/photos/60580456" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p023" data-habit="ไม้ต้น" data-zones=" 1 " data-search="7-31170-001-023 พยุง dalbergia cochinchinensis pierre leguminosae-papilionoideae (papilionaceae)">
+    <article class="plant" id="p023" data-group="tree" data-zones=" 1 " data-search="7-31170-001-023 พยุง dalbergia cochinchinensis pierre leguminosae-papilionoideae (papilionaceae)">
       <figure class="ph"><img src="img/plants/023.jpg" alt="ภาพตัวอย่างพยุง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>พยุง</h2>
@@ -423,7 +424,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Smithsonian Institution (<a href="https://www.inaturalist.org/photos/1458298" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p024" data-habit="ไม้ต้น" data-zones=" 1 7 8 9 14 " data-search="7-31170-001-024 ปีบ millingtonia hortensis l.f. bignoniaceae">
+    <article class="plant" id="p024" data-group="tree" data-zones=" 1 7 8 9 14 " data-search="7-31170-001-024 ปีบ millingtonia hortensis l.f. bignoniaceae">
       <figure class="ph"><img src="img/plants/024.jpg" alt="ภาพตัวอย่างปีบ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ปีบ</h2>
@@ -439,7 +440,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Cheongweei Gan (<a href="https://www.inaturalist.org/photos/26274012" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p025" data-habit="เฟิร์น" data-zones=" 1 2 3 " data-search="7-31170-001-025 เฟิร์นใบมะขาม nephrolepis cordifolia (l.) c.presl nephrolepidaceae">
+    <article class="plant" id="p025" data-group="grass" data-zones=" 1 2 3 " data-search="7-31170-001-025 เฟิร์นใบมะขาม nephrolepis cordifolia (l.) c.presl nephrolepidaceae">
       <figure class="ph"><img src="img/plants/025.jpg" alt="ภาพตัวอย่างเฟิร์นใบมะขาม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เฟิร์นใบมะขาม</h2>
@@ -455,7 +456,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย cyunf (<a href="https://www.inaturalist.org/photos/260680022" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p026" data-habit="ไม้ล้มลุก" data-zones=" 1 12 14 15 " data-search="7-31170-001-026 สาบเสือ chromolaena odoratum (l.) r.m.king &amp; h.rob. compositae (asteraceae)">
+    <article class="plant" id="p026" data-group="herb" data-zones=" 1 12 14 15 " data-search="7-31170-001-026 สาบเสือ chromolaena odoratum (l.) r.m.king &amp; h.rob. compositae (asteraceae)">
       <figure class="ph"><img src="img/plants/026.jpg" alt="ภาพตัวอย่างสาบเสือ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>สาบเสือ</h2>
@@ -471,7 +472,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Brian Oakes Haiti Hunter (<a href="https://www.inaturalist.org/photos/63410243" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p027" data-habit="ไม้พุ่ม" data-zones=" 1 2 3 5 7 8 10 16 " data-search="7-31170-001-027 โมกบ้าน wrightia religiosa benth. ex kurz apocynaceae">
+    <article class="plant" id="p027" data-group="shrub" data-zones=" 1 2 3 5 7 8 10 16 " data-search="7-31170-001-027 โมกบ้าน wrightia religiosa benth. ex kurz apocynaceae">
       <figure class="ph"><img src="img/plants/027.jpg" alt="ภาพตัวอย่างโมกบ้าน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>โมกบ้าน</h2>
@@ -487,7 +488,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย mish mill (<a href="https://www.inaturalist.org/photos/28496923" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p028" data-habit="ไม้เลื้อย" data-zones=" 2 7 16 17 " data-search="7-31170-001-028 รางจืด กำลังช้างเผือก ขอบชะนาง เครือเขาเขียว ยาเขียว (ภาคกลาง) คาย รางเย็น (ยะลา) ดุเหว่า (ปัตตานี) ทิดพุด (นครศรีธรรมราช) น้ำนอง (สระบุรี) ย่ำแย้ แอดแอ (เพชรบูรณ์) thunbergia laurifolia lindl. acanthaceae">
+    <article class="plant" id="p028" data-group="climber" data-zones=" 2 7 16 17 " data-search="7-31170-001-028 รางจืด กำลังช้างเผือก ขอบชะนาง เครือเขาเขียว ยาเขียว (ภาคกลาง) คาย รางเย็น (ยะลา) ดุเหว่า (ปัตตานี) ทิดพุด (นครศรีธรรมราช) น้ำนอง (สระบุรี) ย่ำแย้ แอดแอ (เพชรบูรณ์) thunbergia laurifolia lindl. acanthaceae">
       <figure class="ph"><img src="img/plants/028.jpg" alt="ภาพตัวอย่างรางจืด" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>รางจืด</h2>
@@ -503,7 +504,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย brian fisher (<a href="https://www.inaturalist.org/photos/281653071" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p029" data-habit="ปาล์ม" data-zones=" 2 3 5 6 8 11 17 " data-search="7-31170-001-029 เต่าร้าง caryota bacsonensis magalon palmae (arecaceae)">
+    <article class="plant" id="p029" data-group="palm" data-zones=" 2 3 5 6 8 11 17 " data-search="7-31170-001-029 เต่าร้าง caryota bacsonensis magalon palmae (arecaceae)">
       <figure class="ph"><img src="img/plants/029.jpg" alt="ภาพตัวอย่างเต่าร้าง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เต่าร้าง</h2>
@@ -519,7 +520,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Andrey Efremov (<a href="https://www.inaturalist.org/photos/460831371" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p030" data-habit="ไม้ต้น" data-zones=" 2 4 " data-search="7-31170-001-030 กระถินบ้าน (ภาคกลาง) กะเส็ดโคก กะเส็ดบก (ราชบุรี) ตอเบา สะตอเทศ สะตอเบา (ภาคใต้) ผักก้านถิน (เชียงใหม่) ผักหนองบก (ภาคเหนือ) กระถินยักษ์ leucaena leucocephala (lam.) de wit leguminosae-mimosoideae (mimosaceae)">
+    <article class="plant" id="p030" data-group="tree" data-zones=" 2 4 " data-search="7-31170-001-030 กระถินบ้าน (ภาคกลาง) กะเส็ดโคก กะเส็ดบก (ราชบุรี) ตอเบา สะตอเทศ สะตอเบา (ภาคใต้) ผักก้านถิน (เชียงใหม่) ผักหนองบก (ภาคเหนือ) กระถินยักษ์ leucaena leucocephala (lam.) de wit leguminosae-mimosoideae (mimosaceae)">
       <figure class="ph"><img src="img/plants/030.jpg" alt="ภาพตัวอย่างกระถินบ้าน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กระถินบ้าน</h2>
@@ -535,7 +536,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/173810094" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p031" data-habit="ไม้ต้น" data-zones=" 3 8 9 10 " data-search="7-31170-001-031 แปะ vitex canescens kurz labiatae">
+    <article class="plant" id="p031" data-group="tree" data-zones=" 3 8 9 10 " data-search="7-31170-001-031 แปะ vitex canescens kurz labiatae">
       <figure class="ph"><img src="img/plants/031.jpg" alt="ภาพตัวอย่างแปะ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>แปะ</h2>
@@ -551,7 +552,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Utain Pummarin (<a href="https://www.inaturalist.org/photos/217834792" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p032" data-habit="ไม้ต้น" data-zones=" 2 " data-search="7-31170-001-032 ตะคร้อ schleichera oleosa (lour.) oken sapindaceae">
+    <article class="plant" id="p032" data-group="tree" data-zones=" 2 " data-search="7-31170-001-032 ตะคร้อ schleichera oleosa (lour.) oken sapindaceae">
       <figure class="ph"><img src="img/plants/032.jpg" alt="ภาพตัวอย่างตะคร้อ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตะคร้อ</h2>
@@ -567,7 +568,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Rujuta Vinod (<a href="https://www.inaturalist.org/photos/90565422" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p033" data-habit="ไม้ต้น" data-zones=" 2 8 16 17 " data-search="7-31170-001-033 ประดู่ป่า pterocarpus macrocarpus kurz leguminosae-papilionoideae (papilionaceae)">
+    <article class="plant" id="p033" data-group="tree" data-zones=" 2 8 16 17 " data-search="7-31170-001-033 ประดู่ป่า pterocarpus macrocarpus kurz leguminosae-papilionoideae (papilionaceae)">
       <figure class="ph"><img src="img/plants/033.jpg" alt="ภาพตัวอย่างประดู่ป่า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ประดู่ป่า</h2>
@@ -583,7 +584,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Andrey (<a href="https://www.inaturalist.org/photos/251607341" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p034" data-habit="ไม้ต้น" data-zones=" 2 " data-search="7-31170-001-034 เสม็ด syzygium gratum (wight) s.n.mitra var. gratum myrtaceae">
+    <article class="plant" id="p034" data-group="tree" data-zones=" 2 " data-search="7-31170-001-034 เสม็ด syzygium gratum (wight) s.n.mitra var. gratum myrtaceae">
       <figure class="ph"><img src="img/plants/034.jpg" alt="ภาพตัวอย่างเสม็ด" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เสม็ด</h2>
@@ -599,7 +600,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Didier Levasseur (<a href="https://www.inaturalist.org/photos/194557350" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p035" data-habit="ไม้พุ่ม" data-zones=" 2 6 14 16 " data-search="7-31170-001-035 แก้ว กะมูนิง (มาเลย์-ปัตตานี) แก้วขี้ไก่ (ยะลา) แก้วพริก จ๊าพริก ตะไหลแก้ว (ภาคเหนือ) แก้วขาว (ภาคกลาง) แก้วลาย (สระบุรี) murraya paniculata (l.) jack rutaceae">
+    <article class="plant" id="p035" data-group="shrub" data-zones=" 2 6 14 16 " data-search="7-31170-001-035 แก้ว กะมูนิง (มาเลย์-ปัตตานี) แก้วขี้ไก่ (ยะลา) แก้วพริก จ๊าพริก ตะไหลแก้ว (ภาคเหนือ) แก้วขาว (ภาคกลาง) แก้วลาย (สระบุรี) murraya paniculata (l.) jack rutaceae">
       <figure class="ph"><img src="img/plants/035.jpg" alt="ภาพตัวอย่างแก้ว" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>แก้ว</h2>
@@ -615,7 +616,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย jinze (<a href="https://www.inaturalist.org/photos/169096158" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p036" data-habit="ปาล์ม" data-zones=" 2 9 " data-search="7-31170-001-036 หมากเขียว ptychosperma macarthurii h.wendl. palmae (arecaceae)">
+    <article class="plant" id="p036" data-group="palm" data-zones=" 2 9 " data-search="7-31170-001-036 หมากเขียว ptychosperma macarthurii h.wendl. palmae (arecaceae)">
       <figure class="ph"><img src="img/plants/036.jpg" alt="ภาพตัวอย่างหมากเขียว" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หมากเขียว</h2>
@@ -631,7 +632,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Forest and Kim Starr (<a href="https://www.inaturalist.org/photos/107474787" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p037" data-habit="ไม้ต้น" data-zones=" 2 " data-search="7-31170-001-037 สัก tectona grandis l.f. labiatae (lamiaceae)">
+    <article class="plant" id="p037" data-group="tree" data-zones=" 2 " data-search="7-31170-001-037 สัก tectona grandis l.f. labiatae (lamiaceae)">
       <figure class="ph"><img src="img/plants/037.jpg" alt="ภาพตัวอย่างสัก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>สัก</h2>
@@ -647,7 +648,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Fábio Luis dos Santos (<a href="https://www.inaturalist.org/photos/341617583" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p038" data-habit="ไม้ต้น" data-zones=" 2 3 6 11 16 17 " data-search="7-31170-001-038 โสกอินเดีย อโศกเซนต์คาเบรียล polyalthia longifolia (benth.) hook.f. annonaceae">
+    <article class="plant" id="p038" data-group="tree" data-zones=" 2 3 6 11 16 17 " data-search="7-31170-001-038 โสกอินเดีย อโศกเซนต์คาเบรียล polyalthia longifolia (benth.) hook.f. annonaceae">
       <figure class="ph"><img src="img/plants/038.jpg" alt="ภาพตัวอย่างโสกอินเดีย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>โสกอินเดีย</h2>
@@ -663,7 +664,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย liangfern (<a href="https://www.inaturalist.org/photos/250307806" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p039" data-habit="ไม้ต้น" data-zones=" 2 11 " data-search="7-31170-001-039 ทองหลางลาย erythrina variegata l. leguminosae-papilionoideae (papilionaceae)">
+    <article class="plant" id="p039" data-group="tree" data-zones=" 2 11 " data-search="7-31170-001-039 ทองหลางลาย erythrina variegata l. leguminosae-papilionoideae (papilionaceae)">
       <figure class="ph"><img src="img/plants/039.jpg" alt="ภาพตัวอย่างทองหลางลาย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ทองหลางลาย</h2>
@@ -679,7 +680,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย wanyu_ (<a href="https://www.inaturalist.org/photos/285528539" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p040" data-habit="ไม้ต้น" data-zones=" 2 3 5 11 12 15 16 " data-search="7-31170-001-040 ขี้เหล็กแก่น (ราชบุรี) ขี้เหล็กบ้าน (ลำปาง สุราษฏร์ธานี) ขี้เหล็กหลวง (ภาคเหนือ) ขี้เหล็กใหญ่ (ภาคกลาง) ผักจี้ลี้ (ฉาน-แม่ฮ่องสอน) senna siamea (lam.) irwin &amp; barneby leguminosae-caesalpinioideae (caesalpiniaceae)">
+    <article class="plant" id="p040" data-group="tree" data-zones=" 2 3 5 11 12 15 16 " data-search="7-31170-001-040 ขี้เหล็กแก่น (ราชบุรี) ขี้เหล็กบ้าน (ลำปาง สุราษฏร์ธานี) ขี้เหล็กหลวง (ภาคเหนือ) ขี้เหล็กใหญ่ (ภาคกลาง) ผักจี้ลี้ (ฉาน-แม่ฮ่องสอน) senna siamea (lam.) irwin &amp; barneby leguminosae-caesalpinioideae (caesalpiniaceae)">
       <figure class="ph"><img src="img/plants/040.jpg" alt="ภาพตัวอย่างขี้เหล็กแก่น" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ขี้เหล็กแก่น</h2>
@@ -695,7 +696,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Rui Da Silva Pinto (<a href="https://www.inaturalist.org/photos/27943748" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p041" data-habit="ไม้ต้น" data-zones=" 2 4 5 7 8 9 11 14 15 16 " data-search="7-31170-001-041 มะขาม ขาม (ภาคใต้) ตะลูบ (ชาวบน-นครราชสีมา) ม่องโคล้ง (กะเหรี่ยง-กาญจนบุรี) มอดเล ส่ามอเกล (กะเหรี่ยง-แม่ฮ่องสอน) หมากแกง (ฉาน-แม่ฮ่องสอน) ซึงกัก ทงฮ้วยเฮียง (จีน) tamarindus indica l. leguminosae-caesalpinioideae (caesalpiniaceae)">
+    <article class="plant" id="p041" data-group="tree" data-zones=" 2 4 5 7 8 9 11 14 15 16 " data-search="7-31170-001-041 มะขาม ขาม (ภาคใต้) ตะลูบ (ชาวบน-นครราชสีมา) ม่องโคล้ง (กะเหรี่ยง-กาญจนบุรี) มอดเล ส่ามอเกล (กะเหรี่ยง-แม่ฮ่องสอน) หมากแกง (ฉาน-แม่ฮ่องสอน) ซึงกัก ทงฮ้วยเฮียง (จีน) tamarindus indica l. leguminosae-caesalpinioideae (caesalpiniaceae)">
       <figure class="ph"><img src="img/plants/041.jpg" alt="ภาพตัวอย่างมะขาม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะขาม</h2>
@@ -711,7 +712,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/40233197" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p042" data-habit="ไม้พุ่ม" data-zones=" 2 15 " data-search="7-31170-001-042 เอื้องทอง sanchezia speciosa leonard acanthaceae">
+    <article class="plant" id="p042" data-group="shrub" data-zones=" 2 15 " data-search="7-31170-001-042 เอื้องทอง sanchezia speciosa leonard acanthaceae">
       <figure class="ph"><img src="img/plants/042.jpg" alt="ภาพตัวอย่างเอื้องทอง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เอื้องทอง</h2>
@@ -727,7 +728,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย sandy-espinozaf (<a href="https://www.inaturalist.org/photos/47048332" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p043" data-habit="ไม้ต้น" data-zones=" 2 5 15 " data-search="7-31170-001-043 มะยม หมากยม(อีสาน) phyllanthus acidus (l.) skeels euphorbiaceae">
+    <article class="plant" id="p043" data-group="tree" data-zones=" 2 5 15 " data-search="7-31170-001-043 มะยม หมากยม(อีสาน) phyllanthus acidus (l.) skeels euphorbiaceae">
       <figure class="ph"><img src="img/plants/043.jpg" alt="ภาพตัวอย่างมะยม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะยม</h2>
@@ -743,7 +744,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Nasser Halaweh (<a href="https://www.inaturalist.org/photos/28866253" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p044" data-habit="ไม้พุ่ม" data-zones=" 2 " data-search="7-31170-001-044 วาสนา ประเดหวี มังกรหยก (กรุงเทพฯ) dracaena fragrans (l.) ker gawl. dracaenaceae">
+    <article class="plant" id="p044" data-group="shrub" data-zones=" 2 " data-search="7-31170-001-044 วาสนา ประเดหวี มังกรหยก (กรุงเทพฯ) dracaena fragrans (l.) ker gawl. dracaenaceae">
       <figure class="ph"><img src="img/plants/044.jpg" alt="ภาพตัวอย่างวาสนา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>วาสนา</h2>
@@ -759,7 +760,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Jan Ho (<a href="https://www.inaturalist.org/photos/69907178" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p045" data-habit="ไม้พุ่มขนาดเล็ก" data-zones=" 2 8 16 " data-search="7-31170-001-045 สาวน้อยประแป้ง dieffenbachia seguine (jacq.) schott var. seguine araceae">
+    <article class="plant" id="p045" data-group="shrub" data-zones=" 2 8 16 " data-search="7-31170-001-045 สาวน้อยประแป้ง dieffenbachia seguine (jacq.) schott var. seguine araceae">
       <figure class="ph"><img src="img/plants/045.jpg" alt="ภาพตัวอย่างสาวน้อยประแป้ง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>สาวน้อยประแป้ง</h2>
@@ -775,7 +776,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย mira_hlt (<a href="https://www.inaturalist.org/photos/325214430" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p046" data-habit="ไม้ต้น" data-zones=" 2 15 16 " data-search="7-31170-001-046 หนวดปลาหมึก schefflera actinophylla (endl.) harms araliaceae">
+    <article class="plant" id="p046" data-group="tree" data-zones=" 2 15 16 " data-search="7-31170-001-046 หนวดปลาหมึก schefflera actinophylla (endl.) harms araliaceae">
       <figure class="ph"><img src="img/plants/046.jpg" alt="ภาพตัวอย่างหนวดปลาหมึก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หนวดปลาหมึก</h2>
@@ -791,7 +792,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Stephen Thorpe (<a href="https://www.inaturalist.org/photos/19387254" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p047" data-habit="ไม้พุ่ม" data-zones=" 2 " data-search="7-31170-001-047 ไผ่ฟิลิปปินส์ด่าง dracaena surculosa lindl. cv. florida beauty dracaenaceae">
+    <article class="plant" id="p047" data-group="shrub" data-zones=" 2 " data-search="7-31170-001-047 ไผ่ฟิลิปปินส์ด่าง dracaena surculosa lindl. cv. florida beauty dracaenaceae">
       <figure class="ph"><img src="img/plants/047.jpg" alt="ภาพตัวอย่างไผ่ฟิลิปปินส์ด่าง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ไผ่ฟิลิปปินส์ด่าง</h2>
@@ -807,7 +808,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/715973" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p048" data-habit="ไม้เลื้อย" data-zones=" 2 8 " data-search="7-31170-001-048 พลูด่าง พลูช้าง(เหนือ) พลูด่าง พลูฝรั่ง ราชินีหินอ่อน (กรุงเทพ) epipremnum aureum engl. araceae">
+    <article class="plant" id="p048" data-group="climber" data-zones=" 2 8 " data-search="7-31170-001-048 พลูด่าง พลูช้าง(เหนือ) พลูด่าง พลูฝรั่ง ราชินีหินอ่อน (กรุงเทพ) epipremnum aureum engl. araceae">
       <figure class="ph"><img src="img/plants/048.jpg" alt="ภาพตัวอย่างพลูด่าง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>พลูด่าง</h2>
@@ -823,7 +824,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Amaury Durbano (<a href="https://www.inaturalist.org/photos/337751865" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p049" data-habit="ไม้พุ่ม" data-zones=" 2 10 " data-search="7-31170-001-049 หมากผู้หมากเมีย cordyline fruticosa (l.) gopp. agavaceae">
+    <article class="plant" id="p049" data-group="shrub" data-zones=" 2 10 " data-search="7-31170-001-049 หมากผู้หมากเมีย cordyline fruticosa (l.) gopp. agavaceae">
       <figure class="ph"><img src="img/plants/049.jpg" alt="ภาพตัวอย่างหมากผู้หมากเมีย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หมากผู้หมากเมีย</h2>
@@ -839,7 +840,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย lerc-1 (<a href="https://www.inaturalist.org/photos/311053723" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p050" data-habit="เฟิร์น" data-zones=" 3 " data-search="7-31170-001-050 เฟิร์นก้ามปู nephrolepis biserrata (sw.) schott nephrolepidaceae">
+    <article class="plant" id="p050" data-group="grass" data-zones=" 3 " data-search="7-31170-001-050 เฟิร์นก้ามปู nephrolepis biserrata (sw.) schott nephrolepidaceae">
       <figure class="ph"><img src="img/plants/050.jpg" alt="ภาพตัวอย่างเฟิร์นก้ามปู" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เฟิร์นก้ามปู</h2>
@@ -855,7 +856,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Benjamin Schwartz (<a href="https://www.inaturalist.org/photos/8923258" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p051" data-habit="ไม้ต้น" data-zones=" 3 7 14 " data-search="7-31170-001-051 ขนุน มะหนุน (ภาคใต้ ภาคเหนือ) หมักหมี้ (ภาคตะวันออกเฉียงเหนือ) หมากลาง (เงี้ยว-แม่ฮ่องสอน) artocarpus heterophyllus lam. moraceae">
+    <article class="plant" id="p051" data-group="tree" data-zones=" 3 7 14 " data-search="7-31170-001-051 ขนุน มะหนุน (ภาคใต้ ภาคเหนือ) หมักหมี้ (ภาคตะวันออกเฉียงเหนือ) หมากลาง (เงี้ยว-แม่ฮ่องสอน) artocarpus heterophyllus lam. moraceae">
       <figure class="ph"><img src="img/plants/051.jpg" alt="ภาพตัวอย่างขนุน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ขนุน</h2>
@@ -871,7 +872,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Henry Lourenço (<a href="https://www.inaturalist.org/photos/316636114" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p052" data-habit="ไม้ต้น" data-zones=" 3 6 11 17 " data-search="7-31170-001-052 มะขามเทศ มะขามข้อง (แพร่) pithecellobium dulce (roxb.) benth. leguminosae-mimosoideae (mimosaceae)">
+    <article class="plant" id="p052" data-group="tree" data-zones=" 3 6 11 17 " data-search="7-31170-001-052 มะขามเทศ มะขามข้อง (แพร่) pithecellobium dulce (roxb.) benth. leguminosae-mimosoideae (mimosaceae)">
       <figure class="ph"><img src="img/plants/052.jpg" alt="ภาพตัวอย่างมะขามเทศ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะขามเทศ</h2>
@@ -887,7 +888,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Francisco Farriols Sarabia (<a href="https://www.inaturalist.org/photos/4024336" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p053" data-habit="ไม้ต้น" data-zones=" 3 4 7 " data-search="7-31170-001-053 มะค่าแต้ หมากแต้ (อีสาน) sindora siamensis teijsm. &amp; miq. leguminosae-caesalpinioideae (caesalpiniaceae)">
+    <article class="plant" id="p053" data-group="tree" data-zones=" 3 4 7 " data-search="7-31170-001-053 มะค่าแต้ หมากแต้ (อีสาน) sindora siamensis teijsm. &amp; miq. leguminosae-caesalpinioideae (caesalpiniaceae)">
       <figure class="ph"><img src="img/plants/053.jpg" alt="ภาพตัวอย่างมะค่าแต้" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะค่าแต้</h2>
@@ -903,7 +904,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย dechaphaetkrathok (<a href="https://www.inaturalist.org/photos/191497683" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p054" data-habit="ไม้เลื้อย" data-zones=" 3 4 14 " data-search="7-31170-001-054 คัดเค้า คัดเค้าเครือ (นครราชสีมา) คัดเค้าหนาม (ชัยภูมิ) พญาเท้าเอว (กาญจนบุรี) เค็ดเค้า (ภาคเหนือ) หนามลิดเค้า (เชียงใหม่) oxyceros horridus lour. rubiaceae">
+    <article class="plant" id="p054" data-group="climber" data-zones=" 3 4 14 " data-search="7-31170-001-054 คัดเค้า คัดเค้าเครือ (นครราชสีมา) คัดเค้าหนาม (ชัยภูมิ) พญาเท้าเอว (กาญจนบุรี) เค็ดเค้า (ภาคเหนือ) หนามลิดเค้า (เชียงใหม่) oxyceros horridus lour. rubiaceae">
       <figure class="ph"><img src="img/plants/054.jpg" alt="ภาพตัวอย่างคัดเค้า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>คัดเค้า</h2>
@@ -919,7 +920,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย berkovec (<a href="https://www.inaturalist.org/photos/68017661" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p055" data-habit="ไม้ต้น" data-zones=" 3 16 " data-search="7-31170-001-055 ชงโค เสี้ยวดอกแดง (ภาคเหนือ) เสี้ยวหวาน (แม่ฮ่องสอน) bauhinia purpurea l. leguminosae-caesalpinioideae (caesalpiniaceae)">
+    <article class="plant" id="p055" data-group="tree" data-zones=" 3 16 " data-search="7-31170-001-055 ชงโค เสี้ยวดอกแดง (ภาคเหนือ) เสี้ยวหวาน (แม่ฮ่องสอน) bauhinia purpurea l. leguminosae-caesalpinioideae (caesalpiniaceae)">
       <figure class="ph"><img src="img/plants/055.jpg" alt="ภาพตัวอย่างชงโค" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ชงโค</h2>
@@ -935,7 +936,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย portioid (<a href="https://www.inaturalist.org/photos/26886384" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p056" data-habit="ไม้ต้น" data-zones=" 3 8 16 " data-search="7-31170-001-056 มะนาวผี กรูดเปรย กรูดผี กะนาวผี atalantia monophylla (dc.) correa rutaceae">
+    <article class="plant" id="p056" data-group="tree" data-zones=" 3 8 16 " data-search="7-31170-001-056 มะนาวผี กรูดเปรย กรูดผี กะนาวผี atalantia monophylla (dc.) correa rutaceae">
       <figure class="ph"><img src="img/plants/056.jpg" alt="ภาพตัวอย่างมะนาวผี" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะนาวผี</h2>
@@ -951,7 +952,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Suhel Quader (<a href="https://www.inaturalist.org/photos/34279530" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p057" data-habit="ไม้ต้น" data-zones=" 3 5 8 11 14 16 " data-search="7-31170-001-057 จามจุรี ก้ามกราม ก้ามกุ้ง ก้ามปู (ภาคกลาง) ฉำฉา ลัง สารสา สำสา ตุ๊ดตู่ (ภาคเหนือ) samanea saman (jacq.) merr. leguminosae-mimosoideae (mimosaceae)">
+    <article class="plant" id="p057" data-group="tree" data-zones=" 3 5 8 11 14 16 " data-search="7-31170-001-057 จามจุรี ก้ามกราม ก้ามกุ้ง ก้ามปู (ภาคกลาง) ฉำฉา ลัง สารสา สำสา ตุ๊ดตู่ (ภาคเหนือ) samanea saman (jacq.) merr. leguminosae-mimosoideae (mimosaceae)">
       <figure class="ph"><img src="img/plants/057.jpg" alt="ภาพตัวอย่างจามจุรี" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>จามจุรี</h2>
@@ -967,7 +968,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/58693810" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p058" data-habit="ไม้ต้น" data-zones=" 3 5 10 17 " data-search="7-31170-001-058 ทะลอก กระท้อนลอก (ตราด) จัดจั๊ด (ลำปาง) ตะเลาะ เหลอะ (ส่วย-สุรินทร์) ตะโลก (เขมร-สุรินทร์) ท่าลอก (พิษณุโลก นครราชสีมา ปราจีนบุรี) parinari anamense hance chrysobalanaceae">
+    <article class="plant" id="p058" data-group="tree" data-zones=" 3 5 10 17 " data-search="7-31170-001-058 ทะลอก กระท้อนลอก (ตราด) จัดจั๊ด (ลำปาง) ตะเลาะ เหลอะ (ส่วย-สุรินทร์) ตะโลก (เขมร-สุรินทร์) ท่าลอก (พิษณุโลก นครราชสีมา ปราจีนบุรี) parinari anamense hance chrysobalanaceae">
       <figure class="ph"><img src="img/plants/058.jpg" alt="ภาพตัวอย่างทะลอก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ทะลอก</h2>
@@ -983,7 +984,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย David Renoult (<a href="https://www.inaturalist.org/photos/4705797" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p059" data-habit="ไม้เลื้อย" data-zones=" 3 4 5 11 " data-search="7-31170-001-059 การเวก กระดังงาจีน (ภาคกลาง) สะบันงาจีน (ภาคเหนือ) artabotrys hexapetalus (l.f.) bhandari annonaceae">
+    <article class="plant" id="p059" data-group="climber" data-zones=" 3 4 5 11 " data-search="7-31170-001-059 การเวก กระดังงาจีน (ภาคกลาง) สะบันงาจีน (ภาคเหนือ) artabotrys hexapetalus (l.f.) bhandari annonaceae">
       <figure class="ph"><img src="img/plants/059.jpg" alt="ภาพตัวอย่างการเวก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>การเวก</h2>
@@ -999,7 +1000,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย gayathree (<a href="https://www.inaturalist.org/photos/274652348" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p061" data-habit="ไม้ต้น" data-zones=" 3 4 5 9 11 12 14 15 " data-search="7-31170-001-061 สนวน กระพี้ (ลำปาง) กระพี้โพรง (ราชบุรี) สนวน (กลาง) ไฮปันชั้น (ลำปาง) dalbergia nigrescens kurz leguminosae-papilionoideae">
+    <article class="plant" id="p061" data-group="tree" data-zones=" 3 4 5 9 11 12 14 15 " data-search="7-31170-001-061 สนวน กระพี้ (ลำปาง) กระพี้โพรง (ราชบุรี) สนวน (กลาง) ไฮปันชั้น (ลำปาง) dalbergia nigrescens kurz leguminosae-papilionoideae">
       <figure class="ph"><img src="img/plants/061.jpg" alt="ภาพตัวอย่างสนวน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>สนวน</h2>
@@ -1015,7 +1016,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Wangworn Sankamethawee (<a href="https://www.inaturalist.org/photos/230173949" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p062" data-habit="ไม้ต้น" data-zones=" 4 8 11 12 16 17 " data-search="7-31170-001-062 ยางนา กาตีล (เขมร-ปราจีนบุรี) ขะยาง (ชาวบน-นครราชสีมา) เคาะ (กะเหรี่ยง-เชียงใหม่) ยาง ยางแม่น้ำ ยางหยวก (ทั่วไป) ยางกุง (เลย) ราลอย (ส่วย-สุรินทร์) dipterocarpus alatus roxb. ex g.don dipterocarpaceae">
+    <article class="plant" id="p062" data-group="tree" data-zones=" 4 8 11 12 16 17 " data-search="7-31170-001-062 ยางนา กาตีล (เขมร-ปราจีนบุรี) ขะยาง (ชาวบน-นครราชสีมา) เคาะ (กะเหรี่ยง-เชียงใหม่) ยาง ยางแม่น้ำ ยางหยวก (ทั่วไป) ยางกุง (เลย) ราลอย (ส่วย-สุรินทร์) dipterocarpus alatus roxb. ex g.don dipterocarpaceae">
       <figure class="ph"><img src="img/plants/062.jpg" alt="ภาพตัวอย่างยางนา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ยางนา</h2>
@@ -1031,7 +1032,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Wangworn Sankamethawee (<a href="https://www.inaturalist.org/photos/212741669" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p063" data-habit="ไม้ต้น" data-zones=" 4 8 17 " data-search="7-31170-001-063 กระบาก กระบากขาว (ชลบุรี ชุมพร ระนอง) กระบากโคก (ตรัง) กระบากช่อ กระบากด้าง กระบากดำ (ชุมพร) กระบากแดง (ชุมพร ระนอง) anisoptera costata korth. dipterocarpaceae">
+    <article class="plant" id="p063" data-group="tree" data-zones=" 4 8 17 " data-search="7-31170-001-063 กระบาก กระบากขาว (ชลบุรี ชุมพร ระนอง) กระบากโคก (ตรัง) กระบากช่อ กระบากด้าง กระบากดำ (ชุมพร) กระบากแดง (ชุมพร ระนอง) anisoptera costata korth. dipterocarpaceae">
       <figure class="ph"><img src="img/plants/063.jpg" alt="ภาพตัวอย่างกระบาก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กระบาก</h2>
@@ -1047,7 +1048,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Psumuseum (<a href="https://www.inaturalist.org/photos/2098416" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p064" data-habit="ไม้ต้นขนาดเล็ก" data-zones=" 4 " data-search="7-31170-001-064 แคฝรั่ง gliricidia sepium (jacq.) walp. leguminosae-papilionoideae (papilionaceae)">
+    <article class="plant" id="p064" data-group="tree" data-zones=" 4 " data-search="7-31170-001-064 แคฝรั่ง gliricidia sepium (jacq.) walp. leguminosae-papilionoideae (papilionaceae)">
       <figure class="ph"><img src="img/plants/064.jpg" alt="ภาพตัวอย่างแคฝรั่ง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>แคฝรั่ง</h2>
@@ -1063,7 +1064,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Colin Barrows (<a href="https://www.inaturalist.org/photos/2677580" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p065" data-habit="ไม้พุ่ม" data-zones=" 4 10 17 " data-search="7-31170-001-065 ชบา ชุมบา (ปัตตานี) บา (ภาคใต้)ใหม่ ใหม่แดง (ภาคเหนือ) hibiscus rosa-sinensis l. malvaceae">
+    <article class="plant" id="p065" data-group="shrub" data-zones=" 4 10 17 " data-search="7-31170-001-065 ชบา ชุมบา (ปัตตานี) บา (ภาคใต้)ใหม่ ใหม่แดง (ภาคเหนือ) hibiscus rosa-sinensis l. malvaceae">
       <figure class="ph"><img src="img/plants/065.jpg" alt="ภาพตัวอย่างชบา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ชบา</h2>
@@ -1079,7 +1080,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Diego Delso (<a href="https://www.inaturalist.org/photos/464365407" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p066" data-habit="ไม้พุ่ม" data-zones=" 5 11 15 17 " data-search="7-31170-001-066 โมกใหญ่ มูกมันน้อย มูกมันหลวง มูกหลวง โมกเขา โมกทุ่ง โมงหลวง (เหนือ) ยางพูด (เลย) หนามเนื้อ (เงี้ยว-เหนือ) holarrhena pubescens wall. ex g.don apocynaceae">
+    <article class="plant" id="p066" data-group="shrub" data-zones=" 5 11 15 17 " data-search="7-31170-001-066 โมกใหญ่ มูกมันน้อย มูกมันหลวง มูกหลวง โมกเขา โมกทุ่ง โมงหลวง (เหนือ) ยางพูด (เลย) หนามเนื้อ (เงี้ยว-เหนือ) holarrhena pubescens wall. ex g.don apocynaceae">
       <figure class="ph"><img src="img/plants/066.jpg" alt="ภาพตัวอย่างโมกใหญ่" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>โมกใหญ่</h2>
@@ -1095,7 +1096,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Aparna Watve (<a href="https://www.inaturalist.org/photos/107267632" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p067" data-habit="ไผ่" data-zones=" 5 17 " data-search="7-31170-001-067 ไผ่โพ ไผ่เหลือง ไผ่โป schizostachyum brachycladum kurz gramineae">
+    <article class="plant" id="p067" data-group="palm" data-zones=" 5 17 " data-search="7-31170-001-067 ไผ่โพ ไผ่เหลือง ไผ่โป schizostachyum brachycladum kurz gramineae">
       <figure class="ph"><img src="img/plants/067.jpg" alt="ภาพตัวอย่างไผ่โพ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ไผ่โพ</h2>
@@ -1111,7 +1112,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Wie146 (<a href="https://www.inaturalist.org/photos/91810333" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p068" data-habit="ไม้ต้น" data-zones=" 5 12 17 " data-search="7-31170-001-068 มะเฟือง สะบือ (เขมร) averrhoa carambola l. oxalidaceae">
+    <article class="plant" id="p068" data-group="tree" data-zones=" 5 12 17 " data-search="7-31170-001-068 มะเฟือง สะบือ (เขมร) averrhoa carambola l. oxalidaceae">
       <figure class="ph"><img src="img/plants/068.jpg" alt="ภาพตัวอย่างมะเฟือง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะเฟือง</h2>
@@ -1127,7 +1128,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/92413444" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p069" data-habit="ไม้ต้น" data-zones=" 5 " data-search="7-31170-001-069 มะเดื่อขน มะเดื่อปล้อง ficus hispida l.f. moraceae">
+    <article class="plant" id="p069" data-group="tree" data-zones=" 5 " data-search="7-31170-001-069 มะเดื่อขน มะเดื่อปล้อง ficus hispida l.f. moraceae">
       <figure class="ph"><img src="img/plants/069.jpg" alt="ภาพตัวอย่างมะเดื่อขน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะเดื่อขน</h2>
@@ -1143,7 +1144,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Naufal Urfi Dhiya&#x27;ulhaq (<a href="https://www.inaturalist.org/photos/94282747" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p070" data-habit="ไม้ต้น" data-zones=" 5 " data-search="7-31170-001-070 หางนกยูงไทย caesalpinia pulcherrima (l.) sw. leguminosae-caesalpinioideae">
+    <article class="plant" id="p070" data-group="tree" data-zones=" 5 " data-search="7-31170-001-070 หางนกยูงไทย caesalpinia pulcherrima (l.) sw. leguminosae-caesalpinioideae">
       <figure class="ph"><img src="img/plants/070.jpg" alt="ภาพตัวอย่างหางนกยูงไทย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หางนกยูงไทย</h2>
@@ -1159,7 +1160,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Jonathan Ortiz Torres (<a href="https://www.inaturalist.org/photos/4952725" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p071" data-habit="ไม้ต้น" data-zones=" 6 " data-search="7-31170-001-071 ศรีตรัง jacaranda mimosifolia d.don bignoniaceae">
+    <article class="plant" id="p071" data-group="tree" data-zones=" 6 " data-search="7-31170-001-071 ศรีตรัง jacaranda mimosifolia d.don bignoniaceae">
       <figure class="ph"><img src="img/plants/071.jpg" alt="ภาพตัวอย่างศรีตรัง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ศรีตรัง</h2>
@@ -1175,7 +1176,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Linda (<a href="https://www.inaturalist.org/photos/32686403" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p072" data-habit="ไม้ต้น" data-zones=" 6 11 " data-search="7-31170-001-072 สนทะเล casuarina equisetifolia j.r. &amp; g.forst. casuarinaceae">
+    <article class="plant" id="p072" data-group="tree" data-zones=" 6 11 " data-search="7-31170-001-072 สนทะเล casuarina equisetifolia j.r. &amp; g.forst. casuarinaceae">
       <figure class="ph"><img src="img/plants/072.jpg" alt="ภาพตัวอย่างสนทะเล" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>สนทะเล</h2>
@@ -1191,7 +1192,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Pedro Alanis (<a href="https://www.inaturalist.org/photos/16450498" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p073" data-habit="ไม้ต้น" data-zones=" 6 " data-search="7-31170-001-073 ขี้เหล็กอเมริกัน senna spectabilis (dc.) irwin &amp; barneby leguminosae-caesalpinioideae">
+    <article class="plant" id="p073" data-group="tree" data-zones=" 6 " data-search="7-31170-001-073 ขี้เหล็กอเมริกัน senna spectabilis (dc.) irwin &amp; barneby leguminosae-caesalpinioideae">
       <figure class="ph"><img src="img/plants/073.jpg" alt="ภาพตัวอย่างขี้เหล็กอเมริกัน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ขี้เหล็กอเมริกัน</h2>
@@ -1207,7 +1208,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Kinmatsu Lin (<a href="https://www.inaturalist.org/photos/57638167" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p074" data-habit="ไม้ต้น" data-zones=" 7 " data-search="7-31170-001-074 ทองกวาว กวาว กว๋าว butea monosperma (lam.) taub. leguminosae-papilionoideae">
+    <article class="plant" id="p074" data-group="tree" data-zones=" 7 " data-search="7-31170-001-074 ทองกวาว กวาว กว๋าว butea monosperma (lam.) taub. leguminosae-papilionoideae">
       <figure class="ph"><img src="img/plants/074.jpg" alt="ภาพตัวอย่างทองกวาว" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ทองกวาว</h2>
@@ -1223,7 +1224,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/3889326" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p075" data-habit="ไม้ต้น" data-zones=" 7 17 " data-search="7-31170-001-075 เพกา มะลิดไม้ มะลิ้นไม้ ลิดไม้ oroxylum indicum (l.) kurz bignoniaceae">
+    <article class="plant" id="p075" data-group="tree" data-zones=" 7 17 " data-search="7-31170-001-075 เพกา มะลิดไม้ มะลิ้นไม้ ลิดไม้ oroxylum indicum (l.) kurz bignoniaceae">
       <figure class="ph"><img src="img/plants/075.jpg" alt="ภาพตัวอย่างเพกา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เพกา</h2>
@@ -1239,7 +1240,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Cheongweei Gan (<a href="https://www.inaturalist.org/photos/28953974" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p076" data-habit="ไม้ต้น" data-zones=" 7 14 " data-search="7-31170-001-076 หว้า ห้าขี้แพะ (เชียงราย) syzygium cumini (l.) skeels myrtaceae">
+    <article class="plant" id="p076" data-group="tree" data-zones=" 7 14 " data-search="7-31170-001-076 หว้า ห้าขี้แพะ (เชียงราย) syzygium cumini (l.) skeels myrtaceae">
       <figure class="ph"><img src="img/plants/076.jpg" alt="ภาพตัวอย่างหว้า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หว้า</h2>
@@ -1255,7 +1256,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย budak (<a href="https://www.inaturalist.org/photos/46156014" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p077" data-habit="ไม้ต้น" data-zones=" 7 " data-search="7-31170-001-077 ตะขบ ตะขบฝรั่ง muntingia calabura l. tiliaceae">
+    <article class="plant" id="p077" data-group="tree" data-zones=" 7 " data-search="7-31170-001-077 ตะขบ ตะขบฝรั่ง muntingia calabura l. tiliaceae">
       <figure class="ph"><img src="img/plants/077.jpg" alt="ภาพตัวอย่างตะขบ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตะขบ</h2>
@@ -1271,7 +1272,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Jorge Armín Escalante-Pasos (<a href="https://www.inaturalist.org/photos/1567788" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p078" data-habit="ไม้ต้น" data-zones=" 7 " data-search="7-31170-001-078 ทับทิม พิลา พิลาขาว มะก่องแก้ว มะเก๊าะ หมากจัง เซียะลิ้ว punica granatum l. var. granatum punicaceae">
+    <article class="plant" id="p078" data-group="tree" data-zones=" 7 " data-search="7-31170-001-078 ทับทิม พิลา พิลาขาว มะก่องแก้ว มะเก๊าะ หมากจัง เซียะลิ้ว punica granatum l. var. granatum punicaceae">
       <figure class="ph"><img src="img/plants/078.jpg" alt="ภาพตัวอย่างทับทิม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ทับทิม</h2>
@@ -1287,7 +1288,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย H. Zell (<a href="https://www.inaturalist.org/photos/4956594" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p079" data-habit="ไม้ต้น" data-zones=" 7 " data-search="7-31170-001-079 อินทนิลน้ำ lagerstroemia speciosa (l.) pers. lythraceae">
+    <article class="plant" id="p079" data-group="tree" data-zones=" 7 " data-search="7-31170-001-079 อินทนิลน้ำ lagerstroemia speciosa (l.) pers. lythraceae">
       <figure class="ph"><img src="img/plants/079.jpg" alt="ภาพตัวอย่างอินทนิลน้ำ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>อินทนิลน้ำ</h2>
@@ -1303,7 +1304,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Mark Roberts (<a href="https://www.inaturalist.org/photos/79053352" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p080" data-habit="เฟิร์น" data-zones=" 7 " data-search="7-31170-001-080 เฟิร์นก้านดำเกล็ดหอยใหญ่ adiantum tenerum sw. pteridaceae">
+    <article class="plant" id="p080" data-group="grass" data-zones=" 7 " data-search="7-31170-001-080 เฟิร์นก้านดำเกล็ดหอยใหญ่ adiantum tenerum sw. pteridaceae">
       <figure class="ph"><img src="img/plants/080.jpg" alt="ภาพตัวอย่างเฟิร์นก้านดำเกล็ดหอยใหญ่" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เฟิร์นก้านดำเกล็ดหอยใหญ่</h2>
@@ -1319,7 +1320,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Leon Perrie (<a href="https://www.inaturalist.org/photos/2270950" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p081" data-habit="ไม้พุ่ม" data-zones=" 2 7 " data-search="7-31170-001-081 ทองพันชั่ง ทองคันชั่ง หญ้ามันไก่ (ภาคกลาง) ทองพันดุลย์ rhinacanthus nasutus (l.) kurz acanthaceae">
+    <article class="plant" id="p081" data-group="shrub" data-zones=" 2 7 " data-search="7-31170-001-081 ทองพันชั่ง ทองคันชั่ง หญ้ามันไก่ (ภาคกลาง) ทองพันดุลย์ rhinacanthus nasutus (l.) kurz acanthaceae">
       <figure class="ph"><img src="img/plants/081.jpg" alt="ภาพตัวอย่างทองพันชั่ง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ทองพันชั่ง</h2>
@@ -1335,7 +1336,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/56699712" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p082" data-habit="ปาล์ม" data-zones=" 7 9 12 14 " data-search="7-31170-001-082 มะพร้าว cocos nucifera l. palmae (arecaceae)">
+    <article class="plant" id="p082" data-group="palm" data-zones=" 7 9 12 14 " data-search="7-31170-001-082 มะพร้าว cocos nucifera l. palmae (arecaceae)">
       <figure class="ph"><img src="img/plants/082.jpg" alt="ภาพตัวอย่างมะพร้าว" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะพร้าว</h2>
@@ -1351,7 +1352,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Douglas Goldman (<a href="https://www.inaturalist.org/photos/234982213" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p083" data-habit="ไม้ต้น" data-zones=" 8 11 16 17 " data-search="7-31170-001-083 พญาสัตบรรณ ตีนเป็ด alstonia scholaris (l.) r.br. apocynaceae">
+    <article class="plant" id="p083" data-group="tree" data-zones=" 8 11 16 17 " data-search="7-31170-001-083 พญาสัตบรรณ ตีนเป็ด alstonia scholaris (l.) r.br. apocynaceae">
       <figure class="ph"><img src="img/plants/083.jpg" alt="ภาพตัวอย่างพญาสัตบรรณ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>พญาสัตบรรณ</h2>
@@ -1367,7 +1368,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย scribblesii (<a href="https://www.inaturalist.org/photos/46130816" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p084" data-habit="ไม้ล้มลุก" data-zones=" 8 " data-search="7-31170-001-084 เศรษฐีเรือนนอก ว่านเศรษฐีเรือนนอก chlorophytum bichetii (karrer) backer anthericaceae">
+    <article class="plant" id="p084" data-group="herb" data-zones=" 8 " data-search="7-31170-001-084 เศรษฐีเรือนนอก ว่านเศรษฐีเรือนนอก chlorophytum bichetii (karrer) backer anthericaceae">
       <figure class="ph"><img src="img/plants/084.jpg" alt="ภาพตัวอย่างเศรษฐีเรือนนอก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เศรษฐีเรือนนอก</h2>
@@ -1383,7 +1384,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Shami Narayanan (<a href="https://www.inaturalist.org/photos/92755048" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p085" data-habit="ไม้ต้น" data-zones=" 8 " data-search="7-31170-001-085 ประดู่กิ่งอ่อน ดู่บ้าน (ภาคเหนือ) ประดู่บ้าน ประดู่ลาย อังสนา (ภาคกลาง) สะโน (มาเลย์) pterocarpus indicus willd. leguminosae-papilionoideae (papilionaceae)">
+    <article class="plant" id="p085" data-group="tree" data-zones=" 8 " data-search="7-31170-001-085 ประดู่กิ่งอ่อน ดู่บ้าน (ภาคเหนือ) ประดู่บ้าน ประดู่ลาย อังสนา (ภาคกลาง) สะโน (มาเลย์) pterocarpus indicus willd. leguminosae-papilionoideae (papilionaceae)">
       <figure class="ph"><img src="img/plants/085.jpg" alt="ภาพตัวอย่างประดู่กิ่งอ่อน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ประดู่กิ่งอ่อน</h2>
@@ -1399,7 +1400,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/65718753" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p086" data-habit="ไม้ล้มลุก" data-zones=" 8 " data-search="7-31170-001-086 ดาดตะกั่ว ฮ่อมครั่ง, ฤาษีผสมแล้ว, ห่งจี๊อั้ง hemigraphis alternata t. anderson acanthaceae">
+    <article class="plant" id="p086" data-group="herb" data-zones=" 8 " data-search="7-31170-001-086 ดาดตะกั่ว ฮ่อมครั่ง, ฤาษีผสมแล้ว, ห่งจี๊อั้ง hemigraphis alternata t. anderson acanthaceae">
       <figure class="ph"><img src="img/plants/086.jpg" alt="ภาพตัวอย่างดาดตะกั่ว" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ดาดตะกั่ว</h2>
@@ -1415,7 +1416,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Rui Da Silva Pinto (<a href="https://www.inaturalist.org/photos/24905793" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p087" data-habit="ไม้ล้มลุก" data-zones=" 8 " data-search="7-31170-001-087 เดหลี spathiphyllum cannifolium (dryand.) schott araceae">
+    <article class="plant" id="p087" data-group="herb" data-zones=" 8 " data-search="7-31170-001-087 เดหลี spathiphyllum cannifolium (dryand.) schott araceae">
       <figure class="ph"><img src="img/plants/087.jpg" alt="ภาพตัวอย่างเดหลี" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เดหลี</h2>
@@ -1431,7 +1432,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Apipa (<a href="https://www.inaturalist.org/photos/151880942" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p088" data-habit="ไม้พุ่ม" data-zones=" 8 " data-search="7-31170-001-088 ขาไก่ดำ justicia gendarussa burm.f. acanthaceae">
+    <article class="plant" id="p088" data-group="shrub" data-zones=" 8 " data-search="7-31170-001-088 ขาไก่ดำ justicia gendarussa burm.f. acanthaceae">
       <figure class="ph"><img src="img/plants/088.jpg" alt="ภาพตัวอย่างขาไก่ดำ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ขาไก่ดำ</h2>
@@ -1447,7 +1448,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Amatya Sharma (<a href="https://www.inaturalist.org/photos/263625847" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p089" data-habit="ไม้น้ำ" data-zones=" 9 " data-search="7-31170-001-089 บัวหลวง nelumbo nucifera gaertn. nelumbonaceae">
+    <article class="plant" id="p089" data-group="grass" data-zones=" 9 " data-search="7-31170-001-089 บัวหลวง nelumbo nucifera gaertn. nelumbonaceae">
       <figure class="ph"><img src="img/plants/089.jpg" alt="ภาพตัวอย่างบัวหลวง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>บัวหลวง</h2>
@@ -1463,7 +1464,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Inessa (<a href="https://www.inaturalist.org/photos/116385724" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p090" data-habit="ไม้ต้น" data-zones=" 9 " data-search="7-31170-001-090 นนทรี peltophorum pterocarpum (dc.) back.ex k. heyme legumminosae">
+    <article class="plant" id="p090" data-group="tree" data-zones=" 9 " data-search="7-31170-001-090 นนทรี peltophorum pterocarpum (dc.) back.ex k. heyme legumminosae">
       <figure class="ph"><img src="img/plants/090.jpg" alt="ภาพตัวอย่างนนทรี" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>นนทรี</h2>
@@ -1479,7 +1480,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย kishore T (<a href="https://www.inaturalist.org/photos/145183218" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p091" data-habit="ไม้ต้น" data-zones=" 9 11 12 14 " data-search="7-31170-001-091 มะม่วง mangifera indica l. anacardiaceae">
+    <article class="plant" id="p091" data-group="tree" data-zones=" 9 11 12 14 " data-search="7-31170-001-091 มะม่วง mangifera indica l. anacardiaceae">
       <figure class="ph"><img src="img/plants/091.jpg" alt="ภาพตัวอย่างมะม่วง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะม่วง</h2>
@@ -1495,7 +1496,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/35094040" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p092" data-habit="ไม้ต้น" data-zones=" 9 " data-search="7-31170-001-092 มะหวด,หวดคา,หวดฆ่า,หวดลาว lepisanthes rubiginosa (roxb.) leenh. sapindaceae">
+    <article class="plant" id="p092" data-group="tree" data-zones=" 9 " data-search="7-31170-001-092 มะหวด,หวดคา,หวดฆ่า,หวดลาว lepisanthes rubiginosa (roxb.) leenh. sapindaceae">
       <figure class="ph"><img src="img/plants/092.jpg" alt="ภาพตัวอย่างมะหวด" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะหวด</h2>
@@ -1511,7 +1512,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Cheongweei Gan (<a href="https://www.inaturalist.org/photos/17826149" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p093" data-habit="ไม้ต้น" data-zones=" 9 15 17 " data-search="7-31170-001-093 พลับพลา, ไม้ลาย, มลาย, ลาย, น้ำลายควาย microcos tomentosa smith. tiliaceae">
+    <article class="plant" id="p093" data-group="tree" data-zones=" 9 15 17 " data-search="7-31170-001-093 พลับพลา, ไม้ลาย, มลาย, ลาย, น้ำลายควาย microcos tomentosa smith. tiliaceae">
       <figure class="ph"><img src="img/plants/093.jpg" alt="ภาพตัวอย่างพลับพลา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>พลับพลา</h2>
@@ -1527,7 +1528,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Affan Nasaruddin (<a href="https://www.inaturalist.org/photos/35867679" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p094" data-habit="ไม้พุ่ม" data-zones=" 10 11 17 " data-search="7-31170-001-094 ชาฮกเกี้ยน,ชาดัดไขมัน, ข่อยจีน,ชาญวณ ehretia microphylla lumk. ghretiaceae">
+    <article class="plant" id="p094" data-group="shrub" data-zones=" 10 11 17 " data-search="7-31170-001-094 ชาฮกเกี้ยน,ชาดัดไขมัน, ข่อยจีน,ชาญวณ ehretia microphylla lumk. ghretiaceae">
       <figure class="ph"><img src="img/plants/094.jpg" alt="ภาพตัวอย่างชาฮกเกี้ยน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ชาฮกเกี้ยน</h2>
@@ -1543,7 +1544,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/81967522" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p095" data-habit="ไม้พุ่ม, ไม้รอเลื้อย" data-zones=" 10 11 " data-search="7-31170-001-095 ช้องนาง,ช้องนางใหญ่ thunbergia affinis s.moore acanthaceae">
+    <article class="plant" id="p095" data-group="shrub" data-zones=" 10 11 " data-search="7-31170-001-095 ช้องนาง,ช้องนางใหญ่ thunbergia affinis s.moore acanthaceae">
       <figure class="ph"><img src="img/plants/095.jpg" alt="ภาพตัวอย่างช้องนาง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ช้องนาง</h2>
@@ -1559,7 +1560,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย James Kuria NDUNG’U (<a href="https://www.inaturalist.org/photos/78920721" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p096" data-habit="ไม้ล้มลุก" data-zones=" 10 " data-search="7-31170-001-096 บาหยา, บุษบาฮาวาย asystasia gangetica (l.) t. anderson acanthaceae">
+    <article class="plant" id="p096" data-group="herb" data-zones=" 10 " data-search="7-31170-001-096 บาหยา, บุษบาฮาวาย asystasia gangetica (l.) t. anderson acanthaceae">
       <figure class="ph"><img src="img/plants/096.jpg" alt="ภาพตัวอย่างบาหยา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>บาหยา</h2>
@@ -1575,7 +1576,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/178177515" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p097" data-habit="ไม้รอเลื้อย" data-zones=" 10 17 " data-search="7-31170-001-097 เฟื่องฟ้า bougainvillea spectabilis willd. nyctaginaceae">
+    <article class="plant" id="p097" data-group="climber" data-zones=" 10 17 " data-search="7-31170-001-097 เฟื่องฟ้า bougainvillea spectabilis willd. nyctaginaceae">
       <figure class="ph"><img src="img/plants/097.jpg" alt="ภาพตัวอย่างเฟื่องฟ้า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เฟื่องฟ้า</h2>
@@ -1591,7 +1592,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Prenn (<a href="https://www.inaturalist.org/photos/393467193" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p098" data-habit="ไม้ต้น" data-zones=" 10 " data-search="7-31170-001-098 จิก barringtonia acutangula (l.) gaertn. lecythidaceae">
+    <article class="plant" id="p098" data-group="tree" data-zones=" 10 " data-search="7-31170-001-098 จิก barringtonia acutangula (l.) gaertn. lecythidaceae">
       <figure class="ph"><img src="img/plants/098.jpg" alt="ภาพตัวอย่างจิก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>จิก</h2>
@@ -1607,7 +1608,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/864211" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p099" data-habit="ไม้รอเลื้อย" data-zones=" 10 " data-search="7-31170-001-099 บานบุรี thevetia peruviana (pers.) k.schum. apocynaceae">
+    <article class="plant" id="p099" data-group="climber" data-zones=" 10 " data-search="7-31170-001-099 บานบุรี thevetia peruviana (pers.) k.schum. apocynaceae">
       <figure class="ph"><img src="img/plants/099.jpg" alt="ภาพตัวอย่างบานบุรี" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>บานบุรี</h2>
@@ -1623,7 +1624,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Alan Kwok (King Lun) (<a href="https://www.inaturalist.org/photos/51171811" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p100" data-habit="ไม้พุ่ม" data-zones=" 10 11 14 " data-search="7-31170-001-100 ชองออฟจาไมก้า pleomele reflexa n.e.br. dracaenaceae">
+    <article class="plant" id="p100" data-group="shrub" data-zones=" 10 11 14 " data-search="7-31170-001-100 ชองออฟจาไมก้า pleomele reflexa n.e.br. dracaenaceae">
       <figure class="ph"><img src="img/plants/100.jpg" alt="ภาพตัวอย่างชองออฟจาไมก้า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ชองออฟจาไมก้า</h2>
@@ -1639,7 +1640,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Jean-Philippe BASUYAUX (<a href="https://www.inaturalist.org/photos/55770016" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p101" data-habit="ไม้ล้มลุก" data-zones=" 10 " data-search="7-31170-001-101 บานไม่รู้โรยฝรั่ง alternanthera dentata (moench) scheygr. amaranthaceae">
+    <article class="plant" id="p101" data-group="herb" data-zones=" 10 " data-search="7-31170-001-101 บานไม่รู้โรยฝรั่ง alternanthera dentata (moench) scheygr. amaranthaceae">
       <figure class="ph"><img src="img/plants/101.jpg" alt="ภาพตัวอย่างบานไม่รู้โรยฝรั่ง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>บานไม่รู้โรยฝรั่ง</h2>
@@ -1655,7 +1656,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย c_moniq (<a href="https://www.inaturalist.org/photos/333374281" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p102" data-habit="ไม้พุ่ม" data-zones=" 10 " data-search="7-31170-001-102 เทียนทอง dendrobium cumulatum lindl. orchidaceae">
+    <article class="plant" id="p102" data-group="shrub" data-zones=" 10 " data-search="7-31170-001-102 เทียนทอง dendrobium cumulatum lindl. orchidaceae">
       <figure class="ph"><img src="img/plants/102.jpg" alt="ภาพตัวอย่างเทียนทอง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เทียนทอง</h2>
@@ -1671,7 +1672,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Eerika Schulz (<a href="https://www.inaturalist.org/photos/614733852" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p103" data-habit="ไม้พุ่มเตี้ย" data-zones=" 10 " data-search="7-31170-001-103 เศรษฐีไซง่อน ophiopogon jaburan lodd. convallariaceae">
+    <article class="plant" id="p103" data-group="shrub" data-zones=" 10 " data-search="7-31170-001-103 เศรษฐีไซง่อน ophiopogon jaburan lodd. convallariaceae">
       <figure class="ph"><img src="img/plants/103.jpg" alt="ภาพตัวอย่างเศรษฐีไซง่อน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เศรษฐีไซง่อน</h2>
@@ -1687,7 +1688,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/712452" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p104" data-habit="ไม้ต้น" data-zones=" 10 11 15 16 " data-search="7-31170-001-104 มะค่าโมง,มะค่าหลวง, มะค่าหัวคำ afzelia xylocarpa (kurz) craib leguminosae-caesalpinioideae">
+    <article class="plant" id="p104" data-group="tree" data-zones=" 10 11 15 16 " data-search="7-31170-001-104 มะค่าโมง,มะค่าหลวง, มะค่าหัวคำ afzelia xylocarpa (kurz) craib leguminosae-caesalpinioideae">
       <figure class="ph"><img src="img/plants/104.jpg" alt="ภาพตัวอย่างมะค่าโมง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะค่าโมง</h2>
@@ -1703,7 +1704,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Didier Levasseur (<a href="https://www.inaturalist.org/photos/148675031" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p105" data-habit="ไม้ต้น" data-zones=" 11 17 " data-search="7-31170-001-105 คูณ cassia fistula l. leguminosae-caesalpinioideae">
+    <article class="plant" id="p105" data-group="tree" data-zones=" 11 17 " data-search="7-31170-001-105 คูณ cassia fistula l. leguminosae-caesalpinioideae">
       <figure class="ph"><img src="img/plants/105.jpg" alt="ภาพตัวอย่างคูณ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>คูณ</h2>
@@ -1719,7 +1720,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Robin Gwen Agarwal (<a href="https://www.inaturalist.org/photos/33340060" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p106" data-habit="ไม้ต้น" data-zones=" 11 12 " data-search="7-31170-001-106 เลี่ยน, เคี่ยน, เฮี่ยน melia azedarach l. meliaceae">
+    <article class="plant" id="p106" data-group="tree" data-zones=" 11 12 " data-search="7-31170-001-106 เลี่ยน, เคี่ยน, เฮี่ยน melia azedarach l. meliaceae">
       <figure class="ph"><img src="img/plants/106.jpg" alt="ภาพตัวอย่างเลี่ยน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เลี่ยน</h2>
@@ -1735,7 +1736,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/33351307" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p107" data-habit="ไม้ต้น" data-zones=" 11 15 " data-search="7-31170-001-107 ยูคาลิปตัส eucalyptus camaldulensis dehnh. myrtaceae">
+    <article class="plant" id="p107" data-group="tree" data-zones=" 11 15 " data-search="7-31170-001-107 ยูคาลิปตัส eucalyptus camaldulensis dehnh. myrtaceae">
       <figure class="ph"><img src="img/plants/107.jpg" alt="ภาพตัวอย่างยูคาลิปตัส" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ยูคาลิปตัส</h2>
@@ -1751,7 +1752,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Dean Nicolle (<a href="https://www.inaturalist.org/photos/246643149" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p108" data-habit="ไม้พุ่ม" data-zones=" 11 16 " data-search="7-31170-001-108 เข็มญี่ปุ่น เข็มแดง ixora stricta roxb rubiaceae">
+    <article class="plant" id="p108" data-group="shrub" data-zones=" 11 16 " data-search="7-31170-001-108 เข็มญี่ปุ่น เข็มแดง ixora stricta roxb rubiaceae">
       <figure class="ph"><img src="img/plants/108.jpg" alt="ภาพตัวอย่างเข็มญี่ปุ่น" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เข็มญี่ปุ่น</h2>
@@ -1767,7 +1768,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย dfyp ip (<a href="https://www.inaturalist.org/photos/491941005" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p109" data-habit="ไม้ต้น" data-zones=" 11 " data-search="7-31170-001-109 สาธร,กระเจ๊าะ,ขะเจ๊าะ,กระท้อน (เพชรบูรณ์),ไม้กระทงน้ำ millettia leucantha kurz var. buteoides (gagnep.) p.k.lôc leguminosae-papilionoideae">
+    <article class="plant" id="p109" data-group="tree" data-zones=" 11 " data-search="7-31170-001-109 สาธร,กระเจ๊าะ,ขะเจ๊าะ,กระท้อน (เพชรบูรณ์),ไม้กระทงน้ำ millettia leucantha kurz var. buteoides (gagnep.) p.k.lôc leguminosae-papilionoideae">
       <figure class="ph"><img src="img/plants/109.jpg" alt="ภาพตัวอย่างสาธร" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>สาธร</h2>
@@ -1783,7 +1784,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ab_satta (<a href="https://www.inaturalist.org/photos/179589850" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p110" data-habit="ไม้ต้น" data-zones=" 12 " data-search="7-31170-001-110 แคบ้าน sesbania grandiflora (l.) desv. leguminosae-papilionoideae">
+    <article class="plant" id="p110" data-group="tree" data-zones=" 12 " data-search="7-31170-001-110 แคบ้าน sesbania grandiflora (l.) desv. leguminosae-papilionoideae">
       <figure class="ph"><img src="img/plants/110.jpg" alt="ภาพตัวอย่างแคบ้าน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>แคบ้าน</h2>
@@ -1799,7 +1800,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Alejandra Flores (<a href="https://www.inaturalist.org/photos/14061822" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p111" data-habit="ไม้พุ่ม" data-zones=" 12 " data-search="7-31170-001-111 ผักหวานบ้าน sauropus androgynus (l.) merr. euphorbiaceae">
+    <article class="plant" id="p111" data-group="shrub" data-zones=" 12 " data-search="7-31170-001-111 ผักหวานบ้าน sauropus androgynus (l.) merr. euphorbiaceae">
       <figure class="ph"><img src="img/plants/111.jpg" alt="ภาพตัวอย่างผักหวานบ้าน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ผักหวานบ้าน</h2>
@@ -1815,7 +1816,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย 大肚魚 (<a href="https://www.inaturalist.org/photos/25047616" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p112" data-habit="ไม้พุ่ม" data-zones=" 12 " data-search="7-31170-001-112 มะเขือพวง solanum torvum sw. solanaceae">
+    <article class="plant" id="p112" data-group="shrub" data-zones=" 12 " data-search="7-31170-001-112 มะเขือพวง solanum torvum sw. solanaceae">
       <figure class="ph"><img src="img/plants/112.jpg" alt="ภาพตัวอย่างมะเขือพวง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะเขือพวง</h2>
@@ -1831,7 +1832,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/116176221" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p113" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-113 ตำแยตัวเมีย laportea interrupta (l.) chew urticaceae">
+    <article class="plant" id="p113" data-group="herb" data-zones=" 12 " data-search="7-31170-001-113 ตำแยตัวเมีย laportea interrupta (l.) chew urticaceae">
       <figure class="ph"><img src="img/plants/113.jpg" alt="ภาพตัวอย่างตำแยตัวเมีย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตำแยตัวเมีย</h2>
@@ -1847,7 +1848,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Shiwalee Samant (<a href="https://www.inaturalist.org/photos/70677681" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p114" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-114 ตำแยตัวผู้ acalypha indica l. euphorbiaceae">
+    <article class="plant" id="p114" data-group="herb" data-zones=" 12 " data-search="7-31170-001-114 ตำแยตัวผู้ acalypha indica l. euphorbiaceae">
       <figure class="ph"><img src="img/plants/114.jpg" alt="ภาพตัวอย่างตำแยตัวผู้" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตำแยตัวผู้</h2>
@@ -1863,7 +1864,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Siddarth Machado (<a href="https://www.inaturalist.org/photos/48588135" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p115" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-115 กะเพรา, กอมก้อดง ocimum tenuiflorum l. labiatae">
+    <article class="plant" id="p115" data-group="herb" data-zones=" 12 " data-search="7-31170-001-115 กะเพรา, กอมก้อดง ocimum tenuiflorum l. labiatae">
       <figure class="ph"><img src="img/plants/115.jpg" alt="ภาพตัวอย่างกะเพรา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กะเพรา</h2>
@@ -1879,7 +1880,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย 小铖/Smalltown (<a href="https://www.inaturalist.org/photos/129609853" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p116" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-116 โหระพา, อิ่มคิมขาว ocimum basilicum l. labiatae">
+    <article class="plant" id="p116" data-group="herb" data-zones=" 12 " data-search="7-31170-001-116 โหระพา, อิ่มคิมขาว ocimum basilicum l. labiatae">
       <figure class="ph"><img src="img/plants/116.jpg" alt="ภาพตัวอย่างโหระพา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>โหระพา</h2>
@@ -1895,7 +1896,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Sune Holt (<a href="https://www.inaturalist.org/photos/154769884" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p117" data-habit="ไม้ต้น" data-zones=" 12 " data-search="7-31170-001-117 มะละกอ carica papaya l. caricaceae">
+    <article class="plant" id="p117" data-group="tree" data-zones=" 12 " data-search="7-31170-001-117 มะละกอ carica papaya l. caricaceae">
       <figure class="ph"><img src="img/plants/117.jpg" alt="ภาพตัวอย่างมะละกอ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะละกอ</h2>
@@ -1911,7 +1912,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย annalake99 (<a href="https://www.inaturalist.org/photos/113841397" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p118" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-118 ไมยราบ biophytum sensitivum (l.) dc. oxalidaceae">
+    <article class="plant" id="p118" data-group="herb" data-zones=" 12 " data-search="7-31170-001-118 ไมยราบ biophytum sensitivum (l.) dc. oxalidaceae">
       <figure class="ph"><img src="img/plants/118.jpg" alt="ภาพตัวอย่างไมยราบ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ไมยราบ</h2>
@@ -1927,7 +1928,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย V C Balakrishnan (<a href="https://www.inaturalist.org/photos/554094189" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p119" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-119 ชะพลู piper sarmentosum roxb. piperaceae">
+    <article class="plant" id="p119" data-group="herb" data-zones=" 12 " data-search="7-31170-001-119 ชะพลู piper sarmentosum roxb. piperaceae">
       <figure class="ph"><img src="img/plants/119.jpg" alt="ภาพตัวอย่างชะพลู" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ชะพลู</h2>
@@ -1943,7 +1944,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย John Howes (<a href="https://www.inaturalist.org/photos/47503522" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p120" data-habit="ไม้ล้มลุก" data-zones=" 8 12 " data-search="7-31170-001-120 หลิวใต้หวัน cuphea hyssopifolia humb.,bonpl.&amp; kunth lythraceae">
+    <article class="plant" id="p120" data-group="herb" data-zones=" 8 12 " data-search="7-31170-001-120 หลิวใต้หวัน cuphea hyssopifolia humb.,bonpl.&amp; kunth lythraceae">
       <figure class="ph"><img src="img/plants/120.jpg" alt="ภาพตัวอย่างหลิวใต้หวัน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หลิวใต้หวัน</h2>
@@ -1959,7 +1960,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย johnlerond (<a href="https://www.inaturalist.org/photos/610574652" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p121" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-121 หญ้าหนวดแมว, บางรักป่า, พยับเมฆ,อีตู่ดง orthosiphon aristatus (blume) miq. labiatae">
+    <article class="plant" id="p121" data-group="herb" data-zones=" 12 " data-search="7-31170-001-121 หญ้าหนวดแมว, บางรักป่า, พยับเมฆ,อีตู่ดง orthosiphon aristatus (blume) miq. labiatae">
       <figure class="ph"><img src="img/plants/121.jpg" alt="ภาพตัวอย่างหญ้าหนวดแมว" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้าหนวดแมว</h2>
@@ -1975,7 +1976,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Scott O&#x27;Donnell (<a href="https://www.inaturalist.org/photos/74413733" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p122" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-122 ผักขม, ผักโหมเกลี้ยง amaranthus lividus l. amaranthaceae">
+    <article class="plant" id="p122" data-group="herb" data-zones=" 12 " data-search="7-31170-001-122 ผักขม, ผักโหมเกลี้ยง amaranthus lividus l. amaranthaceae">
       <figure class="ph"><img src="img/plants/122.jpg" alt="ภาพตัวอย่างผักขม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ผักขม</h2>
@@ -1991,7 +1992,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย TonyT (<a href="https://www.inaturalist.org/photos/295539268" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p123" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-123 ผักเสี้ยน, ผักเสี้ยนขาว cleome gynandra l. capparaceae">
+    <article class="plant" id="p123" data-group="herb" data-zones=" 12 " data-search="7-31170-001-123 ผักเสี้ยน, ผักเสี้ยนขาว cleome gynandra l. capparaceae">
       <figure class="ph"><img src="img/plants/123.jpg" alt="ภาพตัวอย่างผักเสี้ยน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ผักเสี้ยน</h2>
@@ -2007,7 +2008,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/28460977" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p124" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-124 น้ำนมราชสีห์ euphorbia hirta l. euphorbiaceae">
+    <article class="plant" id="p124" data-group="herb" data-zones=" 12 " data-search="7-31170-001-124 น้ำนมราชสีห์ euphorbia hirta l. euphorbiaceae">
       <figure class="ph"><img src="img/plants/124.jpg" alt="ภาพตัวอย่างน้ำนมราชสีห์" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>น้ำนมราชสีห์</h2>
@@ -2023,7 +2024,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Jung (<a href="https://www.inaturalist.org/photos/71118726" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p125" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-125 ข้าวโพด zea mays l. gramineae">
+    <article class="plant" id="p125" data-group="herb" data-zones=" 12 " data-search="7-31170-001-125 ข้าวโพด zea mays l. gramineae">
       <figure class="ph"><img src="img/plants/125.jpg" alt="ภาพตัวอย่างข้าวโพด" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ข้าวโพด</h2>
@@ -2039,7 +2040,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Ken (<a href="https://www.inaturalist.org/photos/12293878" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p126" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-126 กล้วยน้ำว้า musa sapientum linn musaceae">
+    <article class="plant" id="p126" data-group="herb" data-zones=" 12 " data-search="7-31170-001-126 กล้วยน้ำว้า musa sapientum linn musaceae">
       <figure class="ph"><img src="img/plants/126.jpg" alt="ภาพตัวอย่างกล้วยน้ำว้า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กล้วยน้ำว้า</h2>
@@ -2055,7 +2056,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Mark Rosenstein (<a href="https://www.inaturalist.org/photos/548958" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p127" data-habit="ไม้รอเลื้อย" data-zones=" 12 " data-search="7-31170-001-127 ชะอม acacia insuavis (lace) i.c. nielsen leguminosae-mimosoideae (mimosaceae)">
+    <article class="plant" id="p127" data-group="climber" data-zones=" 12 " data-search="7-31170-001-127 ชะอม acacia insuavis (lace) i.c. nielsen leguminosae-mimosoideae (mimosaceae)">
       <figure class="ph"><img src="img/plants/127.jpg" alt="ภาพตัวอย่างชะอม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ชะอม</h2>
@@ -2071,7 +2072,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย officerjames (<a href="https://www.inaturalist.org/photos/601652640" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p128" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-128 หญ้าแห้วหมู cyperus rotundus l. cyperaceae">
+    <article class="plant" id="p128" data-group="herb" data-zones=" 12 " data-search="7-31170-001-128 หญ้าแห้วหมู cyperus rotundus l. cyperaceae">
       <figure class="ph"><img src="img/plants/128.jpg" alt="ภาพตัวอย่างหญ้าแห้วหมู" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้าแห้วหมู</h2>
@@ -2087,7 +2088,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/60471960" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p129" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-129 ตะไคร้หอม cymbopogon nardus rendle gramineae">
+    <article class="plant" id="p129" data-group="herb" data-zones=" 12 " data-search="7-31170-001-129 ตะไคร้หอม cymbopogon nardus rendle gramineae">
       <figure class="ph"><img src="img/plants/129.jpg" alt="ภาพตัวอย่างตะไคร้หอม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตะไคร้หอม</h2>
@@ -2103,7 +2104,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Simone Chetty (<a href="https://www.inaturalist.org/photos/126610149" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p130" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-130 กาบหอย,ว่านหอย tradescantia virginiana l. commelinaceae">
+    <article class="plant" id="p130" data-group="herb" data-zones=" 2 " data-search="7-31170-001-130 กาบหอย,ว่านหอย tradescantia virginiana l. commelinaceae">
       <figure class="ph"><img src="img/plants/130.jpg" alt="ภาพตัวอย่างกาบหอย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กาบหอย</h2>
@@ -2119,7 +2120,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Joanne Muis Redwood (<a href="https://www.inaturalist.org/photos/21373805" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p131" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-131 หญ้าปักกิ่ง murdannia loriformis (hassk.) commelinaceae">
+    <article class="plant" id="p131" data-group="herb" data-zones=" 2 " data-search="7-31170-001-131 หญ้าปักกิ่ง murdannia loriformis (hassk.) commelinaceae">
       <figure class="ph"><img src="img/plants/131.jpg" alt="ภาพตัวอย่างหญ้าปักกิ่ง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้าปักกิ่ง</h2>
@@ -2135,7 +2136,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Ben (<a href="https://www.inaturalist.org/photos/73085174" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p132" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-132 เหงือกปลาหมอ, แก้มหมอ(สตูล), แก้มหมอเล(กระบี่), จะเกร็ง acanthus ebracteatus vahl acanthaceae">
+    <article class="plant" id="p132" data-group="herb" data-zones=" 2 " data-search="7-31170-001-132 เหงือกปลาหมอ, แก้มหมอ(สตูล), แก้มหมอเล(กระบี่), จะเกร็ง acanthus ebracteatus vahl acanthaceae">
       <figure class="ph"><img src="img/plants/132.jpg" alt="ภาพตัวอย่างเหงือกปลาหมอ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เหงือกปลาหมอ</h2>
@@ -2151,7 +2152,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Steven Kurniawidjaja (<a href="https://www.inaturalist.org/photos/12092846" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p133" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-133 ว่านงาช้าง, ว่านงู sansevieria cylindrica bojer dracaenaceae">
+    <article class="plant" id="p133" data-group="herb" data-zones=" 2 " data-search="7-31170-001-133 ว่านงาช้าง, ว่านงู sansevieria cylindrica bojer dracaenaceae">
       <figure class="ph"><img src="img/plants/133.jpg" alt="ภาพตัวอย่างว่านงาช้าง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ว่านงาช้าง</h2>
@@ -2167,7 +2168,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Martin Reith (<a href="https://www.inaturalist.org/photos/70512537" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p134" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-134 เอื้องหมายนา, เอื้องช้าง (นครศรีธรรมราช), เอื้องต้น(ยะลา) costus speciosus (koen.) sm. costaceae">
+    <article class="plant" id="p134" data-group="herb" data-zones=" 2 " data-search="7-31170-001-134 เอื้องหมายนา, เอื้องช้าง (นครศรีธรรมราช), เอื้องต้น(ยะลา) costus speciosus (koen.) sm. costaceae">
       <figure class="ph"><img src="img/plants/134.jpg" alt="ภาพตัวอย่างเอื้องหมายนา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เอื้องหมายนา</h2>
@@ -2183,7 +2184,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย vivianjen (<a href="https://www.inaturalist.org/photos/215394630" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p135" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-135 เสลดพงพอน, พิมเสนต้น, เสลดพังพอนตัวผู้ barleria lupulina lindl. acanthaceae">
+    <article class="plant" id="p135" data-group="herb" data-zones=" 2 " data-search="7-31170-001-135 เสลดพงพอน, พิมเสนต้น, เสลดพังพอนตัวผู้ barleria lupulina lindl. acanthaceae">
       <figure class="ph"><img src="img/plants/135.jpg" alt="ภาพตัวอย่างเสลดพงพอน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เสลดพงพอน</h2>
@@ -2199,7 +2200,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Mohd Abdul Muin Md Akil (<a href="https://www.inaturalist.org/photos/13108409" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p136" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-136 ขิงแดง, ขิงแกลง, ขิงเผือก zingiber officinale roscoe zingiberaceae">
+    <article class="plant" id="p136" data-group="herb" data-zones=" 2 " data-search="7-31170-001-136 ขิงแดง, ขิงแกลง, ขิงเผือก zingiber officinale roscoe zingiberaceae">
       <figure class="ph"><img src="img/plants/136.jpg" alt="ภาพตัวอย่างขิงแดง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ขิงแดง</h2>
@@ -2215,7 +2216,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Greg III Espera (<a href="https://www.inaturalist.org/photos/13363718" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p137" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-137 ฟ้าทะลายโจร, ซีปังกี(จีน), หญ้ากันงู(สงขลา) andrographis paniculata (burm.f.) wall. ex nees acanthaceae">
+    <article class="plant" id="p137" data-group="herb" data-zones=" 2 " data-search="7-31170-001-137 ฟ้าทะลายโจร, ซีปังกี(จีน), หญ้ากันงู(สงขลา) andrographis paniculata (burm.f.) wall. ex nees acanthaceae">
       <figure class="ph"><img src="img/plants/137.jpg" alt="ภาพตัวอย่างฟ้าทะลายโจร" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ฟ้าทะลายโจร</h2>
@@ -2231,7 +2232,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/53707556" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p138" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-138 ว่านหางช้าง belamcanda chinensis (l.) dc. iridaceae">
+    <article class="plant" id="p138" data-group="herb" data-zones=" 2 " data-search="7-31170-001-138 ว่านหางช้าง belamcanda chinensis (l.) dc. iridaceae">
       <figure class="ph"><img src="img/plants/138.jpg" alt="ภาพตัวอย่างว่านหางช้าง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ว่านหางช้าง</h2>
@@ -2247,7 +2248,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/65066126" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p139" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-139 ลูกใต้ใบ phyllanthus amarus schumach. &amp; thonn. euphorbiaceae">
+    <article class="plant" id="p139" data-group="herb" data-zones=" 2 " data-search="7-31170-001-139 ลูกใต้ใบ phyllanthus amarus schumach. &amp; thonn. euphorbiaceae">
       <figure class="ph"><img src="img/plants/139.jpg" alt="ภาพตัวอย่างลูกใต้ใบ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ลูกใต้ใบ</h2>
@@ -2263,7 +2264,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Kuan-Chieh (Chuck) Hung (<a href="https://www.inaturalist.org/photos/22995204" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p140" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-140 ต้อยติ่ง,ต้อยติ่งไทย, ต้อยติ่งนา (กรุงเทพฯ), น้ำดับไฟ (ประจวบคีรีขันธ์) hygrophila erecta (burm.f.) hochr. acanthaceae">
+    <article class="plant" id="p140" data-group="herb" data-zones=" 2 " data-search="7-31170-001-140 ต้อยติ่ง,ต้อยติ่งไทย, ต้อยติ่งนา (กรุงเทพฯ), น้ำดับไฟ (ประจวบคีรีขันธ์) hygrophila erecta (burm.f.) hochr. acanthaceae">
       <figure class="ph"><img src="img/plants/140.jpg" alt="ภาพตัวอย่างต้อยติ่ง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ต้อยติ่ง</h2>
@@ -2279,7 +2280,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Pranav Chandra Bose (<a href="https://www.inaturalist.org/photos/178444132" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p141" data-habit="ไม้ล้มลุก" data-zones=" 2 " data-search="7-31170-001-141 เขียวหมื่นปี aglaonema modestum schott araceae">
+    <article class="plant" id="p141" data-group="herb" data-zones=" 2 " data-search="7-31170-001-141 เขียวหมื่นปี aglaonema modestum schott araceae">
       <figure class="ph"><img src="img/plants/141.jpg" alt="ภาพตัวอย่างเขียวหมื่นปี" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เขียวหมื่นปี</h2>
@@ -2295,7 +2296,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย siwenxtbg (<a href="https://www.inaturalist.org/photos/378863640" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p142" data-habit="ไม้ต้น" data-zones=" 12 16 " data-search="7-31170-001-142 มะกอก spondias pinnata (l.f.) kurz. anacardiaceae">
+    <article class="plant" id="p142" data-group="tree" data-zones=" 12 16 " data-search="7-31170-001-142 มะกอก spondias pinnata (l.f.) kurz. anacardiaceae">
       <figure class="ph"><img src="img/plants/142.jpg" alt="ภาพตัวอย่างมะกอก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะกอก</h2>
@@ -2311,7 +2312,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Dinesh Valke (<a href="https://www.inaturalist.org/photos/1467662" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p143" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-143 โคกกระออม โพออม (ปัตตานี); ลูกลีบเครือ (ภาคเหนือ); วีวี่ (ปราจีนบุรี) cardiospermum halicacabum l. sapindaceae">
+    <article class="plant" id="p143" data-group="herb" data-zones=" 12 " data-search="7-31170-001-143 โคกกระออม โพออม (ปัตตานี); ลูกลีบเครือ (ภาคเหนือ); วีวี่ (ปราจีนบุรี) cardiospermum halicacabum l. sapindaceae">
       <figure class="ph"><img src="img/plants/143.jpg" alt="ภาพตัวอย่างโคกกระออม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>โคกกระออม</h2>
@@ -2327,7 +2328,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Kuan-Chieh (Chuck) Hung (<a href="https://www.inaturalist.org/photos/40413105" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p144" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-144 ถั่วพร้า canavalia gladiata (jacq.) dc. leguminosae-papilionoideae">
+    <article class="plant" id="p144" data-group="herb" data-zones=" 12 " data-search="7-31170-001-144 ถั่วพร้า canavalia gladiata (jacq.) dc. leguminosae-papilionoideae">
       <figure class="ph"><img src="img/plants/144.jpg" alt="ภาพตัวอย่างถั่วพร้า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ถั่วพร้า</h2>
@@ -2343,7 +2344,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Radha Veach (<a href="https://www.inaturalist.org/photos/256321755" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p145" data-habit="ไม้น้ำ ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-145 บัวอเมซอน echinodorus cordifolius (l.) griseb. alismataceae">
+    <article class="plant" id="p145" data-group="grass" data-zones=" 12 " data-search="7-31170-001-145 บัวอเมซอน echinodorus cordifolius (l.) griseb. alismataceae">
       <figure class="ph"><img src="img/plants/145.jpg" alt="ภาพตัวอย่างบัวอเมซอน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>บัวอเมซอน</h2>
@@ -2359,7 +2360,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย sblumen (<a href="https://www.inaturalist.org/photos/432851572" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p146" data-habit="ไม้ล้มลุก" data-zones=" 12 13 15 16 17 " data-search="7-31170-001-146 ตำลึงทอง passiflora foetida l. passifloraceae">
+    <article class="plant" id="p146" data-group="herb" data-zones=" 12 13 15 16 17 " data-search="7-31170-001-146 ตำลึงทอง passiflora foetida l. passifloraceae">
       <figure class="ph"><img src="img/plants/146.jpg" alt="ภาพตัวอย่างตำลึงทอง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตำลึงทอง</h2>
@@ -2375,7 +2376,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Alex Yu (<a href="https://www.inaturalist.org/photos/289723896" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p147" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-147 สะอึก ipomoea ochracea (lindl.) g.don convolvulaceae">
+    <article class="plant" id="p147" data-group="herb" data-zones=" 12 " data-search="7-31170-001-147 สะอึก ipomoea ochracea (lindl.) g.don convolvulaceae">
       <figure class="ph"><img src="img/plants/147.jpg" alt="ภาพตัวอย่างสะอึก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>สะอึก</h2>
@@ -2391,7 +2392,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Forest and Kim Starr (<a href="https://www.inaturalist.org/photos/4713663" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p148" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-148 ดาวกระจาย (ภาคกลาง) คำแพ (ภาคเหนือ) cosmos sulphureus cav. compositae (asteraceae)">
+    <article class="plant" id="p148" data-group="herb" data-zones=" 12 " data-search="7-31170-001-148 ดาวกระจาย (ภาคกลาง) คำแพ (ภาคเหนือ) cosmos sulphureus cav. compositae (asteraceae)">
       <figure class="ph"><img src="img/plants/148.jpg" alt="ภาพตัวอย่างดาวกระจาย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ดาวกระจาย</h2>
@@ -2407,7 +2408,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Annika Lindqvist (<a href="https://www.inaturalist.org/photos/26247862" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p149" data-habit="ไม้พุ่ม" data-zones=" 6 12 " data-search="7-31170-001-149 เทียนหยด duranta erecta l. verbenaceae">
+    <article class="plant" id="p149" data-group="shrub" data-zones=" 6 12 " data-search="7-31170-001-149 เทียนหยด duranta erecta l. verbenaceae">
       <figure class="ph"><img src="img/plants/149.jpg" alt="ภาพตัวอย่างเทียนหยด" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เทียนหยด</h2>
@@ -2423,7 +2424,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย M (<a href="https://www.inaturalist.org/photos/16323821" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p150" data-habit="ไม้ต้น" data-zones=" 12 " data-search="7-31170-001-150 ชะมวง(ภาคกลาง) หมากโมง (อุดรธานี) กะมวง (ภาคใต้) garcinia cowa roxb. ex dc. guttiferae (clusiaceae)">
+    <article class="plant" id="p150" data-group="tree" data-zones=" 12 " data-search="7-31170-001-150 ชะมวง(ภาคกลาง) หมากโมง (อุดรธานี) กะมวง (ภาคใต้) garcinia cowa roxb. ex dc. guttiferae (clusiaceae)">
       <figure class="ph"><img src="img/plants/150.jpg" alt="ภาพตัวอย่างชะมวง(ภาคกลาง)" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ชะมวง(ภาคกลาง)</h2>
@@ -2439,7 +2440,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Khant Ye Yint ( Lord Khanevyr ov Mandralyx) (<a href="https://www.inaturalist.org/photos/612589309" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p151" data-habit="ไม้เลื้อย" data-zones=" 12 16 " data-search="7-31170-001-151 เถาคันขาว cayratia trifolia (l.) domin. vitaceae">
+    <article class="plant" id="p151" data-group="climber" data-zones=" 12 16 " data-search="7-31170-001-151 เถาคันขาว cayratia trifolia (l.) domin. vitaceae">
       <figure class="ph"><img src="img/plants/151.jpg" alt="ภาพตัวอย่างเถาคันขาว" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เถาคันขาว</h2>
@@ -2455,7 +2456,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Shiwalee Samant (<a href="https://www.inaturalist.org/photos/66781183" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p152" data-habit="ไม้พุ่ม" data-zones=" 10 12 " data-search="7-31170-001-152 ขลู่ pluchea indica (l.) less. compositae (asteraceae)">
+    <article class="plant" id="p152" data-group="shrub" data-zones=" 10 12 " data-search="7-31170-001-152 ขลู่ pluchea indica (l.) less. compositae (asteraceae)">
       <figure class="ph"><img src="img/plants/152.jpg" alt="ภาพตัวอย่างขลู่" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ขลู่</h2>
@@ -2471,7 +2472,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/28138419" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p153" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-153 บานไม่รู้โรยป่า gomphrena celosioides mart. amaranthaceae">
+    <article class="plant" id="p153" data-group="herb" data-zones=" 12 " data-search="7-31170-001-153 บานไม่รู้โรยป่า gomphrena celosioides mart. amaranthaceae">
       <figure class="ph"><img src="img/plants/153.jpg" alt="ภาพตัวอย่างบานไม่รู้โรยป่า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>บานไม่รู้โรยป่า</h2>
@@ -2487,7 +2488,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย David Hoare (<a href="https://www.inaturalist.org/photos/171842527" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p154" data-habit="ไม้ต้น" data-zones=" 12 " data-search="7-31170-001-154 ส้มโอ citrus maxima (burm.f.) merr. rutaceae">
+    <article class="plant" id="p154" data-group="tree" data-zones=" 12 " data-search="7-31170-001-154 ส้มโอ citrus maxima (burm.f.) merr. rutaceae">
       <figure class="ph"><img src="img/plants/154.jpg" alt="ภาพตัวอย่างส้มโอ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ส้มโอ</h2>
@@ -2503,7 +2504,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/46345818" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p155" data-habit="ไม้ต้น" data-zones=" 12 " data-search="7-31170-001-155 ยอบ้าน morinda citrifolia l. rubiaceae">
+    <article class="plant" id="p155" data-group="tree" data-zones=" 12 " data-search="7-31170-001-155 ยอบ้าน morinda citrifolia l. rubiaceae">
       <figure class="ph"><img src="img/plants/155.jpg" alt="ภาพตัวอย่างยอบ้าน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ยอบ้าน</h2>
@@ -2519,7 +2520,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Kyhl Austin (<a href="https://www.inaturalist.org/photos/99909871" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p156" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-156 หญ้างวงช้าง heliotropium indicum l. boraginaceae">
+    <article class="plant" id="p156" data-group="herb" data-zones=" 12 " data-search="7-31170-001-156 หญ้างวงช้าง heliotropium indicum l. boraginaceae">
       <figure class="ph"><img src="img/plants/156.jpg" alt="ภาพตัวอย่างหญ้างวงช้าง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้างวงช้าง</h2>
@@ -2535,7 +2536,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/131915433" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p157" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-157 ถั่วพู psophocarpus tetragonolobus (l.) dc. ex hc. leguminosae-papilionoideae">
+    <article class="plant" id="p157" data-group="herb" data-zones=" 12 " data-search="7-31170-001-157 ถั่วพู psophocarpus tetragonolobus (l.) dc. ex hc. leguminosae-papilionoideae">
       <figure class="ph"><img src="img/plants/157.jpg" alt="ภาพตัวอย่างถั่วพู" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ถั่วพู</h2>
@@ -2551,7 +2552,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย mish mill (<a href="https://www.inaturalist.org/photos/56103212" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p158" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-158 ถั่วผี phaseolus lathyroides l.f. leguminosae (papilioniodeae)">
+    <article class="plant" id="p158" data-group="herb" data-zones=" 12 " data-search="7-31170-001-158 ถั่วผี phaseolus lathyroides l.f. leguminosae (papilioniodeae)">
       <figure class="ph"><img src="img/plants/158.jpg" alt="ภาพตัวอย่างถั่วผี" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ถั่วผี</h2>
@@ -2567,7 +2568,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Matt Reala (<a href="https://www.inaturalist.org/photos/114162116" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p159" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-159 บัวแดง nymphaea pubescens willd. nymphaeaceae">
+    <article class="plant" id="p159" data-group="herb" data-zones=" 12 " data-search="7-31170-001-159 บัวแดง nymphaea pubescens willd. nymphaeaceae">
       <figure class="ph"><img src="img/plants/159.jpg" alt="ภาพตัวอย่างบัวแดง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>บัวแดง</h2>
@@ -2583,7 +2584,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Vivek.N.Rathod (<a href="https://www.inaturalist.org/photos/278355138" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p160" data-habit="ไม้เลื้อย" data-zones=" 12 15 " data-search="7-31170-001-160 เสาวรส passiflora edulis sims. passifloraceae">
+    <article class="plant" id="p160" data-group="climber" data-zones=" 12 15 " data-search="7-31170-001-160 เสาวรส passiflora edulis sims. passifloraceae">
       <figure class="ph"><img src="img/plants/160.jpg" alt="ภาพตัวอย่างเสาวรส" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เสาวรส</h2>
@@ -2599,7 +2600,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Suhurab Mohamed (<a href="https://www.inaturalist.org/photos/106002881" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p161" data-habit="ไม้เลื้อย" data-zones=" 12 " data-search="7-31170-001-161 ย่านาง tiliacora triandra (colebr.) diels menispermaceae">
+    <article class="plant" id="p161" data-group="climber" data-zones=" 12 " data-search="7-31170-001-161 ย่านาง tiliacora triandra (colebr.) diels menispermaceae">
       <figure class="ph"><img src="img/plants/161.jpg" alt="ภาพตัวอย่างย่านาง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ย่านาง</h2>
@@ -2615,7 +2616,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Renaudsechet (<a href="https://www.inaturalist.org/photos/84631897" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p162" data-habit="ไม้พุ่ม" data-zones=" 12 15 " data-search="7-31170-001-162 ตะไก้ กำแพงเจ็ดชั้น salacia chinensis l. celastraceae">
+    <article class="plant" id="p162" data-group="shrub" data-zones=" 12 15 " data-search="7-31170-001-162 ตะไก้ กำแพงเจ็ดชั้น salacia chinensis l. celastraceae">
       <figure class="ph"><img src="img/plants/162.jpg" alt="ภาพตัวอย่างตะไก้" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตะไก้</h2>
@@ -2631,7 +2632,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย shelbyfarmer (<a href="https://www.inaturalist.org/photos/82093625" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p163" data-habit="ไม้ล้มลุก" data-zones=" 12 16 " data-search="7-31170-001-163 กระดุมทองเลื้อย wedelia trilobata (l.) hitchc. compositae (asteraceae)">
+    <article class="plant" id="p163" data-group="herb" data-zones=" 12 16 " data-search="7-31170-001-163 กระดุมทองเลื้อย wedelia trilobata (l.) hitchc. compositae (asteraceae)">
       <figure class="ph"><img src="img/plants/163.jpg" alt="ภาพตัวอย่างกระดุมทองเลื้อย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กระดุมทองเลื้อย</h2>
@@ -2647,7 +2648,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/43898069" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p164" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-164 กระเจี๊ยบแดง hibiscus sabdariffa l. malvaceae">
+    <article class="plant" id="p164" data-group="herb" data-zones=" 12 " data-search="7-31170-001-164 กระเจี๊ยบแดง hibiscus sabdariffa l. malvaceae">
       <figure class="ph"><img src="img/plants/164.jpg" alt="ภาพตัวอย่างกระเจี๊ยบแดง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กระเจี๊ยบแดง</h2>
@@ -2663,7 +2664,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/30423607" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p165" data-habit="ไม้ล้มลุก หญ้า" data-zones=" 12 " data-search="7-31170-001-165 ตะไคร้ cymbopogon citratus stapf gramineae (poaceae)">
+    <article class="plant" id="p165" data-group="grass" data-zones=" 12 " data-search="7-31170-001-165 ตะไคร้ cymbopogon citratus stapf gramineae (poaceae)">
       <figure class="ph"><img src="img/plants/165.jpg" alt="ภาพตัวอย่างตะไคร้" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ตะไคร้</h2>
@@ -2679,7 +2680,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Yantza Farm (<a href="https://www.inaturalist.org/photos/61513592" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p166" data-habit="ไม้ล้มลุก หญ้า" data-zones=" 12 " data-search="7-31170-001-166 หญ้าตีนกา eleusine indica (l.) gaertn. gramineae (poaceae)">
+    <article class="plant" id="p166" data-group="grass" data-zones=" 12 " data-search="7-31170-001-166 หญ้าตีนกา eleusine indica (l.) gaertn. gramineae (poaceae)">
       <figure class="ph"><img src="img/plants/166.jpg" alt="ภาพตัวอย่างหญ้าตีนกา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้าตีนกา</h2>
@@ -2695,7 +2696,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/46240603" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p167" data-habit="ไม้ล้มลุก ไม้พุ่ม" data-zones=" 12 " data-search="7-31170-001-167 ละหุ่งแดง jatropha gossypifolia l. euphorbiaceae">
+    <article class="plant" id="p167" data-group="herb" data-zones=" 12 " data-search="7-31170-001-167 ละหุ่งแดง jatropha gossypifolia l. euphorbiaceae">
       <figure class="ph"><img src="img/plants/167.jpg" alt="ภาพตัวอย่างละหุ่งแดง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ละหุ่งแดง</h2>
@@ -2711,7 +2712,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Lilian Tomazelli (<a href="https://www.inaturalist.org/photos/136711667" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p168" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-168 ข่า alpinia galanga (l.) willd zingiberaceae">
+    <article class="plant" id="p168" data-group="herb" data-zones=" 12 " data-search="7-31170-001-168 ข่า alpinia galanga (l.) willd zingiberaceae">
       <figure class="ph"><img src="img/plants/168.jpg" alt="ภาพตัวอย่างข่า" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ข่า</h2>
@@ -2727,7 +2728,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Jacy Chen (<a href="https://www.inaturalist.org/photos/204351284" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p169" data-habit="ไม้ล้มลุก หญ้า" data-zones=" 12 " data-search="7-31170-001-169 หญ้าปล้องข้าวนก brachiaria ramosa (l.) stapf gramineae (poaceae)">
+    <article class="plant" id="p169" data-group="grass" data-zones=" 12 " data-search="7-31170-001-169 หญ้าปล้องข้าวนก brachiaria ramosa (l.) stapf gramineae (poaceae)">
       <figure class="ph"><img src="img/plants/169.jpg" alt="ภาพตัวอย่างหญ้าปล้องข้าวนก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้าปล้องข้าวนก</h2>
@@ -2743,7 +2744,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย salientia (<a href="https://www.inaturalist.org/photos/44349443" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p170" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-170 หญ้ายาง ใบต่างดอก ลูกเขยตายแม่ยายทำศพ euphorbia heterophylla l. euphorbiaceae">
+    <article class="plant" id="p170" data-group="herb" data-zones=" 12 " data-search="7-31170-001-170 หญ้ายาง ใบต่างดอก ลูกเขยตายแม่ยายทำศพ euphorbia heterophylla l. euphorbiaceae">
       <figure class="ph"><img src="img/plants/170.jpg" alt="ภาพตัวอย่างหญ้ายาง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้ายาง</h2>
@@ -2759,7 +2760,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Steve Jones (<a href="https://www.inaturalist.org/photos/24547127" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p171" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-171 มะระขี้นก momordica charantia l. cucurbitaceae">
+    <article class="plant" id="p171" data-group="herb" data-zones=" 12 " data-search="7-31170-001-171 มะระขี้นก momordica charantia l. cucurbitaceae">
       <figure class="ph"><img src="img/plants/171.jpg" alt="ภาพตัวอย่างมะระขี้นก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะระขี้นก</h2>
@@ -2775,7 +2776,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Douglas Goldman (<a href="https://www.inaturalist.org/photos/269347188" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p172" data-habit="ไม้ล้มลุก หญ้า" data-zones=" 12 " data-search="7-31170-001-172 หญ้าขน brachiaria mutica (forssk.) stapf gramineae (poaceae)">
+    <article class="plant" id="p172" data-group="grass" data-zones=" 12 " data-search="7-31170-001-172 หญ้าขน brachiaria mutica (forssk.) stapf gramineae (poaceae)">
       <figure class="ph"><img src="img/plants/172.jpg" alt="ภาพตัวอย่างหญ้าขน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้าขน</h2>
@@ -2791,7 +2792,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/57852953" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p173" data-habit="ไม้ล้มลุก" data-zones=" 12 " data-search="7-31170-001-173 มะไฟนกคุ่ม แก้วรักนา มะไฟนา (ราชบุรี) สะเดานา หญ้ารักนา (ภาคเหนือ) ammannia baccifera l. lythraceae">
+    <article class="plant" id="p173" data-group="herb" data-zones=" 12 " data-search="7-31170-001-173 มะไฟนกคุ่ม แก้วรักนา มะไฟนา (ราชบุรี) สะเดานา หญ้ารักนา (ภาคเหนือ) ammannia baccifera l. lythraceae">
       <figure class="ph"><img src="img/plants/173.jpg" alt="ภาพตัวอย่างมะไฟนกคุ่ม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะไฟนกคุ่ม</h2>
@@ -2807,7 +2808,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/254683045" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p174" data-habit="ไม้ล้มลุก ไม้เลื้อย" data-zones=" 12 " data-search="7-31170-001-174 ถั่วแปบ lablab purpureus (l.) sweet leguminosae-papilionideae">
+    <article class="plant" id="p174" data-group="herb" data-zones=" 12 " data-search="7-31170-001-174 ถั่วแปบ lablab purpureus (l.) sweet leguminosae-papilionideae">
       <figure class="ph"><img src="img/plants/174.jpg" alt="ภาพตัวอย่างถั่วแปบ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ถั่วแปบ</h2>
@@ -2823,7 +2824,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/56321074" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p175" data-habit="ไม้พุ่ม" data-zones=" 13 " data-search="7-31170-001-175 ปอพาน colona auriculata (desv.) craib tiliaceae">
+    <article class="plant" id="p175" data-group="shrub" data-zones=" 13 " data-search="7-31170-001-175 ปอพาน colona auriculata (desv.) craib tiliaceae">
       <figure class="ph"><img src="img/plants/175.jpg" alt="ภาพตัวอย่างปอพาน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ปอพาน</h2>
@@ -2839,7 +2840,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย eec (<a href="https://www.inaturalist.org/photos/230317409" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p177" data-habit="ไม้เลื้อย" data-zones=" 13 " data-search="7-31170-001-177 ไหลแดง เครือไหลน้ำ derris elliptica (roxb.) benth. leguminosae-papilionoideae">
+    <article class="plant" id="p177" data-group="climber" data-zones=" 13 " data-search="7-31170-001-177 ไหลแดง เครือไหลน้ำ derris elliptica (roxb.) benth. leguminosae-papilionoideae">
       <figure class="ph"><img src="img/plants/177.jpg" alt="ภาพตัวอย่างไหลแดง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ไหลแดง</h2>
@@ -2855,7 +2856,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย JODY HSIEH (<a href="https://www.inaturalist.org/photos/283271122" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p178" data-habit="ไม้ต้น" data-zones=" 13 " data-search="7-31170-001-178 กันเกรา fagraea fragrans roxb. gentianaceae">
+    <article class="plant" id="p178" data-group="tree" data-zones=" 13 " data-search="7-31170-001-178 กันเกรา fagraea fragrans roxb. gentianaceae">
       <figure class="ph"><img src="img/plants/178.jpg" alt="ภาพตัวอย่างกันเกรา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กันเกรา</h2>
@@ -2871,7 +2872,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Yusran E. Ritonga (<a href="https://www.inaturalist.org/photos/145569733" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p179" data-habit="ไม้รอเลื้อย ปาล์ม" data-zones=" 13 14 " data-search="7-31170-001-179 หวาย calamus viminalis willd. palmae (arecaceae)">
+    <article class="plant" id="p179" data-group="palm" data-zones=" 13 14 " data-search="7-31170-001-179 หวาย calamus viminalis willd. palmae (arecaceae)">
       <figure class="ph"><img src="img/plants/179.jpg" alt="ภาพตัวอย่างหวาย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หวาย</h2>
@@ -2887,7 +2888,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย mihailovujic (<a href="https://www.inaturalist.org/photos/473860241" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p180" data-habit="ไม้ล้มลุก" data-zones=" 13 " data-search="7-31170-001-180 โทงเทง ปุงปิง ต้อมต๊อก physalis angulata l. solanaceae">
+    <article class="plant" id="p180" data-group="herb" data-zones=" 13 " data-search="7-31170-001-180 โทงเทง ปุงปิง ต้อมต๊อก physalis angulata l. solanaceae">
       <figure class="ph"><img src="img/plants/180.jpg" alt="ภาพตัวอย่างโทงเทง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>โทงเทง</h2>
@@ -2903,7 +2904,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/132127478" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p181" data-habit="ไม้พุ่ม ไม้ล้มลุก" data-zones=" 13 14 " data-search="7-31170-001-181 ก้ามกุ้งสีทอง heliconia latispatha benth. heliconiaceae">
+    <article class="plant" id="p181" data-group="shrub" data-zones=" 13 14 " data-search="7-31170-001-181 ก้ามกุ้งสีทอง heliconia latispatha benth. heliconiaceae">
       <figure class="ph"><img src="img/plants/181.jpg" alt="ภาพตัวอย่างก้ามกุ้งสีทอง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ก้ามกุ้งสีทอง</h2>
@@ -2919,7 +2920,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Rich Kostecke (<a href="https://www.inaturalist.org/photos/22739965" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p182" data-habit="ไม้ต้น" data-zones=" 14 " data-search="7-31170-001-182 มะกรูด citrus hystrix dc. rutaceae">
+    <article class="plant" id="p182" data-group="tree" data-zones=" 14 " data-search="7-31170-001-182 มะกรูด citrus hystrix dc. rutaceae">
       <figure class="ph"><img src="img/plants/182.jpg" alt="ภาพตัวอย่างมะกรูด" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะกรูด</h2>
@@ -2935,7 +2936,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Elkan Putra (<a href="https://www.inaturalist.org/photos/378083246" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p183" data-habit="ไม้ล้มลุก" data-zones=" 14 " data-search="7-31170-001-183 ผักขมหนาม amaranthus spinosus l. amaranthaceae">
+    <article class="plant" id="p183" data-group="herb" data-zones=" 14 " data-search="7-31170-001-183 ผักขมหนาม amaranthus spinosus l. amaranthaceae">
       <figure class="ph"><img src="img/plants/183.jpg" alt="ภาพตัวอย่างผักขมหนาม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ผักขมหนาม</h2>
@@ -2951,7 +2952,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Mary Keim (<a href="https://www.inaturalist.org/photos/17358912" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p184" data-habit="ไม้ล้มลุก" data-zones=" 14 " data-search="7-31170-001-184 สาบแร้งสาบกา ageratum conyzoides l. compositae (asteraceae)">
+    <article class="plant" id="p184" data-group="herb" data-zones=" 14 " data-search="7-31170-001-184 สาบแร้งสาบกา ageratum conyzoides l. compositae (asteraceae)">
       <figure class="ph"><img src="img/plants/184.jpg" alt="ภาพตัวอย่างสาบแร้งสาบกา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>สาบแร้งสาบกา</h2>
@@ -2967,7 +2968,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย 小铖/Smalltown (<a href="https://www.inaturalist.org/photos/318779891" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p185" data-habit="ไม้ล้มลุก" data-zones=" 14 " data-search="7-31170-001-185 หิ่งเม่น crotalaria pallida aiton leguminosae-papilionoideae">
+    <article class="plant" id="p185" data-group="herb" data-zones=" 14 " data-search="7-31170-001-185 หิ่งเม่น crotalaria pallida aiton leguminosae-papilionoideae">
       <figure class="ph"><img src="img/plants/185.jpg" alt="ภาพตัวอย่างหิ่งเม่น" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หิ่งเม่น</h2>
@@ -2983,7 +2984,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Bob Peterson (<a href="https://www.inaturalist.org/photos/79578820" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p186" data-habit="ไม้ล้มลุก" data-zones=" 14 " data-search="7-31170-001-186 ผักขมหิน ผักเบี้ยหิน boerhavia diffusa l. nyctaginaceae">
+    <article class="plant" id="p186" data-group="herb" data-zones=" 14 " data-search="7-31170-001-186 ผักขมหิน ผักเบี้ยหิน boerhavia diffusa l. nyctaginaceae">
       <figure class="ph"><img src="img/plants/186.jpg" alt="ภาพตัวอย่างผักขมหิน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ผักขมหิน</h2>
@@ -2999,7 +3000,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/72598676" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p187" data-habit="ไม้ล้มลุก" data-zones=" 14 " data-search="7-31170-001-187 หญ้าขัดมอน sida acuta burm.f. malvaceae">
+    <article class="plant" id="p187" data-group="herb" data-zones=" 14 " data-search="7-31170-001-187 หญ้าขัดมอน sida acuta burm.f. malvaceae">
       <figure class="ph"><img src="img/plants/187.jpg" alt="ภาพตัวอย่างหญ้าขัดมอน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้าขัดมอน</h2>
@@ -3015,7 +3016,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Anil Kumar Verma (<a href="https://www.inaturalist.org/photos/93558236" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p188" data-habit="ไม้เลื้อย" data-zones=" 12 13 15 " data-search="7-31170-001-188 บอระเพ็ด tinospora crispa (l.) miers ex hook.f. &amp; thomson menispermaceae">
+    <article class="plant" id="p188" data-group="climber" data-zones=" 12 13 15 " data-search="7-31170-001-188 บอระเพ็ด tinospora crispa (l.) miers ex hook.f. &amp; thomson menispermaceae">
       <figure class="ph"><img src="img/plants/188.jpg" alt="ภาพตัวอย่างบอระเพ็ด" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>บอระเพ็ด</h2>
@@ -3031,7 +3032,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/27558910" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p189" data-habit="ไม้พุ่ม ไม้เลื้อย" data-zones=" 12 15 " data-search="7-31170-001-189 เถาหัวลิง sarcolobus globosus wall. asclepiadaceae">
+    <article class="plant" id="p189" data-group="shrub" data-zones=" 12 15 " data-search="7-31170-001-189 เถาหัวลิง sarcolobus globosus wall. asclepiadaceae">
       <figure class="ph"><img src="img/plants/189.jpg" alt="ภาพตัวอย่างเถาหัวลิง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เถาหัวลิง</h2>
@@ -3047,7 +3048,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Abu Hamas (<a href="https://www.inaturalist.org/photos/50600040" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p190" data-habit="ไม้ต้น" data-zones=" 15 " data-search="7-31170-001-190 กระโดน (ภาคกลาง) ปุย (ภาคเหนือ) ปุยกระโดน (ภาคใต้) careya sphaerica roxb. lecythidaceae">
+    <article class="plant" id="p190" data-group="tree" data-zones=" 15 " data-search="7-31170-001-190 กระโดน (ภาคกลาง) ปุย (ภาคเหนือ) ปุยกระโดน (ภาคใต้) careya sphaerica roxb. lecythidaceae">
       <figure class="ph"><img src="img/plants/190.jpg" alt="ภาพตัวอย่างกระโดน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กระโดน</h2>
@@ -3063,7 +3064,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย satish nikam (<a href="https://www.inaturalist.org/photos/1538028" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p191" data-habit="ไม้ต้น" data-zones=" 9 11 16 " data-search="7-31170-001-191 ไทรย้อยใบแหลม ficus benjamina l. moraceae">
+    <article class="plant" id="p191" data-group="tree" data-zones=" 9 11 16 " data-search="7-31170-001-191 ไทรย้อยใบแหลม ficus benjamina l. moraceae">
       <figure class="ph"><img src="img/plants/191.jpg" alt="ภาพตัวอย่างไทรย้อยใบแหลม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ไทรย้อยใบแหลม</h2>
@@ -3079,7 +3080,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/68686046" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p192" data-habit="ไม้ล้มลุก" data-zones=" 15 " data-search="7-31170-001-192 ผักคออ่อน ผักกาดขม ผักห่าน crassocephalum crepidioides (benth.) s. moore compositae (asteraceae)">
+    <article class="plant" id="p192" data-group="herb" data-zones=" 15 " data-search="7-31170-001-192 ผักคออ่อน ผักกาดขม ผักห่าน crassocephalum crepidioides (benth.) s. moore compositae (asteraceae)">
       <figure class="ph"><img src="img/plants/192.jpg" alt="ภาพตัวอย่างผักคออ่อน" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ผักคออ่อน</h2>
@@ -3095,7 +3096,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/58426954" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p193" data-habit="ไม้ต้น" data-zones=" 16 " data-search="7-31170-001-193 ขันทองพยาบาท ขันทอง ดูกไทร ไฟ ดูกหิน ขุนทอง suregada multiflorum (a. juss.) baill. euphorbiaceae">
+    <article class="plant" id="p193" data-group="tree" data-zones=" 16 " data-search="7-31170-001-193 ขันทองพยาบาท ขันทอง ดูกไทร ไฟ ดูกหิน ขุนทอง suregada multiflorum (a. juss.) baill. euphorbiaceae">
       <figure class="ph"><img src="img/plants/193.jpg" alt="ภาพตัวอย่างขันทองพยาบาท" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ขันทองพยาบาท</h2>
@@ -3111,7 +3112,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/715956" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p194" data-habit="ไม้ล้มลุก" data-zones=" 16 " data-search="7-31170-001-194 ดาหลา etlingera elatior (jack) r.m. sm. zingiberaceae">
+    <article class="plant" id="p194" data-group="herb" data-zones=" 16 " data-search="7-31170-001-194 ดาหลา etlingera elatior (jack) r.m. sm. zingiberaceae">
       <figure class="ph"><img src="img/plants/194.jpg" alt="ภาพตัวอย่างดาหลา" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ดาหลา</h2>
@@ -3127,7 +3128,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Steven Kurniawidjaja (<a href="https://www.inaturalist.org/photos/8983128" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p195" data-habit="ไม้พุ่ม" data-zones=" 16 " data-search="7-31170-001-195 ลิ้นกระบือ ท้องใบแดง กระบือเจ็ดตัว excoecaria cochinchinensis lour. var. cochinchinensis euphorbiaceae">
+    <article class="plant" id="p195" data-group="shrub" data-zones=" 16 " data-search="7-31170-001-195 ลิ้นกระบือ ท้องใบแดง กระบือเจ็ดตัว excoecaria cochinchinensis lour. var. cochinchinensis euphorbiaceae">
       <figure class="ph"><img src="img/plants/195.jpg" alt="ภาพตัวอย่างลิ้นกระบือ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>ลิ้นกระบือ</h2>
@@ -3143,7 +3144,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย jiab_rawiphan (<a href="https://www.inaturalist.org/photos/261138141" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p196" data-habit="ไม้เลื้อย" data-zones=" 11 16 " data-search="7-31170-001-196 รสสุคนธ์ มะตาดเครือ สุคนธรส อรคนธ์ ย่านปด (นครศรีธรรมราช) รสสุคนธ์ขาว มะตาดเครือ เสาวรส (กรุงเทพมหานคร) tetracera loureiri (fin. &amp; gagnep.) pierre ex craib dilleniaceae">
+    <article class="plant" id="p196" data-group="climber" data-zones=" 11 16 " data-search="7-31170-001-196 รสสุคนธ์ มะตาดเครือ สุคนธรส อรคนธ์ ย่านปด (นครศรีธรรมราช) รสสุคนธ์ขาว มะตาดเครือ เสาวรส (กรุงเทพมหานคร) tetracera loureiri (fin. &amp; gagnep.) pierre ex craib dilleniaceae">
       <figure class="ph"><img src="img/plants/196.jpg" alt="ภาพตัวอย่างรสสุคนธ์" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>รสสุคนธ์</h2>
@@ -3159,7 +3160,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Ong Jyh Seng (<a href="https://www.inaturalist.org/photos/110653530" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p197" data-habit="ไม้ล้มลุก" data-zones=" 16 " data-search="7-31170-001-197 กกสามเหลี่ยมใหญ่ กกอียิปต์ cyperus papyrus l. cyperaceae">
+    <article class="plant" id="p197" data-group="herb" data-zones=" 16 " data-search="7-31170-001-197 กกสามเหลี่ยมใหญ่ กกอียิปต์ cyperus papyrus l. cyperaceae">
       <figure class="ph"><img src="img/plants/197.jpg" alt="ภาพตัวอย่างกกสามเหลี่ยมใหญ่" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>กกสามเหลี่ยมใหญ่</h2>
@@ -3175,7 +3176,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Shaun Swanepoel (<a href="https://www.inaturalist.org/photos/13488403" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p198" data-habit="ไม้พุ่ม" data-zones=" 16 " data-search="7-31170-001-198 เข็มปัตตาเวีย ปัตตาเวีย jatropha integerrima jacq. euphorbiaceae">
+    <article class="plant" id="p198" data-group="shrub" data-zones=" 16 " data-search="7-31170-001-198 เข็มปัตตาเวีย ปัตตาเวีย jatropha integerrima jacq. euphorbiaceae">
       <figure class="ph"><img src="img/plants/198.jpg" alt="ภาพตัวอย่างเข็มปัตตาเวีย" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เข็มปัตตาเวีย</h2>
@@ -3191,7 +3192,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Maribel Armenteros (<a href="https://www.inaturalist.org/photos/101142590" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p199" data-habit="ไม้ล้มลุก หญ้า" data-zones=" 16 " data-search="7-31170-001-199 หญ้าคอมมิวนิสต์ pennisetum polystachyon (l.) schult. gramineae (poaceae)">
+    <article class="plant" id="p199" data-group="grass" data-zones=" 16 " data-search="7-31170-001-199 หญ้าคอมมิวนิสต์ pennisetum polystachyon (l.) schult. gramineae (poaceae)">
       <figure class="ph"><img src="img/plants/199.jpg" alt="ภาพตัวอย่างหญ้าคอมมิวนิสต์" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้าคอมมิวนิสต์</h2>
@@ -3207,7 +3208,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย ผู้ใช้ iNaturalist (<a href="https://www.inaturalist.org/photos/67045445" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0</a></p>
       </div>
     </article>
-    <article class="plant" id="p200" data-habit="ไม้ล้มลุก หญ้า" data-zones=" 16 " data-search="7-31170-001-200 หญ้าเจ้าชู้ chrysopogon aciculatus (retz.) trin. gramineae (poaceae)">
+    <article class="plant" id="p200" data-group="grass" data-zones=" 16 " data-search="7-31170-001-200 หญ้าเจ้าชู้ chrysopogon aciculatus (retz.) trin. gramineae (poaceae)">
       <figure class="ph"><img src="img/plants/200.jpg" alt="ภาพตัวอย่างหญ้าเจ้าชู้" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้าเจ้าชู้</h2>
@@ -3223,7 +3224,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Jeremy James (<a href="https://www.inaturalist.org/photos/239637782" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p201" data-habit="ไม้ต้น" data-zones=" 7 17 " data-search="7-31170-001-201 มะขามป้อม phyllanthus emblica l. euphorbiaceae">
+    <article class="plant" id="p201" data-group="tree" data-zones=" 7 17 " data-search="7-31170-001-201 มะขามป้อม phyllanthus emblica l. euphorbiaceae">
       <figure class="ph"><img src="img/plants/201.jpg" alt="ภาพตัวอย่างมะขามป้อม" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>มะขามป้อม</h2>
@@ -3239,7 +3240,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Mayuresh Kulkarni (<a href="https://www.inaturalist.org/photos/33996958" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p202" data-habit="ไม้ล้มลุก หญ้า" data-zones=" 2 " data-search="7-31170-001-202 หญ้าแฝก chrysopogon zizanioides (l.) roberty gramineae (poaceae)">
+    <article class="plant" id="p202" data-group="grass" data-zones=" 2 " data-search="7-31170-001-202 หญ้าแฝก chrysopogon zizanioides (l.) roberty gramineae (poaceae)">
       <figure class="ph"><img src="img/plants/202.jpg" alt="ภาพตัวอย่างหญ้าแฝก" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>หญ้าแฝก</h2>
@@ -3255,7 +3256,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย feno (<a href="https://www.inaturalist.org/photos/13607423" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p204" data-habit="ไม้ต้น" data-zones=" 16 " data-search="7-31170-001-204 เลียบ ficus subpisocarpa gagnep. moraceae">
+    <article class="plant" id="p204" data-group="tree" data-zones=" 16 " data-search="7-31170-001-204 เลียบ ficus subpisocarpa gagnep. moraceae">
       <figure class="ph"><img src="img/plants/204.jpg" alt="ภาพตัวอย่างเลียบ" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>เลียบ</h2>
@@ -3271,7 +3272,7 @@
         <p class="credit">ภาพตัวอย่างชนิดพันธุ์ โดย Stargazer (<a href="https://www.inaturalist.org/photos/387373746" target="_blank" rel="noopener">iNaturalist</a>) <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
       </div>
     </article>
-    <article class="plant" id="p205" data-habit="ไม้ต้น" data-zones=" 16 17 " data-search="7-31170-001-205 รวงผึ้ง schoutenia glomerata king subsp. peregrina (craib) roekm. tiliaceae (malvaceae)">
+    <article class="plant" id="p205" data-group="tree" data-zones=" 16 17 " data-search="7-31170-001-205 รวงผึ้ง schoutenia glomerata king subsp. peregrina (craib) roekm. tiliaceae (malvaceae)">
       <figure class="ph"><img src="img/plants/205.jpg" alt="ภาพตัวอย่างรวงผึ้ง" loading="lazy" decoding="async" width="720" height="540"></figure>
       <div class="body">
         <h2>รวงผึ้ง</h2>
@@ -3301,7 +3302,7 @@
     var t = q.value.trim().toLowerCase(), h = habit.value, z = zone.value, shown = 0;
     cards.forEach(function (c) {
       var ok = (!t || c.dataset.search.indexOf(t) !== -1) &&
-               (!h || c.dataset.habit === h) &&
+               (!h || c.dataset.group === h) &&
                (!z || c.dataset.zones.indexOf(' ' + z + ' ') !== -1);
       c.hidden = !ok;
       if (ok) shown++;
@@ -3309,6 +3310,9 @@
     count.textContent = 'แสดง ' + shown + ' ชนิด';
     empty.hidden = shown !== 0;
   }
+  // เปิดจากปุ่ม "ดูทั้งหมด" ในหน้าแรก เช่น plants.html?group=tree
+  var g = new URLSearchParams(location.search).get('group');
+  if (g && habit.querySelector('option[value="' + g + '"]')) { habit.value = g; apply(); }
   q.addEventListener('input', apply);
   habit.addEventListener('change', apply);
   zone.addEventListener('change', apply);

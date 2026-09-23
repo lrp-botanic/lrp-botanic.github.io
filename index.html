@@ -4,160 +4,163 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>สวนพฤกษศาสตร์โรงเรียน | โรงเรียนละหานทรายรัชดาภิเษก</title>
-<meta name="description" content="เว็บไซต์งานสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก พรรณไม้ประจำวัน และทำเนียบพรรณไม้ในโรงเรียน">
-<meta name="theme-color" content="#E8EFD8">
+<meta name="description" content="เว็บไซต์งานสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก ทำเนียบพรรณไม้และใบงาน">
+<meta name="theme-color" content="#1C2B6B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600&family=Chonburi&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600&family=Chonburi&family=Sriracha&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <style>
-  /* พรรณไม้ประจำวัน */
-  .today { padding:18px 0 8px; }
-  .kicker { margin:0 0 14px; font-weight:500; font-size:15px; color:var(--ink-soft); }
-  .kicker time { color:var(--ink); }
-  .leafpic {
-    position:relative; width:100%; aspect-ratio:1/1; margin:0;
-    border-radius:6px 78% 6px 78%; overflow:hidden; background:var(--leaf);
-    box-shadow:inset 0 0 0 2px var(--ink);
-  }
-  .leafpic img { width:100%; height:100%; object-fit:cover; display:block; }
-  .leafpic .none { position:absolute; inset:0; display:grid; place-items:center; }
-  .leafpic.empty::after { display:none; }
-  .leafpic::after { /* เส้นกลางใบ */
-    content:""; position:absolute; left:50%; top:50%; width:141%; height:2px;
-    background:rgba(247,249,240,.55); transform:translate(-50%,-50%) rotate(-45deg); pointer-events:none;
-  }
-  .name {
-    font-family:var(--display); font-weight:400; margin:-0.62em 0 0; position:relative;
-    font-size:clamp(52px, 17vw, 96px); line-height:1.18; letter-spacing:-.01em;
-    overflow-wrap:anywhere; text-wrap:balance;
-    text-shadow: 3px 3px 0 var(--paper), -3px 3px 0 var(--paper), 3px -3px 0 var(--paper), -3px -3px 0 var(--paper), 0 4px 0 var(--paper), 4px 0 0 var(--paper), -4px 0 0 var(--paper), 0 -4px 0 var(--paper);
-  }
-  .name.mid { font-size:clamp(40px, 12.5vw, 72px); }
-  .name.long { font-size:clamp(32px, 9.5vw, 56px); }
-  .sci { margin:4px 0 0; font-size:18px; }
-  .aka { margin:2px 0 0; font-size:15px; color:var(--ink-soft); }
-  .where { margin:20px 0 0; padding:14px 16px; background:var(--card); border-radius:16px; border:2px solid var(--ink); }
-  .where h2 { margin:0 0 4px; font:600 15px/1.4 var(--body); color:var(--ink-soft); }
-  .where ul { margin:0; padding:0; list-style:none; }
-  .where li { font-weight:500; font-size:18px; line-height:1.45; }
-  .where li + li { margin-top:4px; }
-  .where li small { font-weight:400; font-size:15px; color:var(--ink-soft); }
-  .feat { margin:14px 0 0; }
-  .feat b { font-weight:600; }
-  .actions { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 0; }
-  .credit { margin:14px 0 0; font-size:12.5px; line-height:1.5; color:var(--ink-soft); }
-  .credit a { color:var(--ink-soft); }
+  :root { --navy:#1C2B6B; --gold:#F2A93B; --hand:'Sriracha', cursive; }
 
-  /* ในเว็บมีอะไร */
-  .menu { margin:44px 0 0; padding:0; list-style:none; border-top:2px solid var(--ink); }
-  .menu li { border-bottom:2px solid var(--ink); }
-  .menu a, .menu .soon { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:18px 2px; text-decoration:none; }
-  .menu a { flex-direction:column; gap:0; padding:20px 2px; }
-  .menu strong { font-family:var(--display); font-weight:400; font-size:clamp(26px, 7.5vw, 34px); line-height:1.25; }
-  .menu span { font-size:15px; color:var(--ink-soft); text-align:right; }
-  .menu a span { text-align:left; }
-  .menu a:hover strong { text-decoration:underline; text-decoration-thickness:3px; text-underline-offset:6px; text-decoration-color:var(--turmeric); }
-  .menu .soon strong { color:var(--ink-soft); opacity:.55; font-size:clamp(20px, 5.6vw, 24px); }
-  .soon-note { margin:14px 0 0; font-size:15px; color:var(--ink-soft); }
+  /* ส่วนตัวตนโรงเรียน */
+  .school { background:var(--navy); color:#fff; text-align:center; padding:36px 0 44px; }
+  .seal {
+    width:132px; height:132px; margin:0 auto; border-radius:50%; background:#fff;
+    border:3px solid var(--gold); display:grid; place-items:center; overflow:hidden;
+  }
+  .seal img { width:auto; height:96px; }
+  .school-name { margin:18px 0 0; font-weight:500; font-size:17px; color:#DDE3F5; }
+  .school h1 {
+    margin:4px 0 0; font-family:var(--display); font-weight:400; color:var(--gold);
+    font-size:clamp(34px, 10.2vw, 60px); line-height:1.25; text-wrap:balance;
+  }
+  .stats { list-style:none; margin:26px auto 0; padding:0; display:flex; justify-content:center; max-width:420px; }
+  .stats li { flex:1; padding:0 6px; font-size:15px; color:#DDE3F5; line-height:1.35; }
+  .stats li + li { border-left:1px solid rgba(255,255,255,.28); }
+  .stats b { display:block; font-family:var(--display); font-weight:400; font-size:30px; line-height:1.3; color:#fff; }
+  .cta { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:28px 0 0; }
+  .cta .btn { border-color:var(--gold); }
+  .cta .btn.gold { background:var(--gold); color:var(--navy); box-shadow:0 4px 0 #0E1640; }
+  .cta .btn.gold:active { transform:translateY(3px); box-shadow:0 1px 0 #0E1640; }
+  .cta .btn.ghost { color:#fff; }
+  .school :focus-visible { outline-color:#fff; }
 
-  /* ตอนสุ่มใหม่ */
-  .swap .leafpic, .swap .name { animation:pop .42s cubic-bezier(.2,.9,.3,1.3); }
-  @keyframes pop { from { transform:scale(.92) rotate(-3deg); opacity:.2; } to { transform:none; opacity:1; } }
-  @media (prefers-reduced-motion: reduce) { .swap .leafpic, .swap .name { animation:none; } }
+  /* สันสมุด: ห่วงตรงรอยต่อระหว่างส่วนบนกับสมุด */
+  .rings {
+    height:26px; margin-top:-13px; position:relative;
+    background:radial-gradient(circle at 50% 50%, var(--paper) 0 6px, var(--ink) 6.5px 9px, transparent 9.5px) center / 38px 26px repeat-x;
+  }
+
+  /* สมุดภาพ */
+  .book {
+    padding:18px 0 8px;
+    background:
+      linear-gradient(90deg, transparent 38px, rgba(230,168,23,.55) 38px 40px, transparent 40px),
+      repeating-linear-gradient(180deg, transparent 0 33px, rgba(23,57,42,.09) 33px 34px);
+  }
+  .book-title { font-family:var(--display); font-weight:400; font-size:clamp(30px, 9vw, 48px); line-height:1.2; margin:14px 0 0; }
+  .note { font-family:var(--hand); font-size:19px; color:var(--ink-soft); margin:2px 0 0; transform:rotate(-1.5deg); transform-origin:left; }
+
+  .spread { margin:38px 0 0; }
+  .spread h3 { margin:0; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .spread h3 .tab {
+    font-family:var(--display); font-weight:400; font-size:26px; line-height:1.3;
+    background:var(--turmeric); border:2px solid var(--ink); border-radius:10px 10px 10px 2px; padding:2px 14px;
+  }
+  .spread h3 small { font:500 15px/1.4 var(--body); color:var(--ink-soft); }
+  .pols { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px 16px; margin:18px 0 0; }
+  @media (min-width:720px) { .pols { grid-template-columns:repeat(4, minmax(0,1fr)); } }
+  .pol {
+    display:block; position:relative; background:#fff; padding:8px 8px 10px; text-decoration:none;
+    box-shadow:0 2px 0 rgba(23,57,42,.25), 0 8px 18px rgba(23,57,42,.12);
+    transform:rotate(var(--r, -2deg)); transition:transform .18s ease;
+  }
+  .pol:nth-child(2) { --r:2.2deg; } .pol:nth-child(3) { --r:1.2deg; } .pol:nth-child(4) { --r:-2.8deg; }
+  .pol:hover, .pol:focus-visible { transform:rotate(0) scale(1.03); }
+  .pol .tape {
+    position:absolute; top:-10px; left:50%; width:64px; height:20px; transform:translateX(-50%) rotate(-4deg);
+    background:rgba(230,168,23,.62); border-left:2px dotted rgba(255,255,255,.6); border-right:2px dotted rgba(255,255,255,.6);
+  }
+  .pol .ph { display:block; aspect-ratio:1/1; background:var(--leaf); position:relative; overflow:hidden; }
+  .pol img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .pol .cap { display:block; margin:8px 2px 0; font-family:var(--hand); font-size:20px; line-height:1.3; color:var(--ink); overflow-wrap:anywhere; }
+  .pol .by { display:block; margin:2px 2px 0; font-size:10.5px; line-height:1.35; color:var(--ink-soft); }
+  .more { display:inline-block; margin:18px 0 0; font-weight:600; text-decoration-thickness:2px; text-underline-offset:4px; text-decoration-color:var(--turmeric); }
+
+  .soon { margin:44px 0 0; padding:16px 18px; background:var(--card); border:2px dashed var(--ink-soft); border-radius:14px; font-size:15px; color:var(--ink-soft); }
+  .soon b { color:var(--ink); }
+  @media (prefers-reduced-motion: reduce) { .pol { transition:none; } }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V15" stroke="#17392A" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M17 17C17 9 11 5 4 5c0 8 5 12 13 12Z" fill="#7FA34B" stroke="#17392A" stroke-width="2.2" stroke-linejoin="round"/><path d="M17 20c0-7 5-11 13-11 0 7-5 11-13 11Z" fill="#E6A817" stroke="#17392A" stroke-width="2.2" stroke-linejoin="round"/></svg>
-    <div><b>สวนพฤกษศาสตร์โรงเรียน</b><span>โรงเรียนละหานทรายรัชดาภิเษก</span></div>
-  </header>
-
-  <main>
-    <section class="today" id="today" aria-labelledby="plant-name">
-      <p class="kicker">พรรณไม้ประจำวัน <time id="date"></time></p>
-      <figure class="leafpic" id="pic"></figure>
-      <h1 class="name" id="plant-name">…</h1>
-      <p class="sci" id="sci"></p>
-      <p class="aka" id="aka"></p>
-      <div class="where">
-        <h2>ไปดูต้นจริงได้ที่</h2>
-        <ul id="where"></ul>
-      </div>
-      <p class="feat" id="feat"></p>
-      <div class="actions">
-        <button class="btn primary" id="shuffle" type="button">สุ่มต้นอื่น</button>
-        <a class="btn" id="more" href="plants.html">ดูในทำเนียบ</a>
-      </div>
-      <p class="credit" id="credit"></p>
-    </section>
-
-    <ul class="menu">
-      <li><a href="plants.html"><strong>ทำเนียบพรรณไม้</strong><span id="count">201 ชนิดในโรงเรียน</span></a></li>
-      <li><a href="worksheets.html"><strong>ใบงาน</strong><span>18 ชุด Word และ PDF</span></a></li>
-      <li><div class="soon"><strong>แผนที่สวน</strong><span>เร็ว ๆ นี้</span></div></li>
-      <li><div class="soon"><strong>ข่าวและกิจกรรม</strong><span>เร็ว ๆ นี้</span></div></li>
-      <li><div class="soon"><strong>ผลงานและรางวัล</strong><span>เร็ว ๆ นี้</span></div></li>
-      <li><div class="soon"><strong>เกี่ยวกับโครงการ</strong><span>เร็ว ๆ นี้</span></div></li>
-      <li><div class="soon"><strong>ติดต่อ</strong><span>เร็ว ๆ นี้</span></div></li>
+<header class="school">
+  <div class="wrap">
+    <div class="seal"><img src="img/emblem.png" alt="ตราโรงเรียนละหานทรายรัชดาภิเษก" width="250" height="313"></div>
+    <p class="school-name">โรงเรียนละหานทรายรัชดาภิเษก</p>
+    <h1>สวนพฤกษศาสตร์โรงเรียน</h1>
+    <ul class="stats" aria-label="ข้อมูลจากทะเบียนพรรณไม้">
+      <li><b id="n-species">201</b>ชนิด</li>
+      <li><b id="n-trees">1,976</b>ต้น</li>
+      <li><b id="n-zones">17</b>พื้นที่ศึกษา</li>
     </ul>
-    <p class="soon-note">เว็บไซต์อยู่ระหว่างจัดทำ ติดตามความคืบหน้าได้เร็วๆ นี้</p>
-  </main>
+    <div class="cta">
+      <a class="btn gold" href="plants.html">ทำเนียบพรรณไม้</a>
+      <a class="btn ghost" href="worksheets.html">ใบงาน</a>
+    </div>
+  </div>
+</header>
+<div class="rings" aria-hidden="true"></div>
 
-  <footer>© งานสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก</footer>
-</div>
+<main class="book">
+  <div class="wrap">
+    <h2 class="book-title">สมุดภาพพฤกษศาสตร์</h2>
+    <p class="note">เปิดทีไร ต้นไม้ในสมุดสุ่มใหม่ทุกครั้ง</p>
+    <div id="spreads">
+      <noscript><p><a href="plants.html">ดูพรรณไม้ทั้งหมดในทำเนียบพรรณไม้</a></p></noscript>
+    </div>
+    <p class="soon"><b>หน้าที่กำลังทำ</b> แผนที่สวน ข่าวและกิจกรรม ผลงานและรางวัล เกี่ยวกับโครงการ และติดต่อ ติดตามความคืบหน้าได้เร็วๆ นี้</p>
+    <footer>© งานสวนพฤกษศาสตร์โรงเรียน โรงเรียนละหานทรายรัชดาภิเษก<br>ภาพในสมุดเป็นภาพตัวอย่างชนิดพันธุ์จาก iNaturalist ไม่ใช่ต้นในโรงเรียน</footer>
+  </div>
+</main>
 
 <script src="js/plants-data.js"></script>
 <script>
 (function () {
-  var P = window.PLANTS || [], el = function (id) { return document.getElementById(id); };
+  var P = window.PLANTS || [];
   if (!P.length) return;
-  var SPROUT = '<div class="none"><svg width="45%" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V15" stroke="#17392A" stroke-width="1.6" stroke-linecap="round" fill="none"/><path d="M17 17C17 9 11 5 4 5c0 8 5 12 13 12Z" fill="#F7F9F0" stroke="#17392A" stroke-width="1.4"/><path d="M17 20c0-7 5-11 13-11 0 7-5 11-13 11Z" fill="#E6A817" stroke="#17392A" stroke-width="1.4"/></svg></div>';
+  var GROUPS = [
+    ['tree', 'ไม้ต้น'], ['herb', 'ไม้ล้มลุก'], ['shrub', 'ไม้พุ่ม'],
+    ['climber', 'ไม้เลื้อย'], ['grass', 'หญ้า เฟิร์น และไม้น้ำ'], ['palm', 'ปาล์มและไผ่']
+  ];
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
-
-  // วันที่ตามเวลาไทย ทุกคนเห็นต้นเดียวกันในวันเดียวกัน
-  var now = new Date(Date.now() + 7 * 3600 * 1000);
-  var day = Math.floor(now.getTime() / 86400000);
-  var today = (day * 7919) % P.length, cur = today;
-  el('date').textContent = new Date().toLocaleDateString('th-TH', { day:'numeric', month:'long', timeZone:'Asia/Bangkok' });
-  el('count').textContent = P.length + ' ชนิดในโรงเรียน';
-
-  function show(i) {
-    var p = P[i];
-    var nm = el('plant-name'); nm.textContent = p.n;
-    nm.className = 'name' + (p.n.length > 10 ? ' long' : p.n.length > 6 ? ' mid' : '');
-    el('sci').innerHTML = p.s || '';
-    el('aka').textContent = p.a ? 'ชื่ออื่น ' + p.a : '';
-    el('aka').hidden = !p.a;
-    var locs = p.l.slice().sort(function (a, b) { return b[1] - a[1]; });
-    el('where').innerHTML = locs.slice(0, 3).map(function (l) {
-      return '<li>' + esc(l[0]) + ' <small>' + l[1] + ' ต้น</small></li>';
-    }).join('') + (locs.length > 3 ? '<li><small>และอีก ' + (locs.length - 3) + ' บริเวณ</small></li>' : '');
-    el('feat').innerHTML = p.f ? '<b>สังเกตดู</b> ' + esc(p.f) : '';
-    el('more').href = 'plants.html#p' + p.c;
-    if (p.p) {
-      el('pic').classList.remove('empty');
-      el('pic').innerHTML = '<img src="' + esc(p.p.src) + '" alt="ภาพตัวอย่าง' + esc(p.n) + '" width="720" height="720">';
-      el('credit').innerHTML = 'ภาพตัวอย่างชนิดพันธุ์ ไม่ใช่ต้นในโรงเรียน<br>ภาพโดย ' + esc(p.p.by) +
-        ' (<a href="' + esc(p.p.url) + '" target="_blank" rel="noopener">iNaturalist</a>) สัญญาอนุญาต <a href="' +
-        esc(p.p.licUrl) + '" target="_blank" rel="noopener">' + esc(p.p.lic) + '</a>';
-    } else {
-      el('pic').classList.add('empty');
-      el('pic').innerHTML = SPROUT;
-      el('credit').textContent = 'ยังไม่มีภาพของพรรณไม้ชนิดนี้';
-    }
-    document.querySelector('.kicker').firstChild.nodeValue = (i === today ? 'พรรณไม้ประจำวัน ' : 'สุ่มได้ ');
-    el('date').hidden = i !== today;
+  function pick(list, n) {
+    var a = list.slice();
+    for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+    return a.slice(0, n);
   }
-  show(cur);
-  el('shuffle').addEventListener('click', function () {
-    var n;
-    do { n = Math.floor(Math.random() * P.length); } while (n === cur && P.length > 1);
-    cur = n;
-    var t = el('today'); t.classList.remove('swap'); void t.offsetWidth; t.classList.add('swap');
-    show(cur);
+
+  // ตัวเลขจากทะเบียน
+  var trees = 0, zones = {};
+  P.forEach(function (p) {
+    p.l.forEach(function (l) {
+      trees += l[1];
+      var m = l[0].match(/พื้นที่ศึกษาที่\s*(\d+)/); if (m) zones[m[1]] = 1;
+    });
   });
+  document.getElementById('n-species').textContent = P.length;
+  document.getElementById('n-trees').textContent = trees.toLocaleString('en-US');
+  document.getElementById('n-zones').textContent = Object.keys(zones).length;
+
+  // หน้าสมุด 6 หน้า หน้าละ 4 ภาพ
+  document.getElementById('spreads').innerHTML = GROUPS.map(function (g) {
+    var list = P.filter(function (p) { return p.g === g[0] && p.p; });
+    if (!list.length) return '';
+    var pols = pick(list, 4).map(function (p) {
+      return '<a class="pol" href="plants.html#p' + p.c + '">' +
+        '<span class="tape" aria-hidden="true"></span>' +
+        '<span class="ph"><img src="' + esc(p.p.src) + '" alt="" loading="lazy" decoding="async" width="720" height="720"></span>' +
+        '<span class="cap">' + esc(p.n) + '</span>' +
+        '<span class="by">ภาพ ' + esc(p.p.by) + ' ' + esc(p.p.lic) + '</span></a>';
+    }).join('');
+    var total = P.filter(function (p) { return p.g === g[0]; }).length;
+    return '<section class="spread" aria-label="' + g[1] + '">' +
+      '<h3><span class="tab">' + g[1] + '</span><small>' + total + ' ชนิด</small></h3>' +
+      '<div class="pols">' + pols + '</div>' +
+      '<a class="more" href="plants.html?group=' + g[0] + '">ดู' + g[1] + 'ทั้ง ' + total + ' ชนิด</a>' +
+      '</section>';
+  }).join('');
 })();
 </script>
 </body>

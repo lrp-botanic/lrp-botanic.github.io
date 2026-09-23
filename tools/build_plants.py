@@ -23,6 +23,31 @@ DATA_JS = ROOT / "js" / "plants-data.js"
 CODE_RE = re.compile(r"^(7-31170-001-\d{3})(?:/(\d+))?$")
 ZONE_RE = re.compile(r"(?:พื้นที่ศึกษาที่|โซน)\s*(\d+)")
 RANKS = {"var.", "subsp.", "ssp.", "f."}
+# กลุ่มลักษณะวิสัย 6 กลุ่ม (ใช้ในตัวกรองหน้าทำเนียบ และหน้าสมุดภาพในหน้าแรก)
+GROUPS = [
+    ("tree", "ไม้ต้น"),
+    ("herb", "ไม้ล้มลุก"),
+    ("shrub", "ไม้พุ่ม"),
+    ("climber", "ไม้เลื้อย"),
+    ("grass", "หญ้า เฟิร์น และไม้น้ำ"),
+    ("palm", "ปาล์มและไผ่"),
+]
+
+
+def group_of(habit):
+    if "ปาล์ม" in habit or "ไผ่" in habit:
+        return "palm"
+    if habit.startswith("ไม้ต้น"):
+        return "tree"
+    if any(w in habit for w in ("หญ้า", "เฟิร์น", "ไม้น้ำ")):
+        return "grass"
+    if habit.startswith("ไม้ล้มลุก"):
+        return "herb"
+    if habit.startswith("ไม้พุ่ม"):
+        return "shrub"
+    if "เลื้อย" in habit:
+        return "climber"
+    return "herb"
 
 
 def esc(s):
@@ -100,7 +125,7 @@ def card(sp, photo):
         pic, credit = "", ""
     aka_html = f'<p class="aka">ชื่ออื่น {esc(aka)}</p>' if aka else ""
     feat = f'<p class="feat"><b>สังเกตดู</b> {esc(sp["feature"])}</p>' if sp["feature"] else ""
-    return f"""    <article class="plant" id="p{sp['code'][-3:]}" data-habit="{esc(sp['habit'])}" data-zones=" {' '.join(map(str, zones))} " data-search="{esc(search)}">
+    return f"""    <article class="plant" id="p{sp['code'][-3:]}" data-group="{group_of(sp['habit'])}" data-zones=" {' '.join(map(str, zones))} " data-search="{esc(search)}">
       <figure class="ph">{pic}</figure>
       <div class="body">
         <h2>{esc(name)}</h2>
@@ -123,9 +148,9 @@ def main():
     species = load()
     photos = load_photos()
     trees = sum(sum(len(v) for v in s["locs"].values()) for s in species)
-    habits = sorted({s["habit"] for s in species if s["habit"]})
+    counts = {k: sum(1 for s in species if group_of(s["habit"]) == k) for k, _ in GROUPS}
     zones = sorted({z for s in species for l in s["locs"] for z in [zone_of(l)] if z is not None})
-    habit_opts = "".join(f'<option value="{esc(h)}">{esc(h)}</option>' for h in habits)
+    habit_opts = "".join(f'<option value="{k}">{esc(label)} ({counts[k]})</option>' for k, label in GROUPS)
     zone_opts = "".join(f'<option value="{z}">พื้นที่ศึกษาที่ {z}</option>' for z in zones)
     cards = "".join(card(s, photos.get(s["code"])) for s in species)
     page = TEMPLATE.format(
@@ -157,6 +182,7 @@ def write_data_js(species):
             "a": aka,
             "s": sci_html(sp["sci"]) if sp["sci"] else "",
             "h": sp["habit"],
+            "g": group_of(sp["habit"]),
             "f": sp["feature"],
             "l": [[loc, len(codes)] for loc, codes in sp["locs"].items()],
             "p": ph and {"src": ph["ไฟล์"], "by": ph["ผู้ถ่าย"], "lic": ph["สัญญาอนุญาต"],
@@ -182,6 +208,7 @@ TEMPLATE = """<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600&family=Chonburi&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <!-- ไฟล์นี้สร้างจาก data/plant-register.csv ด้วย tools/build_plants.py ห้ามแก้ด้วยมือ -->
 <style>
   .wrap.wide {{ max-width:1120px; }}
@@ -228,7 +255,7 @@ TEMPLATE = """<!doctype html>
 <body>
 <div class="wrap wide">
   <a class="top" href="./">
-    <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M17 31V15" stroke="#17392A" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M17 17C17 9 11 5 4 5c0 8 5 12 13 12Z" fill="#7FA34B" stroke="#17392A" stroke-width="2.2" stroke-linejoin="round"/><path d="M17 20c0-7 5-11 13-11 0 7-5 11-13 11Z" fill="#E6A817" stroke="#17392A" stroke-width="2.2" stroke-linejoin="round"/></svg>
+    <img src="img/emblem.png" alt="" width="250" height="313">
     <div><b>สวนพฤกษศาสตร์โรงเรียน</b><span>โรงเรียนละหานทรายรัชดาภิเษก</span></div>
   </a>
   <main>
@@ -237,7 +264,7 @@ TEMPLATE = """<!doctype html>
 
     <div class="tools" role="search">
       <input id="q" type="search" placeholder="พิมพ์ชื่อไทย ชื่อวิทยาศาสตร์ หรือรหัสบนป้าย" aria-label="ค้นหาพรรณไม้">
-      <select id="habit" aria-label="ลักษณะวิสัย"><option value="">ทุกลักษณะวิสัย</option>{habit_opts}</select>
+      <select id="habit" aria-label="กลุ่มลักษณะวิสัย"><option value="">ทุกลักษณะวิสัย</option>{habit_opts}</select>
       <select id="zone" aria-label="พื้นที่ศึกษา"><option value="">ทุกพื้นที่ศึกษา</option>{zone_opts}</select>
     </div>
     <p class="count" id="count" aria-live="polite">แสดง {n_species} ชนิด</p>
@@ -257,7 +284,7 @@ TEMPLATE = """<!doctype html>
     var t = q.value.trim().toLowerCase(), h = habit.value, z = zone.value, shown = 0;
     cards.forEach(function (c) {{
       var ok = (!t || c.dataset.search.indexOf(t) !== -1) &&
-               (!h || c.dataset.habit === h) &&
+               (!h || c.dataset.group === h) &&
                (!z || c.dataset.zones.indexOf(' ' + z + ' ') !== -1);
       c.hidden = !ok;
       if (ok) shown++;
@@ -265,6 +292,9 @@ TEMPLATE = """<!doctype html>
     count.textContent = 'แสดง ' + shown + ' ชนิด';
     empty.hidden = shown !== 0;
   }}
+  // เปิดจากปุ่ม "ดูทั้งหมด" ในหน้าแรก เช่น plants.html?group=tree
+  var g = new URLSearchParams(location.search).get('group');
+  if (g && habit.querySelector('option[value="' + g + '"]')) {{ habit.value = g; apply(); }}
   q.addEventListener('input', apply);
   habit.addEventListener('change', apply);
   zone.addEventListener('change', apply);
