@@ -59,6 +59,13 @@ FIELD_FIXES = [
     ("204", 3, "", "MORACEAE"),
     ("205", 2, "", "Schoutenia glomerata King subsp. peregrina (Craib) Roekm."),
     ("205", 3, "", "TILIACEAE (MALVACEAE)"),
+    # ชื่อวิทยาศาสตร์ในทะเบียนไม่ตรงกับชื่อไทยและลักษณะเด่น (ครูให้ค้นและแก้)
+    ("119", 2, "Piper aurantiacum Miq.", "Piper sarmentosum Roxb."),
+    ("010", 2, "Holigarna albicans Hook.f", "Gluta usitata (Wall.) Ding Hou"),
+    ("088", 2, "Justicia fragilis Wall.", "Justicia gendarussa Burm.f."),
+    ("109", 2, "Millettia buteoides (Gagnep) P.K.Loc", "Millettia leucantha Kurz var. buteoides (Gagnep.) P.K.Lôc"),
+    ("025", 2, "Nephrolepis sp.", "Nephrolepis cordifolia (L.) C.Presl"),
+    ("179", 2, "Calamus sp.", "Calamus viminalis Willd."),
     # ลักษณะเด่นของพรรณไม้ใหม่ปี 59 (ครูให้ค้นมาใส่)
     ("202", 5, "", "ขึ้นเป็นกอแน่น ใบแคบยาวปลายแหลม รากฝอยหยั่งลึกตรงลงดิน"),
     ("204", 5, "", "ไม้ต้นผลัดใบ ผลกลมแป้นขนาดเล็ก ออกตามซอกใบหรือตามกิ่ง ผลสุกสีม่วงดำ"),

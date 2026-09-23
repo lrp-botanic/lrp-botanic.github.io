@@ -9,6 +9,7 @@
 """
 import csv
 import html
+import json
 import re
 from collections import OrderedDict
 from pathlib import Path
@@ -16,6 +17,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "data" / "plant-register.csv"
 OUT = ROOT / "plants.html"
+PHOTOS = ROOT / "data" / "plant-photos.csv"
+DATA_JS = ROOT / "js" / "plants-data.js"
 
 CODE_RE = re.compile(r"^(7-31170-001-\d{3})(?:/(\d+))?$")
 ZONE_RE = re.compile(r"(?:พื้นที่ศึกษาที่|โซน)\s*(\d+)")
@@ -112,6 +115,40 @@ def main():
     )
     OUT.write_text(page, encoding="utf-8")
     print(f"เขียน {OUT.name}: {len(species)} ชนิด {trees} ต้น")
+    write_data_js(species)
+
+
+def load_photos():
+    if not PHOTOS.exists():
+        return {}
+    with PHOTOS.open(encoding="utf-8-sig", newline="") as f:
+        return {r["รหัสชนิด"]: r for r in csv.DictReader(f) if (ROOT / r["ไฟล์"]).exists()}
+
+
+def write_data_js(species):
+    """ข้อมูลพรรณไม้สำหรับหน้าแรก (พรรณไม้ประจำวัน)"""
+    photos = load_photos()
+    out = []
+    for sp in species:
+        names = re.split(r"[\s,]+", sp["thai"], maxsplit=1)
+        ph = photos.get(sp["code"])
+        out.append({
+            "c": sp["code"][-3:],
+            "n": names[0],
+            "a": names[1] if len(names) > 1 else "",
+            "s": sci_html(sp["sci"]) if sp["sci"] else "",
+            "h": sp["habit"],
+            "f": sp["feature"],
+            "l": [[loc, len(codes)] for loc, codes in sp["locs"].items()],
+            "p": ph and {"src": ph["ไฟล์"], "by": ph["ผู้ถ่าย"], "lic": ph["สัญญาอนุญาต"],
+                         "licUrl": ph["ลิงก์สัญญาอนุญาต"], "url": ph["ที่มา"]},
+        })
+    DATA_JS.parent.mkdir(exist_ok=True)
+    DATA_JS.write_text(
+        "// สร้างจาก data/plant-register.csv และ data/plant-photos.csv ด้วย tools/build_plants.py ห้ามแก้ด้วยมือ\n"
+        f"window.PLANTS = {json.dumps(out, ensure_ascii=False, separators=(',', ':'))};\n",
+        encoding="utf-8")
+    print(f"เขียน {DATA_JS.relative_to(ROOT)}: {len(out)} ชนิด มีภาพ {sum(1 for o in out if o['p'])} ชนิด")
 
 
 TEMPLATE = """<!doctype html>
