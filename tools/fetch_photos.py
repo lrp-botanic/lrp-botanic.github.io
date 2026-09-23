@@ -39,6 +39,13 @@ OPEN = {
     "cc-by-nc-sa": ("CC BY-NC-SA 4.0", "https://creativecommons.org/licenses/by-nc-sa/4.0/"),
 }
 WIDTH = 720
+# ชื่อที่ใช้ค้นแทน เมื่อชื่อในทะเบียนสะกดต่างจาก iNaturalist (ใช้ค้นเท่านั้น ไม่ได้แก้ข้อมูลในทะเบียน)
+SEARCH_AS = {
+    "002": ["Acacia auriculiformis"],
+    "008": ["Monoon viride", "Polyalthia viridis"],
+    "026": ["Chromolaena odorata"],
+    "058": ["Parinari anamensis"],
+}
 
 
 def get(url):
@@ -70,9 +77,10 @@ def query_names(sci):
 def inat_photo(name):
     q = urllib.parse.urlencode({"q": name, "is_active": "true", "per_page": 10})
     res = json.loads(get(f"https://api.inaturalist.org/v1/taxa?{q}"))["results"]
-    target = name.lower().replace(" ssp ", " ").replace(" var ", " ")
+    norm = lambda s: re.sub(r"\s+", " ", s.lower().replace("×", " ")).strip()
+    target = norm(name.replace(" ssp ", " ").replace(" var ", " "))
     for t in res:
-        names = {t.get("name", "").lower(), (t.get("matched_term") or "").lower()}
+        names = {norm(t.get("name", "")), norm(t.get("matched_term") or "")}
         if target not in names:
             continue
         time.sleep(1)
@@ -108,7 +116,7 @@ def main():
         if code in done and (ROOT / done[code]["ไฟล์"]).exists():
             continue
         photo = None
-        for name in query_names(sci):
+        for name in SEARCH_AS.get(code[-3:], []) + query_names(sci):
             try:
                 photo = inat_photo(name)
             except Exception as e:  # เครือข่ายขัดข้อง ข้ามไปก่อน รันใหม่ได้
