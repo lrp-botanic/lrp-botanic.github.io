@@ -45,6 +45,9 @@ SEARCH_AS = {
     "008": ["Monoon viride", "Polyalthia viridis"],
     "026": ["Chromolaena odorata"],
     "058": ["Parinari anamensis"],
+    "193": ["Suregada multiflora"],
+    "199": ["Cenchrus polystachios"],
+    "205": ["Schoutenia peregrina"],
 }
 
 
