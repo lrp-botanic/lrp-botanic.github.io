@@ -7,7 +7,7 @@
     python3 tools/build_plants.py
 
 อ่านทุกไฟล์ .xls ในโฟลเดอร์ ยกเว้นไฟล์ที่ชื่อมีคำว่า "หัวแถวทุกหน้า" (ข้อมูลซ้ำ)
-แล้วแก้ข้อมูลตามรายการ CODE_FIXES, TEXT_FIXES และ FIELD_FIXES ด้านล่าง
+แล้วแก้ข้อมูลตามรายการ CODE_FIXES, DROP_CODES, TEXT_FIXES และ FIELD_FIXES ด้านล่าง
 """
 import csv
 import re
@@ -26,6 +26,10 @@ CODE_RE = re.compile(r"^7-31170-001-(\d{3})(?:/(\d+))?$")
 CODE_FIXES = {
     "7-31171-001-202/3": "7-31170-001-202/3",
 }
+# รหัสที่ซ้ำกันในทะเบียน ตัดออกทุกแถว (ครูสั่งตัด)
+DROP_CODES = {
+    "7-31170-001-040/140",
+}
 
 # คำที่พิมพ์ผิดในชื่อวิทยาศาสตร์ (คอลัมน์ 2) และบริเวณที่พบ (คอลัมน์ 6)
 TEXT_FIXES = [
@@ -40,6 +44,8 @@ TEXT_FIXES = [
     (2, "Epipremnum aureus", "Epipremnum aureum"),
     (2, "Garetn.", "Gaertn."),
     (6, "บริเวรอาคาร", "บริเวณอาคาร"),
+    (6, "พื้นที่ศึกษาที่ 5 หน้าอาคาร 1", "พื้นที่ศึกษาที่ 5 พื้นที่หลังอาคาร 1"),
+    (6, "พื้นที่ศึกษาที่ 10 หลังอาคาร 3", "พื้นที่ศึกษาที่ 10 หน้าอาคาร 3"),
 ]
 # แก้ทั้งช่องของพรรณไม้ชนิดหนึ่ง: (รหัสชนิด, คอลัมน์, ค่าเดิม, ค่าใหม่)
 FIELD_FIXES = [
@@ -64,7 +70,7 @@ def read(folder):
                 if v and v[0] in CODE_FIXES:
                     v[0] = CODE_FIXES[v[0]]
                 m = CODE_RE.match(v[0]) if v else None
-                if m:
+                if m and v[0] not in DROP_CODES:
                     v[3] = re.sub(r"\s*-\s*", "-", v[3])
                     v[6] = re.sub(r"พื้นที่ศึกษาที่\s*(\d+)\s*", r"พื้นที่ศึกษาที่ \1 ", v[6]).strip()
                     rows.append((int(m.group(1)), int(m.group(2) or 0), v))
