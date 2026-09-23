@@ -93,19 +93,37 @@ def inat_photo(name):
             continue
         time.sleep(1)
         full = json.loads(get(f"https://api.inaturalist.org/v1/taxa/{t['id']}"))["results"][0]
-        for tp in full.get("taxon_photos", []):
-            p = tp["photo"]
-            lic = (p.get("license_code") or "").lower()
-            if lic in OPEN and p.get("medium_url"):
-                author = re.sub(r"^\(c\)\s*", "", p.get("attribution", "")).split(",")[0].strip()
-                return {
-                    "found": t["name"],
-                    "url": p["medium_url"].replace("/medium.", "/large."),
-                    "author": author or "ไม่ระบุชื่อ",
-                    "license": OPEN[lic][0],
-                    "license_url": OPEN[lic][1],
-                    "source": f"https://www.inaturalist.org/photos/{p['id']}",
-                }
+        photos = [tp["photo"] for tp in full.get("taxon_photos", [])]
+        got = pick_open(photos, t["name"])
+        if got:
+            return got
+        # ไม่มีภาพประจำชนิดที่ใช้ได้: หาจากภาพบันทึกการพบ (observation) ที่ระบุชนิดแล้ว ในไทยก่อน
+        # สุดท้ายจึงรับบันทึกที่ยังรอยืนยันชนิด (needs_id) ต้องเปิดดูภาพตรวจเองทุกครั้ง
+        for grade, place in (("research", "&place_id=6967"), ("research", ""), ("needs_id", "&place_id=6967")):
+            time.sleep(1)
+            q = (f"https://api.inaturalist.org/v1/observations?taxon_id={t['id']}&photos=true"
+                 f"&photo_license={','.join(OPEN)}&quality_grade={grade}&order_by=votes&per_page=10{place}")
+            obs = json.loads(get(q))["results"]
+            got = pick_open([p for o in obs for p in o.get("photos", [])], t["name"])
+            if got:
+                return got
+    return None
+
+
+def pick_open(photos, found):
+    for p in photos:
+        lic = (p.get("license_code") or "").lower()
+        url = p.get("medium_url") or p.get("url")
+        if lic in OPEN and url:
+            author = re.sub(r"^\(c\)\s*", "", p.get("attribution", "")).split(",")[0].strip()
+            return {
+                "found": found,
+                "url": re.sub(r"/(square|small|medium|thumb)\.", "/large.", url),
+                "author": author or "ไม่ระบุชื่อ",
+                "license": OPEN[lic][0],
+                "license_url": OPEN[lic][1],
+                "source": f"https://www.inaturalist.org/photos/{p['id']}",
+            }
     return None
 
 
